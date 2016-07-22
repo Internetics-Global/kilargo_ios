@@ -63,6 +63,7 @@ class MainViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(applicationDidBecomeActiveNotification), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        
 
         setupReachability()
         
@@ -73,6 +74,8 @@ class MainViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBarHidden = false
         
         self.setNavigationBarItem()
         

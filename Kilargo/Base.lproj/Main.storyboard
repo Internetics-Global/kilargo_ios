@@ -303,14 +303,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAj-yv-8e5" userLabel="baseView">
-                                <rect key="frame" x="150" y="379" width="300" height="120"/>
+                                <rect key="frame" x="150" y="379" width="300" height="200"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-yD-Omg">
-                                        <rect key="frame" x="0.0" y="12" width="300" height="108"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="ZFa-yF-2Dm">
                                         <rect key="frame" x="280" y="6" width="15" height="15"/>
                                         <constraints>
@@ -318,36 +312,79 @@
                                             <constraint firstAttribute="height" constant="15" id="LG3-76-Tjk"/>
                                         </constraints>
                                     </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="appendix" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DQX-RZ-5qL">
+                                        <rect key="frame" x="0.0" y="160" width="295" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="detail" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-yD-Omg">
+                                        <rect key="frame" x="0.0" y="39" width="300" height="108"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="108" id="JY9-9x-TiG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="JY9-9x-TiG"/>
+                                            </mask>
+                                        </variation>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="EED-dh-ILb"/>
+                                    <constraint firstAttribute="height" constant="200" id="EED-dh-ILb"/>
+                                    <constraint firstAttribute="trailing" secondItem="DQX-RZ-5qL" secondAttribute="trailing" constant="5" id="IZk-zj-u83"/>
+                                    <constraint firstItem="DQX-RZ-5qL" firstAttribute="top" secondItem="5Cm-yD-Omg" secondAttribute="bottom" constant="13" id="SS9-bu-NAC"/>
                                     <constraint firstAttribute="trailing" secondItem="ZFa-yF-2Dm" secondAttribute="trailing" constant="5" id="USr-Fn-e7M"/>
-                                    <constraint firstItem="5Cm-yD-Omg" firstAttribute="leading" secondItem="dAj-yv-8e5" secondAttribute="leading" id="dlD-yD-OmN"/>
-                                    <constraint firstItem="ZFa-yF-2Dm" firstAttribute="leading" secondItem="5Cm-yD-Omg" secondAttribute="trailing" constant="-20" id="ecs-gN-RIL"/>
                                     <constraint firstItem="ZFa-yF-2Dm" firstAttribute="top" secondItem="dAj-yv-8e5" secondAttribute="top" constant="6" id="k5K-E0-bRv"/>
-                                    <constraint firstItem="5Cm-yD-Omg" firstAttribute="top" secondItem="dAj-yv-8e5" secondAttribute="top" constant="12" id="sBM-8Q-09o"/>
-                                    <constraint firstAttribute="trailing" secondItem="5Cm-yD-Omg" secondAttribute="trailing" id="tJg-27-nMr"/>
                                     <constraint firstAttribute="width" constant="300" id="wgI-3l-c3F"/>
-                                    <constraint firstAttribute="bottom" secondItem="5Cm-yD-Omg" secondAttribute="bottom" id="zJx-CG-moJ"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="ecs-gN-RIL"/>
+                                        <exclude reference="IZk-zj-u83"/>
+                                        <exclude reference="SS9-bu-NAC"/>
                                     </mask>
                                 </variation>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="title" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aAQ-lJ-ubm">
+                                <rect key="frame" x="180" y="383" width="240" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="rl1-6s-jYn"/>
+                                    <constraint firstAttribute="width" constant="240" id="zZs-wh-pcl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.82181320621468923" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dAj-yv-8e5" firstAttribute="centerX" secondItem="1e2-XQ-Vvu" secondAttribute="centerX" id="1m4-zM-pGm"/>
-                            <constraint firstItem="rdg-T8-H9E" firstAttribute="top" secondItem="dAj-yv-8e5" secondAttribute="bottom" constant="101" id="A5N-Ev-jQM"/>
+                            <constraint firstItem="rdg-T8-H9E" firstAttribute="top" secondItem="DQX-RZ-5qL" secondAttribute="bottom" constant="21" id="7LC-ne-5qC"/>
+                            <constraint firstItem="rdg-T8-H9E" firstAttribute="top" secondItem="dAj-yv-8e5" secondAttribute="bottom" constant="21" id="A5N-Ev-jQM"/>
+                            <constraint firstItem="aAQ-lJ-ubm" firstAttribute="leading" secondItem="dAj-yv-8e5" secondAttribute="trailing" constant="-270" id="CfZ-Mi-w6w"/>
+                            <constraint firstItem="DQX-RZ-5qL" firstAttribute="leading" secondItem="1e2-XQ-Vvu" secondAttribute="leadingMargin" constant="130" id="VzP-Vr-uqQ"/>
+                            <constraint firstItem="5Cm-yD-Omg" firstAttribute="leading" secondItem="1e2-XQ-Vvu" secondAttribute="leadingMargin" constant="130" id="YAU-Cg-cmf"/>
+                            <constraint firstItem="5Cm-yD-Omg" firstAttribute="top" secondItem="aAQ-lJ-ubm" secondAttribute="bottom" constant="1" id="noG-mk-FYw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Cm-yD-Omg" secondAttribute="trailing" constant="130" id="qeQ-D7-6Zk"/>
+                            <constraint firstItem="dAj-yv-8e5" firstAttribute="top" secondItem="aAQ-lJ-ubm" secondAttribute="bottom" constant="-38" id="sZg-fi-FTA"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YAU-Cg-cmf"/>
+                                <exclude reference="noG-mk-FYw"/>
+                                <exclude reference="qeQ-D7-6Zk"/>
+                                <exclude reference="VzP-Vr-uqQ"/>
+                                <exclude reference="7LC-ne-5qC"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="appendixTextView" destination="DQX-RZ-5qL" id="D6v-1R-pOC"/>
                         <outlet property="baseView" destination="dAj-yv-8e5" id="6Em-xj-LbJ"/>
                         <outlet property="textView" destination="5Cm-yD-Omg" id="DXv-ZU-Yae"/>
+                        <outlet property="titleTextView" destination="aAQ-lJ-ubm" id="9Oo-f0-v4A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GuJ-g3-EoK" userLabel="First Responder" sceneMemberID="firstResponder"/>

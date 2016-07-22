@@ -11,7 +11,11 @@ import Kingfisher
 
 class ProductDesViewController:UIViewController {
     
+    @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var textView: UITextView!
+    
+    @IBOutlet weak var appendixTextView: UITextView!
+    
     @IBOutlet weak var baseView: UIView!
     
     
@@ -28,7 +32,9 @@ class ProductDesViewController:UIViewController {
         self.navigationController?.navigationBarHidden = false
         
         self.textView.text = product.notes
-        self.baseView.backgroundColor = UIColor.lightGrayColor()
+        self.titleTextView.text = product.productName
+        self.appendixTextView.text = product.buildingElement
+        self.baseView.backgroundColor = UIColor(red: 223.0/255, green: 223.0/255, blue: 223.0/255, alpha: 1)
         
         let recognizer = UITapGestureRecognizer(target: self, action:#selector(dismissCurrentView))
         recognizer.numberOfTapsRequired = 1
@@ -43,7 +49,7 @@ class ProductDesViewController:UIViewController {
         self.baseView.snp_removeConstraints()
         self.baseView.snp_makeConstraints { (make) in
             make.width.equalTo(300)
-            make.height.equalTo(120)
+            make.height.equalTo(200)
             make.centerX.equalTo(self.view)
             make.top.equalTo(anchorPoint.y).priority(999)
         }

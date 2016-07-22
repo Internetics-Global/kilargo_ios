@@ -44,6 +44,8 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.navigationBarHidden = false
+        
     }
     
     override func viewWillDisappear(animated: Bool) {

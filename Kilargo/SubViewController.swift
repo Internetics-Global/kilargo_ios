@@ -43,6 +43,8 @@ class SubViewController:UIViewController, UITableViewDelegate,UITableViewDataSou
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.navigationBarHidden = false
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
