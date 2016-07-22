@@ -20,7 +20,7 @@ class ImageHeaderView : UIView {
         self.profileImage.clipsToBounds = true
         self.profileImage.layer.borderWidth = 1
         self.profileImage.layer.borderColor = UIColor.whiteColor().CGColor
-        self.profileImage.image = UIImage(named: "left_menu_profile")
+        self.profileImage.image = UIImage(named: "logo")
         self.backgroundImage.image = UIImage(named: "left_menu_background")
     }
 }
