@@ -1,0 +1,17 @@
+# xcode noise
+build/*
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+*.mode1
+*.mode2v3
+*.mode1v3
+xcuserdata
+Snapshots
+
+# ignore any build archives
+*.ipa
+
+# osx noise
+.DS_Store

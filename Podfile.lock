@@ -1,0 +1,44 @@
+PODS:
+  - Alamofire (3.3.1)
+  - AlamofireObjectMapper (3.0.0):
+    - Alamofire (~> 3.2)
+    - ObjectMapper (~> 1.0)
+  - Kingfisher (2.3.1)
+  - NVActivityIndicatorView (2.7)
+  - ObjectMapper (1.2.0)
+  - ReachabilitySwift (2.3.3)
+  - Refresher (0.5.0)
+  - SCLAlertView (0.5.4)
+  - SlideMenuControllerSwift (2.2.0)
+  - SnapKit (0.15.0)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.3)
+  - AlamofireObjectMapper (~> 3.0)
+  - Kingfisher (~> 2.3)
+  - NVActivityIndicatorView
+  - ObjectMapper (~> 1.2)
+  - ReachabilitySwift
+  - Refresher
+  - SCLAlertView
+  - SlideMenuControllerSwift
+  - SnapKit (~> 0.15.0)
+  - SwiftyJSON (~> 2.3.2)
+
+SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
+  Kingfisher: 6d3fbada4829cbc7b89e883e8218c28afeb64e42
+  NVActivityIndicatorView: dc80f18fb27ac92f0aa87246cc13dc39ed3e9ee0
+  ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
+  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
+  Refresher: 485f5990e6315add7f3470db5a4ca106451b11d3
+  SCLAlertView: 081f824b17b7cf41057159535591f4d6fc8acde3
+  SlideMenuControllerSwift: 16dac00b1aaad153e64fffb5d6969ab31ad88372
+  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+PODFILE CHECKSUM: 98e5a91825bf41d3b77e7d9be8273be98e6d5182
+
+COCOAPODS: 1.0.0

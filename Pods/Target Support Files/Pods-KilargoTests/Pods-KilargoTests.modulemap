@@ -1,0 +1,6 @@
+framework module Pods_KilargoTests {
+  umbrella header "Pods-KilargoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
