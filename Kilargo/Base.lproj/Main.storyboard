@@ -312,12 +312,15 @@
                                             <constraint firstAttribute="height" constant="15" id="LG3-76-Tjk"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="appendix" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DQX-RZ-5qL">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="appendix" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DQX-RZ-5qL">
                                         <rect key="frame" x="0.0" y="160" width="295" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dbG-w0-M1i"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="detail" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-yD-Omg">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" editable="NO" text="detail" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-yD-Omg">
                                         <rect key="frame" x="0.0" y="39" width="300" height="108"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="108" id="JY9-9x-TiG"/>
@@ -333,11 +336,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="DQX-RZ-5qL" firstAttribute="leading" secondItem="dAj-yv-8e5" secondAttribute="leading" id="4zu-kq-Xcv"/>
+                                    <constraint firstItem="DQX-RZ-5qL" firstAttribute="leading" secondItem="5Cm-yD-Omg" secondAttribute="leading" id="BtP-0E-uVB"/>
                                     <constraint firstAttribute="height" constant="200" id="EED-dh-ILb"/>
+                                    <constraint firstItem="DQX-RZ-5qL" firstAttribute="top" secondItem="5Cm-yD-Omg" secondAttribute="bottom" constant="13" id="IXe-wL-ogd"/>
                                     <constraint firstAttribute="trailing" secondItem="DQX-RZ-5qL" secondAttribute="trailing" constant="5" id="IZk-zj-u83"/>
+                                    <constraint firstItem="5Cm-yD-Omg" firstAttribute="top" secondItem="ZFa-yF-2Dm" secondAttribute="bottom" constant="18" id="PAQ-VW-c68"/>
                                     <constraint firstItem="DQX-RZ-5qL" firstAttribute="top" secondItem="5Cm-yD-Omg" secondAttribute="bottom" constant="13" id="SS9-bu-NAC"/>
                                     <constraint firstAttribute="trailing" secondItem="ZFa-yF-2Dm" secondAttribute="trailing" constant="5" id="USr-Fn-e7M"/>
+                                    <constraint firstAttribute="bottom" secondItem="DQX-RZ-5qL" secondAttribute="bottom" id="VBk-YH-Jh2"/>
                                     <constraint firstItem="ZFa-yF-2Dm" firstAttribute="top" secondItem="dAj-yv-8e5" secondAttribute="top" constant="6" id="k5K-E0-bRv"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Cm-yD-Omg" secondAttribute="trailing" id="kW0-wa-j77"/>
+                                    <constraint firstItem="DQX-RZ-5qL" firstAttribute="trailing" secondItem="ZFa-yF-2Dm" secondAttribute="trailing" id="pJA-sC-6YD"/>
                                     <constraint firstAttribute="width" constant="300" id="wgI-3l-c3F"/>
                                 </constraints>
                                 <variation key="default">
