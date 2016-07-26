@@ -14,8 +14,8 @@ pod 'Refresher'
 pod 'ObjectMapper', '~> 1.2'
 pod 'AlamofireObjectMapper', '~> 3.0'
 pod 'ReachabilitySwift'
-pod 'SCLAlertView'
 pod 'SlideMenuControllerSwift'
+pod 'SCLAlertView'
 
 end
 
