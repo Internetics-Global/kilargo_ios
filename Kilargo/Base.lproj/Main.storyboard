@@ -232,7 +232,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
                             <userLayoutGuide location="36" affinity="minX"/>
-                            <userLayoutGuide location="226" affinity="minY"/>
+                            <userLayoutGuide location="225" affinity="minY"/>
                         </userGuides>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="4Ny-bI-MX3">
@@ -257,15 +257,27 @@
                                 </constraints>
                                 <state key="normal" image="info"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Us9-sK-ZZf">
+                                <rect key="frame" x="58.5" y="215.5" width="483" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="483" id="Jzy-HC-sQJ"/>
+                                    <constraint firstAttribute="height" constant="21" id="gT1-5W-59O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sbW-D3-BWh" firstAttribute="top" secondItem="4Ny-bI-MX3" secondAttribute="bottom" constant="20" id="A0c-b1-6i2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sbW-D3-BWh" secondAttribute="trailing" id="TcQ-nD-Peq"/>
                             <constraint firstItem="sbW-D3-BWh" firstAttribute="centerX" secondItem="FVz-Hg-iIo" secondAttribute="centerX" id="YnT-0O-EVR"/>
+                            <constraint firstItem="Us9-sK-ZZf" firstAttribute="centerY" secondItem="GxK-53-l1G" secondAttribute="centerY" id="ZVS-sz-d6n"/>
                             <constraint firstItem="GxK-53-l1G" firstAttribute="leading" secondItem="FVz-Hg-iIo" secondAttribute="leadingMargin" id="bWX-ab-lD4"/>
                             <constraint firstItem="sbW-D3-BWh" firstAttribute="leading" secondItem="FVz-Hg-iIo" secondAttribute="leadingMargin" id="o3r-9x-oEU"/>
                             <constraint firstItem="4Ny-bI-MX3" firstAttribute="centerX" secondItem="FVz-Hg-iIo" secondAttribute="centerX" id="r7S-yr-qoI"/>
+                            <constraint firstItem="Us9-sK-ZZf" firstAttribute="centerX" secondItem="FVz-Hg-iIo" secondAttribute="centerX" id="wAU-9E-D5d"/>
                             <constraint firstItem="GxK-53-l1G" firstAttribute="top" secondItem="sbW-D3-BWh" secondAttribute="bottom" constant="20" id="y65-2g-fLW"/>
                             <constraint firstItem="4Ny-bI-MX3" firstAttribute="top" secondItem="spg-Br-Zs6" secondAttribute="bottom" constant="20" id="yd0-vk-w6o"/>
                         </constraints>
@@ -274,6 +286,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="infoButton" destination="GxK-53-l1G" id="cgz-Qt-Jdf"/>
+                        <outlet property="productName" destination="Us9-sK-ZZf" id="TzE-pT-Pnu"/>
                         <outlet property="searchBar" destination="sbW-D3-BWh" id="Sz5-6f-FaM"/>
                         <outlet property="searchDisplayController" destination="Dob-ui-EdL" id="v3j-Sj-gGI"/>
                     </connections>

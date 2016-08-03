@@ -26,6 +26,9 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
     
     var products     :[Product] = []
     
+    @IBOutlet weak var productName: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,10 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
         self.navigationController?.navigationBarHidden = false
         
         self.infoButton.addTarget(self, action: #selector(ProdutViewController.infoButtonClicked), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        if (self.products.count > 0) {
+            self.productName.text = self.products[0].productName
+        }
         
         setupScrollView()
         
@@ -193,9 +200,20 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
     
     // MARK: - UIScrollViewDelegate
     
+    func getCurrentPage(scrollView: UIScrollView) -> (Int) {
+        let page = scrollView.contentOffset.x / scrollView.frame.size.width;
+        return Int(page);
+    
+    }
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
         updateScrollViewArrowsVisiblity()
+        
+        let page = self.getCurrentPage(scrollView)
+        
+        self.productName.text = self.products[page].productName
+        
         
     }
     

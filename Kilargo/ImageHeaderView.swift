@@ -11,16 +11,14 @@ import UIKit
 class ImageHeaderView : UIView {
     
     @IBOutlet weak var profileImage : UIImageView!
-    @IBOutlet weak var backgroundImage : UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor.grayColor()
+        self.backgroundColor = UIColor.whiteColor()
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height / 2
         self.profileImage.clipsToBounds = true
         self.profileImage.layer.borderWidth = 1
-        self.profileImage.layer.borderColor = UIColor.whiteColor().CGColor
+        self.profileImage.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.profileImage.image = UIImage(named: "logo")
-        self.backgroundImage.image = UIImage(named: "left_menu_background")
-    }
+    }   
 }

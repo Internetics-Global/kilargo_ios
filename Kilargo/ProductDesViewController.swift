@@ -19,6 +19,8 @@ class ProductDesViewController:UIViewController {
     @IBOutlet weak var baseView: UIView!
     
     
+    
+    
     var product:Product!
     
     // used to define the position of baseView
