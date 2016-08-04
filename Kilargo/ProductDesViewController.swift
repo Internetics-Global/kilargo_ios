@@ -36,6 +36,11 @@ class ProductDesViewController:UIViewController {
         self.textView.text = product.notes
         self.titleTextView.text = product.productName
         self.appendixTextView.text = product.buildingElement
+        
+        self.textView.font = UIFont.systemFontOfSize(16)
+        self.titleTextView.font = UIFont.systemFontOfSize(16)
+        self.appendixTextView.font = UIFont.systemFontOfSize(16)
+        
         self.baseView.backgroundColor = UIColor(red: 223.0/255, green: 223.0/255, blue: 223.0/255, alpha: 1)
         
         let recognizer = UITapGestureRecognizer(target: self, action:#selector(dismissCurrentView))
@@ -50,7 +55,7 @@ class ProductDesViewController:UIViewController {
         
         self.baseView.snp_removeConstraints()
         self.baseView.snp_makeConstraints { (make) in
-            make.width.equalTo(300)
+            make.left.equalTo(18)
             make.height.equalTo(200)
             make.centerX.equalTo(self.view)
             make.top.equalTo(anchorPoint.y).priority(999)
