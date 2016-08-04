@@ -136,7 +136,7 @@ class SearchResultViewController:UIViewController,UISearchBarDelegate,UITableVie
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
-        self.searchResults = JsonFetcher.getProductsWithProductName(searchText)
+        self.searchResults = JsonFetcher.getProductsWithAnyKeyword(searchText)
         
         refreshList()
         
