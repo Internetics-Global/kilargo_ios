@@ -27,6 +27,8 @@
 		8833A9B11CCF1FAC002E9084 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8833A9B01CCF1FAC002E9084 /* Reveal.framework */; };
 		88410B031CCB7BF9004752C9 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88410B021CCB7BF9004752C9 /* ProductViewController.swift */; };
 		88410B051CCD79DD004752C9 /* ProductDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88410B041CCD79DD004752C9 /* ProductDesViewController.swift */; };
+		8843FB0F1D52C06C00BB5DD2 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8843FB0E1D52C06C00BB5DD2 /* SearchResultCell.xib */; };
+		8843FB131D52C0B200BB5DD2 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8843FB121D52C0B200BB5DD2 /* SearchResultCell.swift */; };
 		8866FFBC1CD17441000C3336 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8866FFBB1CD17441000C3336 /* SearchResultViewController.swift */; };
 		8880177D1CCF4068000F1023 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8880177C1CCF4068000F1023 /* Global.swift */; };
 		8880177F1CCF4189000F1023 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8880177E1CCF4189000F1023 /* Menu.swift */; };
@@ -93,6 +95,8 @@
 		8833A9B01CCF1FAC002E9084 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		88410B021CCB7BF9004752C9 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		88410B041CCD79DD004752C9 /* ProductDesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDesViewController.swift; sourceTree = "<group>"; };
+		8843FB0E1D52C06C00BB5DD2 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchResultCell.xib; path = Kilargo/SearchResultCell.xib; sourceTree = "<group>"; };
+		8843FB121D52C0B200BB5DD2 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		8866FFBB1CD17441000C3336 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		8880177C1CCF4068000F1023 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		8880177E1CCF4189000F1023 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				8831B8D31D2B771F00F96C55 /* ImageHeaderView.xib */,
 				88F533461CD8346F00B37DB5 /* Cell */,
 				88F533471CD8348A00B37DB5 /* PullToRefreshBeatAnimator.swift */,
+				8843FB0E1D52C06C00BB5DD2 /* SearchResultCell.xib */,
+				8843FB121D52C0B200BB5DD2 /* SearchResultCell.swift */,
 			);
 			name = Widget;
 			path = ..;
@@ -428,6 +434,7 @@
 				88B301C21CCA00F200A69685 /* LaunchScreen.storyboard in Resources */,
 				8831B8D51D2B771F00F96C55 /* ImageHeaderView.xib in Resources */,
 				88B301BF1CCA00F200A69685 /* Assets.xcassets in Resources */,
+				8843FB0F1D52C06C00BB5DD2 /* SearchResultCell.xib in Resources */,
 				88B301BD1CCA00F200A69685 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +602,7 @@
 				88E3DEDD1CD02DC30098F934 /* SubMenuItemCell.swift in Sources */,
 				8880177D1CCF4068000F1023 /* Global.swift in Sources */,
 				8831B8B71D2B768B00F96C55 /* UIApplication.swift in Sources */,
+				8843FB131D52C0B200BB5DD2 /* SearchResultCell.swift in Sources */,
 				8831B8CF1D2B770B00F96C55 /* LeftTableViewCell.swift in Sources */,
 				8833A9AB1CCEF1C3002E9084 /* SubViewController.swift in Sources */,
 				8831B8B81D2B768B00F96C55 /* UIColor.swift in Sources */,

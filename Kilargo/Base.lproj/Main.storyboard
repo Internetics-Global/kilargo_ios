@@ -427,7 +427,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qDw-Jy-UtR">
-                                <rect key="frame" x="20" y="92" width="560" height="500"/>
+                                <rect key="frame" x="20" y="79" width="560" height="513"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XO1-J0-ppH">
@@ -451,7 +451,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="XO1-J0-ppH" secondAttribute="trailing" id="87C-my-pMu"/>
                             <constraint firstItem="WCM-e0-CqM" firstAttribute="top" secondItem="FDO-HI-jyH" secondAttribute="bottom" constant="10" id="EBw-KP-NGW"/>
                             <constraint firstItem="WCM-e0-CqM" firstAttribute="leading" secondItem="fBH-wP-Ubr" secondAttribute="leadingMargin" id="Fdc-ZE-Lue"/>
-                            <constraint firstItem="qDw-Jy-UtR" firstAttribute="top" secondItem="WCM-e0-CqM" secondAttribute="bottom" constant="18" id="Kvh-DB-cdr"/>
+                            <constraint firstItem="qDw-Jy-UtR" firstAttribute="top" secondItem="WCM-e0-CqM" secondAttribute="bottom" constant="5" id="Kvh-DB-cdr"/>
                             <constraint firstItem="HXL-UP-vkW" firstAttribute="top" secondItem="qDw-Jy-UtR" secondAttribute="bottom" constant="8" id="QNj-uT-WYX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qDw-Jy-UtR" secondAttribute="trailing" id="SJa-W9-PUd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WCM-e0-CqM" secondAttribute="trailing" constant="54" id="a8M-7e-fHP"/>

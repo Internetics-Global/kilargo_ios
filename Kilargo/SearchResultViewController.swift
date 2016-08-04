@@ -16,6 +16,9 @@ class SearchResultViewController:UIViewController,UISearchBarDelegate,UITableVie
     
     var searchResults:[Product] = []
     
+    let SearchResultCell_ID = "SearchResultCell_ID"
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +27,17 @@ class SearchResultViewController:UIViewController,UISearchBarDelegate,UITableVie
         
         tableView.delegate = self
         tableView.dataSource = self
+
         
         cancelButton.addTarget(self, action: #selector(cancelButtonClicke(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.navigationController?.navigationBarHidden = true
+        
+        tableView.registerNib(UINib(nibName: "SearchResultCell", bundle: nil), forCellReuseIdentifier: SearchResultCell_ID)
+        
+        
+        
+        
         
     }
     
@@ -52,8 +62,12 @@ class SearchResultViewController:UIViewController,UISearchBarDelegate,UITableVie
     
     // MARK: - UITableView
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1;
+    }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 44;
+        return 70;
     }
 
     
@@ -84,23 +98,19 @@ class SearchResultViewController:UIViewController,UISearchBarDelegate,UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let reuseIdentifier = "SearchResult_Cell_ID"
-        
-        var cell:UITableViewCell? =
-            tableView.dequeueReusableCellWithIdentifier(reuseIdentifier)
-        if (cell == nil)
-        {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle,
-                                   reuseIdentifier: reuseIdentifier)
-        }
+        let cell =
+            tableView.dequeueReusableCellWithIdentifier(SearchResultCell_ID, forIndexPath: indexPath)as! SearchResultCell
         
         let product = self.searchResults[indexPath.row]
         
-        cell?.detailTextLabel?.text = "\(product.category)->\(product.subcategory)->\(product.productName)"
-        cell?.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByTruncatingHead
+        cell.categoryLabel.text = "\(product.category)->\(product.subcategory)"
+        cell.productNameLabel.text = product.productName;
+        
+        cell.categoryLabel.lineBreakMode = .ByTruncatingHead
+        cell.productNameLabel.lineBreakMode = .ByTruncatingHead
 
         
-        return cell!;
+        return cell;
         
     }
     
