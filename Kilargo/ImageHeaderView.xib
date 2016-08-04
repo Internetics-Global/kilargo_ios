@@ -12,16 +12,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KsU-S4-hhE">
-                    <rect key="frame" x="8" y="72" width="80" height="80"/>
+                    <rect key="frame" x="8" y="36" width="120" height="120"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="THq-40-VhC"/>
-                        <constraint firstAttribute="width" constant="80" id="Vdp-yI-A0R"/>
+                        <constraint firstAttribute="height" constant="120" id="THq-40-VhC"/>
+                        <constraint firstAttribute="width" constant="120" id="Vdp-yI-A0R"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="KsU-S4-hhE" secondAttribute="bottom" constant="8" id="Kff-vI-5XQ"/>
+                <constraint firstAttribute="bottom" secondItem="KsU-S4-hhE" secondAttribute="bottom" constant="4" id="Kff-vI-5XQ"/>
                 <constraint firstItem="KsU-S4-hhE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="cn0-Hd-iVZ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

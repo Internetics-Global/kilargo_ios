@@ -311,7 +311,7 @@
                         <viewControllerLayoutGuide type="top" id="oQX-3X-EBy"/>
                         <viewControllerLayoutGuide type="bottom" id="rdg-T8-H9E"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="1e2-XQ-Vvu">
+                    <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="1e2-XQ-Vvu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -333,7 +333,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" editable="NO" text="detail" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-yD-Omg">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999999999999996" contentMode="scaleToFill" editable="NO" text="detail" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-yD-Omg">
                                         <rect key="frame" x="0.0" y="39" width="300" height="108"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="108" id="JY9-9x-TiG"/>
