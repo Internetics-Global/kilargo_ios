@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2DEEA6334C07567D19DDC5AE /* Pods_Kilargo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADDCC55E4B28B70EE86DA00 /* Pods_Kilargo.framework */; };
+		8821EC891D52E79A0092F1CC /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8821EC881D52E79A0092F1CC /* UIButton.swift */; };
 		8831B8B71D2B768B00F96C55 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8831B8B01D2B768B00F96C55 /* UIApplication.swift */; };
 		8831B8B81D2B768B00F96C55 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8831B8B11D2B768B00F96C55 /* UIColor.swift */; };
 		8831B8B91D2B768B00F96C55 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8831B8B21D2B768B00F96C55 /* UIImage.swift */; };
@@ -76,6 +77,7 @@
 		4D9D5D3F2185D2C45C0E7822 /* Pods-Kilargo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kilargo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kilargo/Pods-Kilargo.debug.xcconfig"; sourceTree = "<group>"; };
 		61214CCBD4CCEBB90AB94E54 /* Pods-Kilargo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kilargo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kilargo/Pods-Kilargo.release.xcconfig"; sourceTree = "<group>"; };
 		732088808652BFACC69DB41B /* Pods-KilargoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KilargoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KilargoUITests/Pods-KilargoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8821EC881D52E79A0092F1CC /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButton.swift; path = Kilargo/UIButton.swift; sourceTree = "<group>"; };
 		8831B8B01D2B768B00F96C55 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		8831B8B11D2B768B00F96C55 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		8831B8B21D2B768B00F96C55 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				88F533471CD8348A00B37DB5 /* PullToRefreshBeatAnimator.swift */,
 				8843FB0E1D52C06C00BB5DD2 /* SearchResultCell.xib */,
 				8843FB121D52C0B200BB5DD2 /* SearchResultCell.swift */,
+				8821EC881D52E79A0092F1CC /* UIButton.swift */,
 			);
 			name = Widget;
 			path = ..;
@@ -586,6 +589,7 @@
 				8831B8C91D2B76B000F96C55 /* String.swift in Sources */,
 				88C5EFC81CD9D96900E763D0 /* CarouselCollectionViewCell.swift in Sources */,
 				8831B8D41D2B771F00F96C55 /* ImageHeaderView.swift in Sources */,
+				8821EC891D52E79A0092F1CC /* UIButton.swift in Sources */,
 				8831B8CB1D2B76E600F96C55 /* LeftViewController.swift in Sources */,
 				888017851CCF4368000F1023 /* JsonFetcher.swift in Sources */,
 				8831B8BC1D2B768B00F96C55 /* UIView.swift in Sources */,
