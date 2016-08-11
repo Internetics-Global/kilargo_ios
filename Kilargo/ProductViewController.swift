@@ -17,7 +17,6 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
     @IBOutlet weak var searchBar: UISearchBar!
     
     private let scrollWidth: CGFloat = UIScreen.mainScreen().bounds.size.width - 40
-    private let scrollHeight:CGFloat = 350
     
     
     private var scrollView  : UIScrollView!
@@ -101,10 +100,11 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
         self.scrollView.pagingEnabled = true
         self.scrollView.showsVerticalScrollIndicator = false
         self.scrollView.delegate = self;
+//        self.scrollView.backgroundColor = UIColor.redColor()
         self.view.addSubview(self.scrollView)
         self.scrollView.snp_makeConstraints { (make) in
             make.width.equalTo(scrollWidth)
-            make.height.equalTo(scrollHeight)
+            make.bottom.equalTo(self.view).offset(-20)
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.infoButton.snp_bottom)
     
@@ -135,11 +135,11 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
         self.scrollView.addSubview(contentView)
         contentView.snp_makeConstraints { (make) in
             make.top.equalTo(0)
-            make.height.equalTo(scrollHeight)
+            make.bottom.equalTo(self.view).offset(-10)
             make.left.equalTo(0)
             make.right.equalTo(CGFloat(SCROLL_ITEM_SIZE) * scrollWidth)
         }
-        //contentView.backgroundColor = UIColor.greenColor()
+//        contentView.backgroundColor = UIColor.greenColor()
         
         var lastView:UIView?
         for index in 0..<SCROLL_ITEM_SIZE {
@@ -178,7 +178,7 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
         }
         
 
-        scrollView.contentSize = CGSizeMake(CGFloat(SCROLL_ITEM_SIZE) * scrollWidth, scrollHeight)
+        scrollView.contentSize = CGSizeMake(CGFloat(SCROLL_ITEM_SIZE) * scrollWidth, 320)
         
     
     }
