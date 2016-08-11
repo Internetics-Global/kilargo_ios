@@ -47,6 +47,8 @@ For first-hand experience, just open the project and run it.
 27. BallGridBeat
 28. SemiCircleSpin
 29. BallRotateChase
+30. Orbit
+31. AudioEqualizer
 
 # Installation
 
@@ -176,8 +178,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable { }
 Start animation
 
 ```swift
-startActivityAnimating(message) // plus other parameters as when initializing
-startActivityAnimating(message, color: color)
+startActivityAnimating(size, message) // plus other parameters as when initializing
 ```
 
 Stop animation
@@ -221,8 +222,9 @@ Change global defaults if needed
 
 ```swift
 NVActivityIndicatorView.DEFAULT_TYPE = .Pacman
-NVActivityIndicatorView.DEFAULT_COLOR = .yellowColor()
+NVActivityIndicatorView.DEFAULT_COLOR = UIColor.yellowColor()
 NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(5.0)
+NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)
 ```
 
 # Acknowledgment

@@ -329,12 +329,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88B301DC1CCA00F200A69685 /* Build configuration list for PBXNativeTarget "Kilargo" */;
 			buildPhases = (
-				5D1135B424F61B432720B33E /* 📦 Check Pods Manifest.lock */,
+				5D1135B424F61B432720B33E /* [CP] Check Pods Manifest.lock */,
 				88B301B01CCA00F200A69685 /* Sources */,
 				88B301B11CCA00F200A69685 /* Frameworks */,
 				88B301B21CCA00F200A69685 /* Resources */,
-				78D3679B116E4394311B7FB2 /* 📦 Embed Pods Frameworks */,
-				43D86A4304846552B5F56132 /* 📦 Copy Pods Resources */,
+				78D3679B116E4394311B7FB2 /* [CP] Embed Pods Frameworks */,
+				43D86A4304846552B5F56132 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -349,12 +349,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88B301DF1CCA00F200A69685 /* Build configuration list for PBXNativeTarget "KilargoTests" */;
 			buildPhases = (
-				75A013219D853360041BB59F /* 📦 Check Pods Manifest.lock */,
+				75A013219D853360041BB59F /* [CP] Check Pods Manifest.lock */,
 				88B301C41CCA00F200A69685 /* Sources */,
 				88B301C51CCA00F200A69685 /* Frameworks */,
 				88B301C61CCA00F200A69685 /* Resources */,
-				F038723F9925A7CA2402EE37 /* 📦 Embed Pods Frameworks */,
-				14D29FCFF3325130ABF10C8E /* 📦 Copy Pods Resources */,
+				F038723F9925A7CA2402EE37 /* [CP] Embed Pods Frameworks */,
+				14D29FCFF3325130ABF10C8E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -370,11 +370,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88B301E21CCA00F200A69685 /* Build configuration list for PBXNativeTarget "KilargoUITests" */;
 			buildPhases = (
-				65A904E384C285D5B696513B /* 📦 Check Pods Manifest.lock */,
+				65A904E384C285D5B696513B /* [CP] Check Pods Manifest.lock */,
 				88B301CF1CCA00F200A69685 /* Sources */,
 				88B301D01CCA00F200A69685 /* Frameworks */,
 				88B301D11CCA00F200A69685 /* Resources */,
-				9A9298B25B4671C5B08AD54F /* 📦 Copy Pods Resources */,
+				9A9298B25B4671C5B08AD54F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -459,14 +459,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		14D29FCFF3325130ABF10C8E /* 📦 Copy Pods Resources */ = {
+		14D29FCFF3325130ABF10C8E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,14 +474,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KilargoTests/Pods-KilargoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		43D86A4304846552B5F56132 /* 📦 Copy Pods Resources */ = {
+		43D86A4304846552B5F56132 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,14 +489,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kilargo/Pods-Kilargo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5D1135B424F61B432720B33E /* 📦 Check Pods Manifest.lock */ = {
+		5D1135B424F61B432720B33E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,14 +504,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		65A904E384C285D5B696513B /* 📦 Check Pods Manifest.lock */ = {
+		65A904E384C285D5B696513B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,14 +519,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		75A013219D853360041BB59F /* 📦 Check Pods Manifest.lock */ = {
+		75A013219D853360041BB59F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,14 +534,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		78D3679B116E4394311B7FB2 /* 📦 Embed Pods Frameworks */ = {
+		78D3679B116E4394311B7FB2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,14 +549,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kilargo/Pods-Kilargo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9A9298B25B4671C5B08AD54F /* 📦 Copy Pods Resources */ = {
+		9A9298B25B4671C5B08AD54F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,14 +564,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KilargoUITests/Pods-KilargoUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F038723F9925A7CA2402EE37 /* 📦 Embed Pods Frameworks */ = {
+		F038723F9925A7CA2402EE37 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,6 +778,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.internetics.Kilargo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -804,6 +805,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.internetics.Kilargo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

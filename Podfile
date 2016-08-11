@@ -5,7 +5,7 @@ use_frameworks!
 
 target 'Kilargo' do
 
-pod 'NVActivityIndicatorView'
+pod 'NVActivityIndicatorView', '~> 2.9'
 pod 'SnapKit', '~> 0.15.0'
 pod 'SwiftyJSON', '~> 2.3.2'
 pod 'Alamofire', '~> 3.3'

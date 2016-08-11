@@ -145,7 +145,7 @@ class MainViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         
         if (pullRefreshShowing == false) {
             dispatch_async(dispatch_get_main_queue(),{
-                self.navigationController!.startActivityAnimating("Loading...",type: .LineScalePulseOut)
+                self.navigationController?.startActivityAnimating(CGSizeMake(60, 60), message: "Loading...", type: .LineScalePulseOut, color: UIColor.whiteColor(), padding: 0)
             })
         }
         
