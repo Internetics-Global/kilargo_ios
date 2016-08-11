@@ -488,7 +488,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u7u-RC-Clu">
-                                            <rect key="frame" x="0.0" y="87" width="600" height="426"/>
+                                            <rect key="frame" x="0.0" y="80" width="600" height="440"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="10" id="Z7N-yS-1iI">
                                                 <size key="itemSize" width="300" height="400"/>
@@ -498,7 +498,7 @@
                                             </collectionViewFlowLayout>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CarouselCellIdentifier" id="PTr-A0-bcg" customClass="CarouselCollectionViewCell" customModule="Kilargo" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="13" width="300" height="400"/>
+                                                    <rect key="frame" x="20" y="20" width="300" height="400"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
@@ -528,11 +528,17 @@
                                         </collectionView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="u7u-RC-Clu" firstAttribute="top" secondItem="QQZ-cu-ZVI" secondAttribute="top" constant="87" id="c0s-e9-uec"/>
+                                        <constraint firstItem="u7u-RC-Clu" firstAttribute="top" secondItem="QQZ-cu-ZVI" secondAttribute="top" constant="80" id="c0s-e9-uec"/>
                                         <constraint firstItem="u7u-RC-Clu" firstAttribute="centerX" secondItem="QQZ-cu-ZVI" secondAttribute="centerX" id="cRj-mF-smp"/>
                                         <constraint firstItem="u7u-RC-Clu" firstAttribute="leading" secondItem="QQZ-cu-ZVI" secondAttribute="leading" id="hB4-Z6-uKE"/>
+                                        <constraint firstAttribute="trailing" secondItem="u7u-RC-Clu" secondAttribute="trailing" id="miG-3r-k8c"/>
                                         <constraint firstItem="u7u-RC-Clu" firstAttribute="centerY" secondItem="QQZ-cu-ZVI" secondAttribute="centerY" id="oTj-l4-EvS"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="miG-3r-k8c"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>

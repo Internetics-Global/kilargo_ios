@@ -56,6 +56,7 @@ class CarouselImageViewController: UIViewController {
         
         self.collectionView.pagingEnabled = false
 
+
         
     }
     
@@ -81,7 +82,7 @@ class CarouselImageViewController: UIViewController {
 }
 
 
-extension CarouselImageViewController : UICollectionViewDataSource {
+extension CarouselImageViewController : UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -102,6 +103,15 @@ extension CarouselImageViewController : UICollectionViewDataSource {
         return cell
         
     }
+    
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+         //80 is set in storyboard
+        return CGSizeMake(CGRectGetWidth(self.view.frame) - 20*2,CGRectGetHeight(self.view.frame) - 80*2)
+    }
+    
+    
+    
     
 }
 
