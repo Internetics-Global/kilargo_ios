@@ -11,17 +11,13 @@ import Refresher
 import ReachabilitySwift
 import SCLAlertView
 import SlideMenuControllerSwift
+import DropDown
 
-class MainViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+class MainViewController: BaseViewController, UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
-    
-    @IBOutlet weak var logoImageView: UIImageView!
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var refreshButton: UIButton!
-    
-    private var refreshControl: UIRefreshControl!
     
     private var categories:[String] = []
     private var selectedMenuListIndex = -1
@@ -35,37 +31,30 @@ class MainViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     
     // MARK: - Life cycle
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
         self.tableview.delegate = self
         self.tableview.dataSource = self;
         
-        self.navigationController?.navigationBarHidden = false
-        
-        let beatAnimator = PullToRefreshBeatAnimator(frame: CGRectMake(0, 0, 320, 30))
+        let pullToRefreshBeatAnimator = PullToRefreshBeatAnimator(frame: CGRectMake(0, 0, 320, 30))
         self.tableview.addPullToRefreshWithAction({
             self.pullRefreshShowing = true
             self.fetchData()
-        },withAnimator: beatAnimator)
-        
-        self.searchBar.delegate = self;
-        
-        let rightBarbuttonItem: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(self.refresh))
-        self.navigationItem.rightBarButtonItem = rightBarbuttonItem;
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage.fromColor(UIColor.whiteColor()), forBarPosition: .Any, barMetrics: .Default)
-        
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        },withAnimator: pullToRefreshBeatAnimator)
+    
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(applicationDidBecomeActiveNotification), name: UIApplicationDidBecomeActiveNotification, object: nil)
         
 
         setupReachability()
+        
+        self.searchBar.delegate = self;
         
         fetchData()
 
@@ -75,9 +64,33 @@ class MainViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.navigationBarHidden = false
+        self.setupNotHomeNavigationBar()
         
-        self.setNavigationBarItem()
+        self.searchBar.text = nil
+        
+        dispatch_once(&Static.token) { [unowned self] in
+            self.openLeftMenuList()
+        }
+        
+    }
+    
+    
+    /**
+     this method will be called multiple times
+     */
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        //we have to put following method in here viewDidLayoutSubviews since the custom navigation bar view will overlap bar item because auto layout characters
+        self.setupLeftMenuNavigationBarItem()
+        let rightBarbuttonItem: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(self.refresh))
+        self.navigationItem.rightBarButtonItem = rightBarbuttonItem;
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         
     }
     
@@ -191,22 +204,12 @@ class MainViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         
     }
     
-    // MARK: - UISearchBarDelegate
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        let storyboard : UIStoryboard = UIStoryboard(
-            name: "Main",
-            bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("SearchResultViewController") as! SearchResultViewController
-        
-        
-        let transition = CATransition()
-        transition.duration = 0.5;
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionFromBottom;
-        self.navigationController?.view.layer.addAnimation(transition, forKey: nil)
-        self.navigationController?.pushViewController(viewController, animated: false)
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
         
     }
+    
     
     
     // MARK: - UITableView
@@ -247,6 +250,10 @@ class MainViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         return 0.1
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
     // MARK: - UIApplicationDidBecomeActiveNotification
     func applicationDidBecomeActiveNotification(notification:NSNotification) {
         fetchData()
@@ -273,38 +280,9 @@ class MainViewController: UIViewController, UITableViewDelegate,UITableViewDataS
 
 }
 
-extension MainViewController : SlideMenuControllerDelegate {
-    
-    func leftWillOpen() {
-        print("SlideMenuControllerDelegate: leftWillOpen")
-    }
-    
-    func leftDidOpen() {
-        print("SlideMenuControllerDelegate: leftDidOpen")
-    }
-    
-    func leftWillClose() {
-        print("SlideMenuControllerDelegate: leftWillClose")
-    }
-    
-    func leftDidClose() {
-        print("SlideMenuControllerDelegate: leftDidClose")
-    }
-    
-    func rightWillOpen() {
-        print("SlideMenuControllerDelegate: rightWillOpen")
-    }
-    
-    func rightDidOpen() {
-        print("SlideMenuControllerDelegate: rightDidOpen")
-    }
-    
-    func rightWillClose() {
-        print("SlideMenuControllerDelegate: rightWillClose")
-    }
-    
-    func rightDidClose() {
-        print("SlideMenuControllerDelegate: rightDidClose")
-    }
+private struct Static {
+    static var token: dispatch_once_t = 0
 }
+
+
 

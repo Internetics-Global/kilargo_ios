@@ -16,6 +16,7 @@ pod 'AlamofireObjectMapper', '~> 3.0'
 pod 'ReachabilitySwift'
 pod 'SlideMenuControllerSwift'
 pod 'SCLAlertView'
+pod 'DropDown', :git => 'https://github.com/kevin-hirsch/DropDown.git', :commit=> '457fba9fcb693c14dbb2c45c6512f8122a19609f'
 
 end
 

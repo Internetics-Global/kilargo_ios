@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class CarouselImageViewController: UIViewController {
+class CarouselImageViewController: BaseViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -58,10 +58,6 @@ class CarouselImageViewController: UIViewController {
 
 
         
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
     }
     
     private struct Storyboard {

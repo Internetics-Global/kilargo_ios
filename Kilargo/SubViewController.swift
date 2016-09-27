@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SubViewController:UIViewController, UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -34,6 +34,8 @@ class SubViewController:UIViewController, UITableViewDelegate,UITableViewDataSou
         self.tableview.delegate = self
         self.tableview.dataSource = self;
         
+//        self.tableview.backgroundColor = UIColor.redColor()
+        
         self.searchBar.delegate = self;
         
         refreshList()
@@ -43,12 +45,17 @@ class SubViewController:UIViewController, UITableViewDelegate,UITableViewDataSou
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.navigationBarHidden = false
+        self.searchBar.text = nil
+        
+        self.setupNotHomeNavigationBar()
         
     }
     
+    
     override func viewWillDisappear(animated: Bool) {
         searchBar.resignFirstResponder()
+        
+        super.removeAllSubviewsFromNavigationBar()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -67,18 +74,9 @@ class SubViewController:UIViewController, UITableViewDelegate,UITableViewDataSou
         
     }
     
-    // MARK: - UISearchBarDelegate
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        let storyboard : UIStoryboard = UIStoryboard(
-            name: "Main",
-            bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("SearchResultViewController") as! SearchResultViewController
-        let transition = CATransition()
-        transition.duration = 0.5;
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionFromBottom;
-        self.navigationController?.view.layer.addAnimation(transition, forKey: nil)
-        self.navigationController?.pushViewController(viewController, animated: false)
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
+        
     }
     
     
@@ -107,12 +105,18 @@ class SubViewController:UIViewController, UITableViewDelegate,UITableViewDataSou
         
         let cell = tableView.dequeueReusableCellWithIdentifier(TABLE_CELL_ID_SET_IN_B, forIndexPath: indexPath) as! SubMenuItemCell
         cell.titleLabel.text = self.categories[indexPath.row]
+//        cell.backgroundColor = UIColor.greenColor()
         
         return cell;
         
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
     }
     

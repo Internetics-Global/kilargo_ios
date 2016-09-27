@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class ProdutViewController: UIViewController,UIPopoverPresentationControllerDelegate,UIScrollViewDelegate,UISearchBarDelegate {
+class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDelegate,UIScrollViewDelegate,UISearchBarDelegate {
     
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -33,6 +33,8 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
         super.viewDidLoad()
         
         searchBar.delegate = self;
+        
+        self.setupNotHomeNavigationBar()
         
         self.navigationController?.navigationBarHidden = false
         
@@ -56,6 +58,8 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
     
     override func viewWillDisappear(animated: Bool) {
         searchBar.resignFirstResponder()
+        
+        super.removeAllSubviewsFromNavigationBar()
     }
     
     
@@ -183,18 +187,9 @@ class ProdutViewController: UIViewController,UIPopoverPresentationControllerDele
     
     }
     
-    // MARK: - UISearchBarDelegate
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        let storyboard : UIStoryboard = UIStoryboard(
-            name: "Main",
-            bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("SearchResultViewController") as! SearchResultViewController
-        let transition = CATransition()
-        transition.duration = 0.5;
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionFromBottom;
-        self.navigationController?.view.layer.addAnimation(transition, forKey: nil)
-        self.navigationController?.pushViewController(viewController, animated: false)
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
+        
     }
     
     

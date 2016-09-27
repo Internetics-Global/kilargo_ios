@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SearchResultViewController:UIViewController,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource {
+class SearchResultViewController:BaseViewController,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!

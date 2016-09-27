@@ -18,7 +18,7 @@ protocol LeftMenuProtocol : class {
     func changeViewController(menu: LeftMenu)
 }
 
-class LeftViewController : UIViewController, LeftMenuProtocol {
+class LeftViewController : BaseViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
     var menus = ["Products", "Settings", "About"]
@@ -26,7 +26,6 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var settingViewController: UIViewController!
     var aboutViewController: UIViewController!
     var nonMenuViewController: UIViewController!
-    var imageHeaderView: ImageHeaderView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -34,7 +33,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 0.3)
+        
+        self.tableView.separatorColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 0.7)
+        self.tableView.separatorStyle = .SingleLine
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "left_view_bottom_background"))
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let settingViewController = storyboard.instantiateViewControllerWithIdentifier("SettingViewController") as! SettingViewController
@@ -46,19 +48,12 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         
         self.tableView.registerCellClass(LeftTableViewCell.self)
         
-        self.imageHeaderView = ImageHeaderView.loadNib()
-        self.view.addSubview(self.imageHeaderView)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.imageHeaderView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 160)
-        self.view.layoutIfNeeded()
-    }
     
     func changeViewController(menu: LeftMenu) {
         switch menu {
@@ -70,6 +65,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.aboutViewController, close: true)
         }
     }
+    
 }
 
 extension LeftViewController : UITableViewDelegate {
@@ -123,3 +119,5 @@ extension LeftViewController: UIScrollViewDelegate {
         }
     }
 }
+
+

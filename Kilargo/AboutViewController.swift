@@ -8,16 +8,24 @@
 
 import UIKit
 
-class AboutViewController: UIViewController {
+class AboutViewController: BaseViewController {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = "About"
+        super.viewDidLoad()        
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.setupNotHomeNavigationBar()
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        //we have to put following method in here viewDidLayoutSubviews since the custom navigation bar view will overlap bar item because auto layout characters
+        self.setupLeftMenuNavigationBarItem()
     }
 }

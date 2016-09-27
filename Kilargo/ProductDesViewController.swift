@@ -9,7 +9,7 @@
 import Foundation
 import Kingfisher
 
-class ProductDesViewController:UIViewController {
+class ProductDesViewController:BaseViewController {
     
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var textView: UITextView!

@@ -3,6 +3,7 @@ PODS:
   - AlamofireObjectMapper (3.0.0):
     - Alamofire (~> 3.2)
     - ObjectMapper (~> 1.0)
+  - DropDown (0.1.5)
   - Kingfisher (2.3.1)
   - NVActivityIndicatorView (2.9)
   - ObjectMapper (1.2.0)
@@ -16,6 +17,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.3)
   - AlamofireObjectMapper (~> 3.0)
+  - DropDown (from `https://github.com/kevin-hirsch/DropDown.git`, commit `457fba9fcb693c14dbb2c45c6512f8122a19609f`)
   - Kingfisher (~> 2.3)
   - NVActivityIndicatorView (~> 2.9)
   - ObjectMapper (~> 1.2)
@@ -26,9 +28,20 @@ DEPENDENCIES:
   - SnapKit (~> 0.15.0)
   - SwiftyJSON (~> 2.3.2)
 
+EXTERNAL SOURCES:
+  DropDown:
+    :commit: 457fba9fcb693c14dbb2c45c6512f8122a19609f
+    :git: https://github.com/kevin-hirsch/DropDown.git
+
+CHECKOUT OPTIONS:
+  DropDown:
+    :commit: 457fba9fcb693c14dbb2c45c6512f8122a19609f
+    :git: https://github.com/kevin-hirsch/DropDown.git
+
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
+  DropDown: addffd49f2a014e079ed854adcb3c5473c1ebdf2
   Kingfisher: 6d3fbada4829cbc7b89e883e8218c28afeb64e42
   NVActivityIndicatorView: 0084f6be71bdf4735b5424ebfb530b1e3db3276c
   ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
@@ -39,6 +52,6 @@ SPEC CHECKSUMS:
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: f19c707831ba636d8af54ab42d1f79a8e098e58a
+PODFILE CHECKSUM: 79578caf71d76db4bfa4f4b2543ca7936017d127
 
 COCOAPODS: 1.0.1
