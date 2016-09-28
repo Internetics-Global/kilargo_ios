@@ -1,30 +1,22 @@
-# Uncomment this line to define a global platform for your project
-
-platform :ios, '8.0'
-use_frameworks!
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
 
 target 'Kilargo' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
 
-pod 'NVActivityIndicatorView', '~> 2.9'
-pod 'SnapKit', '~> 0.15.0'
-pod 'SwiftyJSON', '~> 2.3.2'
-pod 'Alamofire', '~> 3.3'
-pod 'Kingfisher', '~> 2.3'
-pod 'Refresher'
-pod 'ObjectMapper', '~> 1.2'
-pod 'AlamofireObjectMapper', '~> 3.0'
-pod 'ReachabilitySwift'
-pod 'SlideMenuControllerSwift'
-pod 'SCLAlertView'
-pod 'DropDown', :git => 'https://github.com/kevin-hirsch/DropDown.git', :commit=> '457fba9fcb693c14dbb2c45c6512f8122a19609f'
+  # Pods for Kilargo
 
-end
-
-target 'KilargoTests' do
-
-end
-
-target 'KilargoUITests' do
+  pod 'SnapKit', '~> 3.0.0'
+  pod 'SwiftyJSON', '~> 3.0'
+  pod 'Alamofire', '~> 4.0'
+  pod 'AlamofireObjectMapper', '~> 4.0'
+  pod 'Kingfisher', '~> 3.1.0'
+  pod 'Refresher', '~> 0.6.1'
+  pod 'ObjectMapper', '~> 2.0.0'
+  pod 'ReachabilitySwift', '~> 3.0'
+  pod 'SlideMenuControllerSwift', '~> 3.0'
+  pod 'DropDown', '~> 2.0'
+  pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift'
 
 end
-

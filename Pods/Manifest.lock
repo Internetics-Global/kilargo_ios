@@ -1,57 +1,53 @@
 PODS:
-  - Alamofire (3.3.1)
-  - AlamofireObjectMapper (3.0.0):
-    - Alamofire (~> 3.2)
-    - ObjectMapper (~> 1.0)
-  - DropDown (0.1.5)
-  - Kingfisher (2.3.1)
-  - NVActivityIndicatorView (2.9)
-  - ObjectMapper (1.2.0)
-  - ReachabilitySwift (2.3.3)
-  - Refresher (0.5.0)
-  - SCLAlertView (0.5.8)
-  - SlideMenuControllerSwift (2.2.0)
-  - SnapKit (0.15.0)
-  - SwiftyJSON (2.3.2)
+  - Alamofire (4.0.1)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
+  - DropDown (2)
+  - Kingfisher (3.1.0)
+  - ObjectMapper (2.0.0)
+  - ReachabilitySwift (3)
+  - Refresher (0.6.1)
+  - SCLAlertView (0.6.0)
+  - SlideMenuControllerSwift (3.0.0)
+  - SnapKit (3.0.1)
+  - SwiftyJSON (3.1.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.3)
-  - AlamofireObjectMapper (~> 3.0)
-  - DropDown (from `https://github.com/kevin-hirsch/DropDown.git`, commit `457fba9fcb693c14dbb2c45c6512f8122a19609f`)
-  - Kingfisher (~> 2.3)
-  - NVActivityIndicatorView (~> 2.9)
-  - ObjectMapper (~> 1.2)
-  - ReachabilitySwift
-  - Refresher
-  - SCLAlertView
-  - SlideMenuControllerSwift
-  - SnapKit (~> 0.15.0)
-  - SwiftyJSON (~> 2.3.2)
+  - Alamofire (~> 4.0)
+  - AlamofireObjectMapper (~> 4.0)
+  - DropDown (~> 2.0)
+  - Kingfisher (~> 3.1.0)
+  - ObjectMapper (~> 2.0.0)
+  - ReachabilitySwift (~> 3.0)
+  - Refresher (~> 0.6.1)
+  - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift`)
+  - SlideMenuControllerSwift (~> 3.0)
+  - SnapKit (~> 3.0.0)
+  - SwiftyJSON (~> 3.0)
 
 EXTERNAL SOURCES:
-  DropDown:
-    :commit: 457fba9fcb693c14dbb2c45c6512f8122a19609f
-    :git: https://github.com/kevin-hirsch/DropDown.git
+  SCLAlertView:
+    :git: https://github.com/vikmeup/SCLAlertView-Swift
 
 CHECKOUT OPTIONS:
-  DropDown:
-    :commit: 457fba9fcb693c14dbb2c45c6512f8122a19609f
-    :git: https://github.com/kevin-hirsch/DropDown.git
+  SCLAlertView:
+    :commit: ac3d58970d785da0755049a28eca193893c142d0
+    :git: https://github.com/vikmeup/SCLAlertView-Swift
 
 SPEC CHECKSUMS:
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
-  AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
-  DropDown: addffd49f2a014e079ed854adcb3c5473c1ebdf2
-  Kingfisher: 6d3fbada4829cbc7b89e883e8218c28afeb64e42
-  NVActivityIndicatorView: 0084f6be71bdf4735b5424ebfb530b1e3db3276c
-  ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
-  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
-  Refresher: 485f5990e6315add7f3470db5a4ca106451b11d3
-  SCLAlertView: 653e84d1f9fd95333bc54671fbadb7d0c47fce49
-  SlideMenuControllerSwift: 16dac00b1aaad153e64fffb5d6969ab31ad88372
-  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
+  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
+  Kingfisher: 7779f22e977393e9533a89a9685beb8f679d3767
+  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  Refresher: 7c6f09ef3428aa921cb477611fb26bf29a9e5492
+  SCLAlertView: 0f6b3c23a48b4993564ff1dd3c065782e4b2b687
+  SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
+  SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
+  SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
 
-PODFILE CHECKSUM: 79578caf71d76db4bfa4f4b2543ca7936017d127
+PODFILE CHECKSUM: 5f048e9136fdba2574ba02489c214ad4e6b33d8d
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

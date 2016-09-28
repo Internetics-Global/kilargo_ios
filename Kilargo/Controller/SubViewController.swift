@@ -1,0 +1,134 @@
+//
+//  SubViewController.swift
+//  Kilargo
+//
+//  Created by Internetics on 26/04/2016.
+//  Copyright © 2016 com.internetics. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+    
+    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var parentCategoryName:String  = ""{
+        didSet {
+           categories = JsonFetcher.getSubcategoryWithParenent(parentCategoryName)
+        }
+    }
+    
+    fileprivate var categories:[String] = []
+    
+    fileprivate var selectedMenuListIndex = -1
+    
+    fileprivate let TABLE_CELL_ID_SET_IN_B = "TableCellID"
+    
+    // MARK: - Life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tableview.delegate = self
+        self.tableview.dataSource = self;
+        
+//        self.tableview.backgroundColor = UIColor.redColor()
+        
+        self.searchBar.delegate = self;
+        
+        refreshList()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.searchBar.text = nil
+        
+        self.setupNotHomeNavigationBar()
+        
+        
+        
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        searchBar.resignFirstResponder()
+        
+        super.removeAllSubviewsFromNavigationBar()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.destination is ProdutViewController) {
+            
+            (segue.destination as! ProdutViewController).products = JsonFetcher.getProductsWithSubcategoryName(self.categories[selectedMenuListIndex])
+            
+        }
+    }
+    
+    
+    
+    func refreshList() {
+        self.tableview.reloadData()
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
+        
+    }
+    
+    
+    // MARK: - UITableView
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44;
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedMenuListIndex = (indexPath as NSIndexPath).row
+        return indexPath
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_CELL_ID_SET_IN_B, for: indexPath) as! SubMenuItemCell
+        cell.titleLabel.text = self.categories[(indexPath as NSIndexPath).row]
+//        cell.backgroundColor = UIColor.greenColor()
+        
+        return cell;
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
+    
+    // MARK: - Memory managment
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+}
