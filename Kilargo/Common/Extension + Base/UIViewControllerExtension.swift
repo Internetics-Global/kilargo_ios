@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DropDown
 
 extension UIViewController: NVActivityIndicatorViewable {
     
@@ -91,41 +90,6 @@ extension UIViewController: NVActivityIndicatorViewable {
         
         
         
-    }
-    
-    func showSearchResultDropDown(searchBar:UISearchBar,searchText:String) {
-        
-        let dropDown = DropDown()
-        dropDown.anchorView = searchBar
-        dropDown.bottomOffset = CGPoint(x: 0, y:(searchBar.frame).height)
-        dropDown.dataSource = ["Car", "Motorcycle", "Truck"]
-        
-        dropDown.direction = .bottom
-        
-        let searchResult = JsonFetcher.getProductsWithAnyKeyword(searchText)
-        
-        var dataSource:[String] = []
-        for item in searchResult {
-            let text = "\(item.category)->\(item.subcategory)"
-            dataSource.append(text)
-        }
-        dropDown.dataSource = dataSource
-        
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            
-            let storyboard : UIStoryboard = UIStoryboard(
-                name: "Main",
-                bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as! ProdutViewController
-            viewController.products = [searchResult[index]]
-            self.navigationController?.pushViewController(viewController, animated: true)
-            
-            
-            
-            
-        }
-        
-        dropDown.show()
     }
     
     
