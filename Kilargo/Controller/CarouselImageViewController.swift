@@ -15,6 +15,43 @@ class CarouselImageViewController: BaseViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var pinchGestureRecognizer:UIGestureRecognizer?
+    
+    let kScaleBoundLower:CGFloat = 1;
+    let kScaleBoundUpper:CGFloat = 5.0;
+    var scaleStart:CGFloat = 0
+    var _scale: CGFloat = 1.0
+    var scale: CGFloat {
+        get {
+            return _scale
+        }
+        
+        set(newScale) {
+            if (newScale < kScaleBoundLower)
+            {
+                _scale = kScaleBoundLower;
+            }
+            else if (newScale > kScaleBoundUpper)
+            {
+                _scale = kScaleBoundUpper;
+            } else {
+                _scale = newScale
+            }
+            
+            if (_scale > 1) {
+                self.collectionView.isPagingEnabled = false
+            } else {
+                self.collectionView.isPagingEnabled = true
+            }
+            
+            
+        }
+    }
+    
+    
+    
+    
+    
     fileprivate var validImages:[String] = []
     
     var product:Product? {
@@ -50,12 +87,16 @@ class CarouselImageViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.scale = 1;
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(CarouselImageViewController.dimissViewController))
         self.view.isUserInteractionEnabled = true
         self.view.addGestureRecognizer(tapGestureRecognizer)
         
-        self.collectionView.isPagingEnabled = false
-
+        pinchGestureRecognizer = UIPinchGestureRecognizer(target:self, action:#selector(CarouselImageViewController.didReceivePinchGesture))
+        self.collectionView.addGestureRecognizer(pinchGestureRecognizer!)
+        
+        self.collectionView.isPagingEnabled = true
 
         
     }
@@ -69,6 +110,24 @@ class CarouselImageViewController: BaseViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func didReceivePinchGesture(pinchRecognizer: UIPinchGestureRecognizer) {
+        
+        print(pinchRecognizer.scale)
+        
+        if (pinchRecognizer.state == .began)
+        {
+            scaleStart = self.scale;
+            return;
+        }
+        if (pinchRecognizer.state == .changed)
+        {
+            self.scale = scaleStart * pinchRecognizer.scale;
+            
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }
+        
+        
+    }
     
     override var prefersStatusBarHidden : Bool {
         return true;
@@ -95,6 +154,12 @@ extension CarouselImageViewController : UICollectionViewDataSource, UICollection
         
         cell.featuredImageView.kf.setImage(with:URL(string: url)!, placeholder: UIImage(named: "placeholder"), options: [.transition(ImageTransition.fade(1))], progressBlock: nil, completionHandler: nil)
         
+        if ((indexPath.row)%2 == 0) {
+            cell.backgroundColor = UIColor.red
+        } else {
+            cell.backgroundColor = UIColor.green
+        }
+        
         
         return cell
         
@@ -102,11 +167,10 @@ extension CarouselImageViewController : UICollectionViewDataSource, UICollection
     
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         //80 is set in storyboard
-        return CGSize(width: self.view.frame.width - 20*2,height: self.view.frame.height - 80*2)
+        return CGSize(width: self.view.frame.width * scale,height: (self.view.frame.height - 5*2))
+        
+    
     }
-    
-    
     
     
 }
