@@ -42,9 +42,14 @@ class BaseViewController: UIViewController {
     func showSearchResultDropDown(searchBar:UISearchBar,searchText:String) {
         
         dropDown.anchorView = searchBar
-        dropDown.bottomOffset = CGPoint(x: 0, y:(searchBar.frame).height)
-        
+        dropDown.bottomOffset = CGPoint(x: 10, y:(searchBar.frame).height)
         dropDown.direction = .bottom
+        
+        dropDown.width = searchBar.frame.width - 2*10
+        dropDown.separatorColor = UIColor(red: 200.0/255, green: 199.0/255, blue: 204.0/255, alpha: 1)
+        dropDown.cornerRadius = 5
+        dropDown.backgroundColor = UIColor(red: 241.0/255, green: 242.0/255, blue: 242.0/255, alpha: 1)
+        
         
         let searchResult = JsonFetcher.getProductsWithAnyKeyword(searchText)
         
@@ -54,6 +59,8 @@ class BaseViewController: UIViewController {
             dataSource.append(text)
         }
         dropDown.dataSource = dataSource
+        
+        dropDown.cellNib = UINib(nibName: "DropdownSearchResultCell", bundle: nil)
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             

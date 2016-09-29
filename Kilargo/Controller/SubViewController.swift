@@ -48,8 +48,7 @@ class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataS
         self.searchBar.text = nil
         
         self.setupNotHomeNavigationBar()
-        
-        
+    
         
     }
     
@@ -67,6 +66,7 @@ class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataS
             (segue.destination as! ProdutViewController).products = JsonFetcher.getProductsWithSubcategoryName(self.categories[selectedMenuListIndex])
             
         }
+        
     }
     
     
@@ -76,9 +76,24 @@ class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataS
         
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
         
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
     }
     
     

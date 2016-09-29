@@ -81,7 +81,6 @@ class MainViewController: BaseViewController, UITableViewDelegate,UITableViewDat
             self.navigationItem.rightBarButtonItem = rightBarbuttonItem;
             
         })
-            
         
         
         self.searchBar.text = nil
@@ -209,10 +208,24 @@ class MainViewController: BaseViewController, UITableViewDelegate,UITableViewDat
         
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
         
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
     }
     
     

@@ -9,16 +9,21 @@
 import Foundation
 import Kingfisher
 
-class ProductDesViewController:BaseViewController {
+enum ProductionInfoType {
+    case information
+    case installation
+    case unknown
+}
+
+
+class ProductDesViewController:BaseViewController{
     
-    @IBOutlet weak var titleTextView: UITextView!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var appendixTextView: UITextView!
     
     @IBOutlet weak var baseView: UIView!
     
-    
+    var source:ProductionInfoType = .information
     
     
     var product:Product!
@@ -31,15 +36,15 @@ class ProductDesViewController:BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.textView.text = product.notes
-        self.titleTextView.text = product.productName
-        self.appendixTextView.text = product.buildingElement
+        self.tableView.backgroundColor = UIColor.clear
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
         
-        self.textView.font = UIFont.systemFont(ofSize: 16)
-        self.titleTextView.font = UIFont.systemFont(ofSize: 16)
-        self.appendixTextView.font = UIFont.systemFont(ofSize: 16)
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 44.0;
+
+        self.tableView.register(InfoDialogCell.self, forCellReuseIdentifier: InfoDialogCell.identifier)
         
-        self.baseView.backgroundColor = UIColor(red: 223.0/255, green: 223.0/255, blue: 223.0/255, alpha: 1)
         
         let recognizer = UITapGestureRecognizer(target: self, action:#selector(dismissCurrentView))
         recognizer.numberOfTapsRequired = 1
@@ -64,9 +69,126 @@ class ProductDesViewController:BaseViewController {
     // MARK: - Actions
     
     func dismissCurrentView() {
-      self .dismiss(animated: true, completion: nil)
+      self .dismiss(animated: false, completion: nil)
+    }
+
+    
+}
+
+extension ProductDesViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
+        
+        let separator = UIView()
+        if (section == 0) {
+            separator.backgroundColor = UIColor.clear
+        } else {
+            separator.backgroundColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 0.7)
+        }
+        view.addSubview(separator)
+        
+        separator.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.height.equalTo(0.5)
+            make.left.equalTo(10)
+            make.right.equalTo(0)
+        }
+        
+        return view;
+    }
+    
+}
+
+extension ProductDesViewController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        switch source {
+        case .information:
+            return 3
+        case .installation:
+            return 1
+        default:
+            return 1
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell( withIdentifier: InfoDialogCell.identifier, for: indexPath) as! InfoDialogCell
+        cell.backgroundColor = UIColor.clear
+        
+        let summaryLabel = UILabel()
+        summaryLabel.textAlignment = .left
+        summaryLabel.font = UIFont.systemFont(ofSize: 11)
+        summaryLabel.numberOfLines = 0
+        cell.contentView.addSubview(summaryLabel)
+        
+        summaryLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(10)
+            make.width.equalTo(120)
+            make.top.equalTo(0)
+            make.bottom.equalTo(0)
+        }
+        
+        let detailLabel = UILabel()
+        
+        detailLabel.textAlignment = .left
+        detailLabel.numberOfLines = 0
+        detailLabel.font = UIFont.systemFont(ofSize: 11)
+        cell.contentView.addSubview(detailLabel)
+        
+        detailLabel.snp.makeConstraints { (make) in
+            make.width.equalTo(cell.contentView.frame.width - 140)
+            make.left.equalTo(140)
+            make.top.equalTo(0)
+            make.bottom.equalTo(0)
+        }
+        
+        if (source == .information) {
+            
+            switch indexPath.section {
+            case 0:
+                summaryLabel.text = "Building Element"
+                detailLabel.text = product.buildingElement
+            case 1:
+                summaryLabel.text = "Application"
+                detailLabel.text = product.application
+            case 2:
+                summaryLabel.text = "Maximum size"
+                //            detailLabel.text = "automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example"
+                detailLabel.text = product.maxSize
+                
+                
+            default: break
+                
+            }
+        } else if (source == .installation) {
+            
+            summaryLabel.text = product.installationInstructionTitle
+            detailLabel.text = product.installationInstructionBody
+            
+            
+        } else {
+            
+        }
+        
+        return cell
+    }
     
     
 }

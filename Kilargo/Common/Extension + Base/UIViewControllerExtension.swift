@@ -60,8 +60,29 @@ extension UIViewController: NVActivityIndicatorViewable {
             make.right.equalTo(baseView).offset(0)
         }
         
+    }
+    
+    func setupLeftViewNavigationBar() {
         
+        removeAllSubviewsFromNavigationBar()
         
+        let baseView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 133))
+        baseView.backgroundColor = UIColor.blue
+        baseView.isUserInteractionEnabled = false
+        baseView.tag = 314
+        
+        self.navigationController?.navigationBar.addSubview(baseView)
+        
+        let imageView = UIImageView(image: UIImage(named: "top_banner3"))
+        baseView.addSubview(imageView)
+        imageView.contentMode = .topLeft
+        imageView.clipsToBounds = true
+        imageView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(baseView).offset(0)
+            make.left.equalTo(baseView).offset(0)
+            make.bottom.equalTo(baseView).offset(0)
+            make.right.equalTo(baseView).offset(0)
+        }
         
     }
     
@@ -80,9 +101,10 @@ extension UIViewController: NVActivityIndicatorViewable {
         let imageView = UIImageView(image: UIImage(named: "logo_banner"))
         baseView.addSubview(imageView)
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(baseView)
-            make.top.equalTo(55)
+            make.top.equalTo(35)
             make.height.equalTo(78)
             make.width.equalTo(219)
         }

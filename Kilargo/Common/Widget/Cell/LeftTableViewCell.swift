@@ -23,7 +23,8 @@ open class LeftTableViewCell : UITableViewCell {
     open override func awakeFromNib() {
     }
     
-    open func setup() {
+    private func setup() {
+        self.accessoryType = .disclosureIndicator
     }
     
     open class func height() -> CGFloat {

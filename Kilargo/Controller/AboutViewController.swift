@@ -10,22 +10,35 @@ import UIKit
 
 class AboutViewController: BaseViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
     override func viewDidLoad() {
-        super.viewDidLoad()        
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.setupNotHomeNavigationBar()
-    }
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        //we have to put following method in here viewDidLayoutSubviews since the custom navigation bar view will overlap bar item because auto layout characters
         self.setupLeftMenuNavigationBarItem()
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.scrollView.backgroundColor = UIColor.white
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: 800)
+        
+        let imageView = UIImageView(image: UIImage(named: "about_content"))
+//        imageView.backgroundColor = UIColor.green
+        self.scrollView.addSubview(imageView)
+        
+        imageView.contentMode = .scaleAspectFill
+        imageView.snp.makeConstraints { (make) in
+            make.width.equalTo(300)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(0)
+            make.height.equalTo(800)
+        }
+        
+        
     }
+    
+
+    
 }

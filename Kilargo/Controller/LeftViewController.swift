@@ -34,8 +34,11 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         self.tableView.separatorColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 0.7)
         self.tableView.separatorStyle = .singleLine
+//        self.tableView.backgroundColor = UIColor.red
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "left_view_bottom_background"))
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -50,8 +53,17 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.setupLeftViewNavigationBar()
+        
+        self.tableView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(153)
+            make.left.equalTo(0)
+            make.bottom.equalTo(0)
+            make.right.equalTo(0)
+        }
     }
     
     
@@ -86,6 +98,10 @@ extension LeftViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
     }
 }

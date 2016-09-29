@@ -69,6 +69,23 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
 
     }
     
+    @IBAction func installationButtonClicked(_ sender: AnyObject) {
+        
+        let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width);
+        
+        let storyboard : UIStoryboard = UIStoryboard(
+            name: "Main",
+            bundle: nil)
+        let popoverViewController = storyboard.instantiateViewController(withIdentifier: "ProductDesViewController") as! ProductDesViewController
+        popoverViewController.product = products[page]
+        popoverViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        popoverViewController.anchorPoint = CGPoint(x: (self.view.frame).width/2, y: (self.scrollView.frame).midY)
+        popoverViewController.view.backgroundColor = UIColor.clear
+        popoverViewController.source = .installation
+        self.present(popoverViewController, animated: false, completion: nil)
+        
+    }
+    
     func infoButtonClicked() {
         
         let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width);
@@ -81,10 +98,8 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
         popoverViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         popoverViewController.anchorPoint = CGPoint(x: (self.view.frame).width/2, y: (self.scrollView.frame).midY)
         popoverViewController.view.backgroundColor = UIColor.clear
-        self.present(popoverViewController, animated: true, completion: nil)
-        
-        
-        
+        popoverViewController.source = .information
+        self.present(popoverViewController, animated: false, completion: nil)
         
         
     }
@@ -110,7 +125,7 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
         self.leftArrow = UIImageView(image: UIImage(named: "left_arrow"))
         self.view.addSubview(self.leftArrow)
         self.leftArrow.snp.makeConstraints { (make) in
-            make.width.equalTo(10)
+            make.width.equalTo(20)
             make.height.equalTo(20)
             make.centerY.equalTo(self.scrollView)
             make.left.equalTo(self.scrollView).offset(-10)
@@ -119,7 +134,7 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
         self.rightArrow = UIImageView(image: UIImage(named: "right_arrow"))
         self.view.addSubview(self.rightArrow)
         self.rightArrow.snp.makeConstraints { (make) in
-            make.width.equalTo(10)
+            make.width.equalTo(20)
             make.height.equalTo(20)
             make.centerY.equalTo(self.scrollView)
             make.left.equalTo(self.scrollView.snp.right).offset(0)
@@ -180,9 +195,24 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
     
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
         
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
     }
     
     

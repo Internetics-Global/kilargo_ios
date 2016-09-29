@@ -40,18 +40,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
         
         let nvc: UINavigationController = UINavigationController(rootViewController: homeViewController)
+        let leftnvc: UINavigationController = UINavigationController(rootViewController: leftViewController)
         
         
         leftViewController.mainViewController = nvc
         
-        let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
-        slideMenuController.automaticallyAdjustsScrollViewInsets = true
+        let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftnvc)
+        //slideMenuController.automaticallyAdjustsScrollViewInsets = true
         slideMenuController.delegate = homeViewController
         if (Global.isPhoneDevice() == false) {
             slideMenuController.changeLeftViewWidth(380)
         } else {
             slideMenuController.changeLeftViewWidth(300)
         }
+        SlideMenuOptions.hideStatusBar = false
+        SlideMenuOptions.contentViewScale = 1
         
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         self.window?.rootViewController = slideMenuController
