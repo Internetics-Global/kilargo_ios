@@ -21,19 +21,29 @@ class AboutViewController: BaseViewController {
         
         self.automaticallyAdjustsScrollViewInsets = false
         
+        var width:CGFloat = 0.0
+        var height:CGFloat = 0.0
+        if (DeviceType.IS_IPHONE_6P_7P) {
+            width = 380
+            height = 950
+        } else {
+            width = 300
+            height = 800
+        }
+        
         self.scrollView.backgroundColor = UIColor.white
-        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: 800)
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: height)
         
         let imageView = UIImageView(image: UIImage(named: "about_content"))
-//        imageView.backgroundColor = UIColor.green
         self.scrollView.addSubview(imageView)
+        
         
         imageView.contentMode = .scaleAspectFill
         imageView.snp.makeConstraints { (make) in
-            make.width.equalTo(300)
+            make.width.equalTo(width)
             make.centerX.equalToSuperview()
             make.top.equalTo(0)
-            make.height.equalTo(800)
+            make.height.equalTo(height)
         }
         
         

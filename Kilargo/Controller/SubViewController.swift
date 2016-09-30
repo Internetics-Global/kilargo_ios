@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+class SubViewController:BaseViewController{
     
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -24,8 +24,6 @@ class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataS
     
     fileprivate var selectedMenuListIndex = -1
     
-    fileprivate let TABLE_CELL_ID_SET_IN_B = "TableCellID"
-    
     // MARK: - Life cycle
     
     override func viewDidLoad() {
@@ -33,9 +31,7 @@ class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataS
         
         self.tableview.delegate = self
         self.tableview.dataSource = self;
-        
-//        self.tableview.backgroundColor = UIColor.redColor()
-        
+
         self.searchBar.delegate = self;
         
         refreshList()
@@ -46,35 +42,39 @@ class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataS
         super.viewWillAppear(animated)
         
         self.searchBar.text = nil
-        
         self.setupNotHomeNavigationBar()
-    
-        
     }
     
     
     override func viewWillDisappear(_ animated: Bool) {
         searchBar.resignFirstResponder()
-        
         super.removeAllSubviewsFromNavigationBar()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.destination is ProdutViewController) {
-            
             (segue.destination as! ProdutViewController).products = JsonFetcher.getProductsWithSubcategoryName(self.categories[selectedMenuListIndex])
             
         }
         
     }
     
-    
-    
     func refreshList() {
         self.tableview.reloadData()
         
     }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+}
+
+extension SubViewController:UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
@@ -95,9 +95,27 @@ class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataS
         searchBar.text = nil
         searchBar.resignFirstResponder()
     }
+}
+
+extension SubViewController:UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.categories.count
+    }
     
-    // MARK: - UITableView
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: SubMenuItemCell.identifier, for: indexPath) as! SubMenuItemCell
+        cell.titleLabel.text = self.categories[(indexPath as NSIndexPath).row]
+        //        cell.backgroundColor = UIColor.greenColor()
+        
+        return cell;
+        
+    }
+    
+}
+
+extension SubViewController:UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44;
@@ -114,20 +132,6 @@ class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataS
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.categories.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_CELL_ID_SET_IN_B, for: indexPath) as! SubMenuItemCell
-        cell.titleLabel.text = self.categories[(indexPath as NSIndexPath).row]
-//        cell.backgroundColor = UIColor.greenColor()
-        
-        return cell;
-        
-    }
-    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
     }
@@ -136,14 +140,5 @@ class SubViewController:BaseViewController, UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
     }
-    
-    
-    // MARK: - Memory managment
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
 }

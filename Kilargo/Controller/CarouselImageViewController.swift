@@ -154,13 +154,6 @@ extension CarouselImageViewController : UICollectionViewDataSource, UICollection
         
         cell.featuredImageView.kf.setImage(with:URL(string: url)!, placeholder: UIImage(named: "placeholder"), options: [.transition(ImageTransition.fade(1))], progressBlock: nil, completionHandler: nil)
         
-//        if ((indexPath.row)%2 == 0) {
-//            cell.backgroundColor = UIColor.red
-//        } else {
-//            cell.backgroundColor = UIColor.green
-//        }
-        
-        
         return cell
         
     }

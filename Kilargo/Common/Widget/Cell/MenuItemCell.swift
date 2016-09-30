@@ -11,5 +11,7 @@ import UIKit
 
 class MenuItemCell : UITableViewCell {
     
+    class var identifier: String { return String.className(self) }
+    
     @IBOutlet weak var titleLabel: UILabel!
 }

@@ -13,13 +13,7 @@ import SCLAlertView
 import SlideMenuControllerSwift
 import DropDown
 
-class MainViewController: BaseViewController, UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
-    
-//todo
-//    private static var __once: () = { [unowned self] in
-//            self.openLeftMenuList()
-//        }()
-    
+class MainViewController: BaseViewController {
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -27,27 +21,24 @@ class MainViewController: BaseViewController, UITableViewDelegate,UITableViewDat
     fileprivate var categories:[String] = []
     fileprivate var selectedMenuListIndex = -1
     
-    fileprivate let TABLE_CELL_ID_SET_IN_B = "TableCellID"
-    
     fileprivate var pullRefreshShowing = false
     
     fileprivate var reachability: Reachability!
     
-    fileprivate var onlyOnce = true
-
+    fileprivate var onlyOnceShowLeftMenuList = true
     
     // MARK: - Life cycle
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIApplication.shared.statusBarStyle = .default
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
         self.tableview.delegate = self
         self.tableview.dataSource = self;
+        
+        self.searchBar.delegate = self;
         
         let pullToRefreshBeatAnimator = PullToRefreshBeatAnimator(frame: CGRect(x: 0, y: 0, width: 320, height: 30))
         self.tableview.addPullToRefreshWithAction({
@@ -58,10 +49,7 @@ class MainViewController: BaseViewController, UITableViewDelegate,UITableViewDat
 
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActiveNotification), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         
-
         setupReachability()
-        
-        self.searchBar.delegate = self;
         
         fetchData()
 
@@ -82,24 +70,16 @@ class MainViewController: BaseViewController, UITableViewDelegate,UITableViewDat
             
         })
         
-        
-        self.searchBar.text = nil
-        
-//        _ = MainViewController.__once
-        //todo
-        
-        if (onlyOnce) {
-            onlyOnce = false
+        if (self.onlyOnceShowLeftMenuList) {
+            self.onlyOnceShowLeftMenuList = false
             self.openLeftMenuList()
         }
         
     }
     
-
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         
     }
     
@@ -118,7 +98,6 @@ class MainViewController: BaseViewController, UITableViewDelegate,UITableViewDat
     fileprivate func setupReachability() {
         
         reachability = Reachability()
-        
         
         reachability.whenReachable = { reachability in
             // this is called on a background thread, but UI updates must
@@ -208,69 +187,7 @@ class MainViewController: BaseViewController, UITableViewDelegate,UITableViewDat
         
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = true
-    }
-    
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
-        
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        searchBar.text = nil
-        searchBar.resignFirstResponder()
-    }
-    
-    
-    
-    // MARK: - UITableView
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44;
-    }
-    
-    
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        selectedMenuListIndex = (indexPath as NSIndexPath).row
-        return indexPath
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.categories.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_CELL_ID_SET_IN_B, for: indexPath) as! MenuItemCell
-        
-        cell.titleLabel.text = self.categories[(indexPath as NSIndexPath).row]
-        
-        return cell;
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.1
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.1
-    }
+
     
     // MARK: - UIApplicationDidBecomeActiveNotification
     func applicationDidBecomeActiveNotification(_ notification:Notification) {
@@ -298,8 +215,77 @@ class MainViewController: BaseViewController, UITableViewDelegate,UITableViewDat
 
 }
 
-private struct Static {
-    static var token: Int = 0
+extension MainViewController:UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+    }
+    
+}
+
+extension MainViewController:UITableViewDataSource {
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuItemCell.identifier, for: indexPath) as! MenuItemCell
+        
+        cell.titleLabel.text = self.categories[(indexPath as NSIndexPath).row]
+        
+        return cell;
+        
+    }
+    
+}
+
+extension MainViewController:UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44;
+    }
+    
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedMenuListIndex = (indexPath as NSIndexPath).row
+        return indexPath
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
 }
 
 

@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDelegate,UIScrollViewDelegate,UISearchBarDelegate {
+class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDelegate,UIScrollViewDelegate {
     
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -79,7 +79,6 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
         let popoverViewController = storyboard.instantiateViewController(withIdentifier: "ProductDesViewController") as! ProductDesViewController
         popoverViewController.product = products[page]
         popoverViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        popoverViewController.anchorPoint = CGPoint(x: (self.view.frame).width/2, y: (self.scrollView.frame).midY)
         popoverViewController.view.backgroundColor = UIColor.clear
         popoverViewController.source = .installation
         self.present(popoverViewController, animated: false, completion: nil)
@@ -96,7 +95,6 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
         let popoverViewController = storyboard.instantiateViewController(withIdentifier: "ProductDesViewController") as! ProductDesViewController
         popoverViewController.product = products[page]
         popoverViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        popoverViewController.anchorPoint = CGPoint(x: (self.view.frame).width/2, y: (self.scrollView.frame).midY)
         popoverViewController.view.backgroundColor = UIColor.clear
         popoverViewController.source = .information
         self.present(popoverViewController, animated: false, completion: nil)
@@ -118,7 +116,7 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
             make.width.equalTo(scrollWidth)
             make.bottom.equalTo(self.view).offset(-20)
             make.centerX.equalTo(self.view)
-            make.top.equalTo(self.infoButton.snp.bottom)
+            make.top.equalTo(self.productName.snp.bottom)
     
         }
         
@@ -195,25 +193,6 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
     
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = true
-    }
-    
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
-        
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        searchBar.text = nil
-        searchBar.resignFirstResponder()
-    }
     
     
     // MARK: - UIScrollViewDelegate
@@ -262,4 +241,27 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
     }
 
     
+}
+
+extension ProdutViewController:UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+    }
 }

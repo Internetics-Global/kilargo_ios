@@ -19,18 +19,12 @@ enum ProductionInfoType {
 class ProductDesViewController:BaseViewController{
     
     @IBOutlet weak var tableView: UITableView!
-    
-    
     @IBOutlet weak var baseView: UIView!
     
+    // used to diff wheter it's from infomation button or installation button
     var source:ProductionInfoType = .information
     
-    
     var product:Product!
-    
-    // used to define the position of baseView
-    var anchorPoint:CGPoint = CGPoint.zero
-
     
     
     override func viewDidLoad() {
@@ -40,11 +34,11 @@ class ProductDesViewController:BaseViewController{
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
+        //dynamic cell height
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 44.0;
 
         self.tableView.register(InfoDialogCell.self, forCellReuseIdentifier: InfoDialogCell.identifier)
-        
         
         let recognizer = UITapGestureRecognizer(target: self, action:#selector(dismissCurrentView))
         recognizer.numberOfTapsRequired = 1
@@ -55,14 +49,6 @@ class ProductDesViewController:BaseViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.baseView.snp.removeConstraints()
-        self.baseView.snp.makeConstraints { (make) in
-            make.left.equalTo(18)
-            make.height.equalTo(200)
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(anchorPoint.y).priority(999)
-        }
     }
     
     
@@ -151,9 +137,8 @@ extension ProductDesViewController : UITableViewDataSource {
         detailLabel.numberOfLines = 0
         detailLabel.font = UIFont.systemFont(ofSize: 11)
         cell.contentView.addSubview(detailLabel)
-        
         detailLabel.snp.makeConstraints { (make) in
-            make.width.equalTo(cell.contentView.frame.width - 140)
+            make.width.equalTo(cell.contentView.frame.width - 140 - 10)
             make.left.equalTo(140)
             make.top.equalTo(0)
             make.bottom.equalTo(0)
@@ -169,9 +154,9 @@ extension ProductDesViewController : UITableViewDataSource {
                 summaryLabel.text = "Application"
                 detailLabel.text = product.application
             case 2:
-                summaryLabel.text = "Maximum size"
-                //            detailLabel.text = "automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example"
-                detailLabel.text = product.maxSize
+                //summaryLabel.text = "Maximum size"
+                            detailLabel.text = "automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example"
+                //detailLabel.text = product.maxSize
                 
                 
             default: break

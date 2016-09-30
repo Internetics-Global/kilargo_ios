@@ -13,12 +13,7 @@ class SettingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Settings"
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.setupNotHomeNavigationBar()
         self.setupLeftMenuNavigationBarItem()
     }
     

@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         DropDown.startListeningToKeyboard()
@@ -25,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setGlobalAppearance()
         
         self.prepareViewController()
-        
         
         return true
     }
@@ -39,19 +37,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
         
-        let nvc: UINavigationController = UINavigationController(rootViewController: homeViewController)
+        let homenvc: UINavigationController = UINavigationController(rootViewController: homeViewController)
         let leftnvc: UINavigationController = UINavigationController(rootViewController: leftViewController)
         
         
-        leftViewController.mainViewController = nvc
+        leftViewController.mainViewController = homenvc
         
-        let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftnvc)
+        let slideMenuController = ExSlideMenuController(mainViewController:homenvc, leftMenuViewController: leftnvc)
         //slideMenuController.automaticallyAdjustsScrollViewInsets = true
-        slideMenuController.delegate = homeViewController
-        if (Global.isPhoneDevice() == false) {
-            slideMenuController.changeLeftViewWidth(380)
+        if (DeviceType.IS_IPHONE == false) {
+            slideMenuController.changeLeftViewWidth(320)
         } else {
-            slideMenuController.changeLeftViewWidth(300)
+            if (DeviceType.IS_IPHONE_6_7 || DeviceType.IS_IPHONE_6P_7P) {
+                slideMenuController.changeLeftViewWidth(300)
+            } else {
+                slideMenuController.changeLeftViewWidth(280)
+            }
         }
         SlideMenuOptions.hideStatusBar = false
         SlideMenuOptions.contentViewScale = 1

@@ -51,6 +51,14 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
         
         self.tableView.registerCellClass(LeftTableViewCell.self)
         
+        //For an unknow reason, we can not make constraints on storyboard, otherwise,top position will be wrong.
+        self.tableView.snp.remakeConstraints { (make) -> Void in
+            make.top.equalTo(153)
+            make.left.equalTo(0)
+            make.bottom.equalTo(0)
+            make.right.equalTo(0)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,12 +66,8 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
         
         self.setupLeftViewNavigationBar()
         
-        self.tableView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(153)
-            make.left.equalTo(0)
-            make.bottom.equalTo(0)
-            make.right.equalTo(0)
-        }
+        
+        
     }
     
     
