@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="n4G-J6-J6H">
@@ -28,10 +28,10 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MenuItemCell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuItemCell" id="VPV-ld-HoA" customClass="MenuItemCell" customModule="Kilargo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="728" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VPV-ld-HoA" id="j6v-fb-JCs">
-                                            <frame key="frameInset" width="255" height="43"/>
+                                            <frame key="frameInset" width="682" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cb-Pe-XLc">
@@ -109,7 +109,7 @@
                         <viewControllerLayoutGuide type="bottom" id="EAb-NA-li6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ea2-hQ-Tm5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_background" translatesAutoresizingMaskIntoConstraints="NO" id="Ovd-EQ-xob"/>
@@ -169,17 +169,17 @@
                         <viewControllerLayoutGuide type="bottom" id="Bms-mP-Gya"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JSG-Zv-61u">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0PI-hc-2Z9">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SubMenuItemCell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubMenuItemCell" id="d9j-uZ-qfT" customClass="SubMenuItemCell" customModule="Kilargo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="728" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d9j-uZ-qfT" id="1D6-aV-PHE">
-                                            <frame key="frameInset" width="255" height="43"/>
+                                            <frame key="frameInset" width="682" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-Zs-2lL">
@@ -263,7 +263,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8EL-Ji-yv5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FVz-Hg-iIo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
                             <userLayoutGuide location="36" affinity="minX"/>
@@ -365,7 +365,7 @@
                         <viewControllerLayoutGuide type="bottom" id="rdg-T8-H9E"/>
                     </layoutGuides>
                     <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="1e2-XQ-Vvu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycO-KQ-cnb">
@@ -381,21 +381,28 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="eHp-HJ-1Oo" secondAttribute="trailing" id="Bz9-Dz-beh"/>
                                     <constraint firstItem="eHp-HJ-1Oo" firstAttribute="top" secondItem="dAj-yv-8e5" secondAttribute="top" id="CrF-G9-bl5"/>
-                                    <constraint firstAttribute="height" constant="200" id="EED-dh-ILb"/>
-                                    <constraint firstAttribute="trailing" secondItem="zfs-9A-8JM" secondAttribute="trailing" constant="5" id="GoS-BM-OH6"/>
+                                    <constraint firstAttribute="height" constant="200" id="EED-dh-ILb">
+                                        <variation key="widthClass=regular" constant="350"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="zfs-9A-8JM" secondAttribute="trailing" constant="15" id="GoS-BM-OH6"/>
                                     <constraint firstItem="zfs-9A-8JM" firstAttribute="leading" secondItem="dAj-yv-8e5" secondAttribute="leading" constant="5" id="LfL-zF-bJO"/>
                                     <constraint firstAttribute="bottom" secondItem="zfs-9A-8JM" secondAttribute="bottom" id="QXe-jt-a8V"/>
                                     <constraint firstItem="eHp-HJ-1Oo" firstAttribute="leading" secondItem="dAj-yv-8e5" secondAttribute="leading" id="ouM-1M-Fui"/>
                                     <constraint firstAttribute="bottom" secondItem="eHp-HJ-1Oo" secondAttribute="bottom" id="q7T-H8-2CG"/>
                                     <constraint firstAttribute="trailing" secondItem="eHp-HJ-1Oo" secondAttribute="trailing" id="uiD-Ci-sba"/>
-                                    <constraint firstItem="zfs-9A-8JM" firstAttribute="top" secondItem="dAj-yv-8e5" secondAttribute="top" constant="20" id="zIg-Uc-0Qp"/>
+                                    <constraint firstAttribute="width" constant="300" id="wgI-3l-c3F">
+                                        <variation key="widthClass=regular" constant="680"/>
+                                    </constraint>
+                                    <constraint firstItem="zfs-9A-8JM" firstAttribute="top" secondItem="dAj-yv-8e5" secondAttribute="top" constant="35" id="zIg-Uc-0Qp">
+                                        <variation key="widthClass=compact" constant="20"/>
+                                        <variation key="widthClass=regular" constant="40"/>
+                                    </constraint>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.82181322574615479" green="0.82181322574615479" blue="0.82181322574615479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dAj-yv-8e5" firstAttribute="centerX" secondItem="1e2-XQ-Vvu" secondAttribute="centerX" id="1m4-zM-pGm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dAj-yv-8e5" secondAttribute="trailing" constant="-6" id="2Im-uK-xqy"/>
                             <constraint firstItem="ycO-KQ-cnb" firstAttribute="top" secondItem="oQX-3X-EBy" secondAttribute="bottom" constant="133" id="9NF-vf-yIS"/>
                             <constraint firstItem="rdg-T8-H9E" firstAttribute="top" secondItem="dAj-yv-8e5" secondAttribute="bottom" constant="21" id="A5N-Ev-jQM"/>
                             <constraint firstItem="rdg-T8-H9E" firstAttribute="top" secondItem="ycO-KQ-cnb" secondAttribute="bottom" id="DvI-2j-SCc"/>
@@ -422,7 +429,7 @@
                         <viewControllerLayoutGuide type="bottom" id="HXL-UP-vkW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fBH-wP-Ubr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qDw-Jy-UtR">
@@ -474,7 +481,7 @@
                         <viewControllerLayoutGuide type="bottom" id="UGn-oq-9Ov"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vas-MW-T0E">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="5" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u7u-RC-Clu">
@@ -487,7 +494,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CarouselCellIdentifier" id="PTr-A0-bcg" customClass="CarouselCollectionViewCell" customModule="Kilargo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="337" height="389"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="337" height="389"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="337" height="389"/>
@@ -538,7 +545,7 @@
                         <viewControllerLayoutGuide type="bottom" id="rgy-rF-DBc"/>
                     </layoutGuides>
                     <view key="view" alpha="0.89999997615814209" contentMode="scaleToFill" id="iLz-6N-YRm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verifyAmbiguity="off" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="94h-CY-Bjj">
@@ -590,7 +597,7 @@
                         <viewControllerLayoutGuide type="bottom" id="5JU-uH-YCz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iT2-nZ-LBM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx7-6l-emk">
@@ -624,7 +631,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7Iy-r4-3Lq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qbz-tm-YCn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIu-hY-on0"/>
@@ -649,7 +656,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home_background" width="320" height="420"/>
+        <image name="home_background" width="720" height="870"/>
         <image name="info_dialog_bg" width="301" height="118"/>
         <image name="info_icon" width="23" height="23"/>
         <image name="installation_icon" width="24" height="21"/>

@@ -118,15 +118,23 @@ extension ProductDesViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell( withIdentifier: InfoDialogCell.identifier, for: indexPath) as! InfoDialogCell
         cell.backgroundColor = UIColor.clear
         
+        var summaryLabelWidth = 0
+        
         let summaryLabel = UILabel()
         summaryLabel.textAlignment = .left
-        summaryLabel.font = UIFont.systemFont(ofSize: 11)
+        if (DeviceType.IS_IPHONE) {
+            summaryLabel.font = UIFont.systemFont(ofSize: 11)
+            summaryLabelWidth = 120
+        } else {
+            summaryLabel.font = UIFont.systemFont(ofSize: 24)
+            summaryLabelWidth = 150
+        }
         summaryLabel.numberOfLines = 0
         cell.contentView.addSubview(summaryLabel)
         
         summaryLabel.snp.makeConstraints { (make) in
             make.left.equalTo(10)
-            make.width.equalTo(120)
+            make.width.equalTo(summaryLabelWidth)
             make.top.equalTo(0)
             make.bottom.equalTo(0)
         }
@@ -135,11 +143,15 @@ extension ProductDesViewController : UITableViewDataSource {
         
         detailLabel.textAlignment = .left
         detailLabel.numberOfLines = 0
-        detailLabel.font = UIFont.systemFont(ofSize: 11)
+        if (DeviceType.IS_IPHONE) {
+            detailLabel.font = UIFont.systemFont(ofSize: 11)
+        } else {
+            detailLabel.font = UIFont.systemFont(ofSize: 24)
+        }
         cell.contentView.addSubview(detailLabel)
         detailLabel.snp.makeConstraints { (make) in
-            make.width.equalTo(cell.contentView.frame.width - 140 - 10)
-            make.left.equalTo(140)
+            make.right.equalTo(20)
+            make.left.equalTo(summaryLabelWidth + 20)
             make.top.equalTo(0)
             make.bottom.equalTo(0)
         }
@@ -154,9 +166,9 @@ extension ProductDesViewController : UITableViewDataSource {
                 summaryLabel.text = "Application"
                 detailLabel.text = product.application
             case 2:
-                //summaryLabel.text = "Maximum size"
-                            detailLabel.text = "automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example"
-                //detailLabel.text = product.maxSize
+                summaryLabel.text = "Maximum size"
+//                detailLabel.text = "automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example"
+                detailLabel.text = product.maxSize
                 
                 
             default: break
@@ -172,6 +184,7 @@ extension ProductDesViewController : UITableViewDataSource {
             
         }
         
+
         return cell
     }
     

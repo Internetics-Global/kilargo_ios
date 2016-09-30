@@ -23,12 +23,18 @@ class AboutViewController: BaseViewController {
         
         var width:CGFloat = 0.0
         var height:CGFloat = 0.0
-        if (DeviceType.IS_IPHONE_6P_7P) {
-            width = 380
-            height = 950
+        if (DeviceType.IS_IPHONE) {
+            if (DeviceType.IS_IPHONE_6P_7P) {
+                width = 380
+                height = 950
+            } else {
+                width = 300
+                height = 800
+            }
         } else {
-            width = 300
-            height = 800
+            width = 700
+            height = 1800
+            
         }
         
         self.scrollView.backgroundColor = UIColor.white
