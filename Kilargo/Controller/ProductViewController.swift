@@ -81,7 +81,8 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
         popoverViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         popoverViewController.view.backgroundColor = UIColor.clear
         popoverViewController.source = .installation
-        self.present(popoverViewController, animated: false, completion: nil)
+        popoverViewController.modalTransitionStyle = .crossDissolve
+        self.present(popoverViewController, animated: true, completion: nil)
         
     }
     
@@ -97,7 +98,8 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
         popoverViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         popoverViewController.view.backgroundColor = UIColor.clear
         popoverViewController.source = .information
-        self.present(popoverViewController, animated: false, completion: nil)
+        popoverViewController.modalTransitionStyle = .crossDissolve
+        self.present(popoverViewController, animated: true, completion: nil)
         
         
     }

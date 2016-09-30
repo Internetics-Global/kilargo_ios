@@ -55,7 +55,7 @@ class ProductDesViewController:BaseViewController{
     // MARK: - Actions
     
     func dismissCurrentView() {
-      self .dismiss(animated: false, completion: nil)
+      self .dismiss(animated: true, completion: nil)
     }
 
     

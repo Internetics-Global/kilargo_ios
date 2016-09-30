@@ -168,7 +168,7 @@ extension CarouselImageViewController : UICollectionViewDataSource, UICollection
     
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width * scale,height: (self.view.frame.height - 5*2))
+        return CGSize(width: self.view.frame.width*scale,height: (self.view.frame.height - 5*2)*scale)
         
     
     }
