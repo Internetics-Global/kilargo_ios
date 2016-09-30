@@ -42,4 +42,13 @@ class ExSlideMenuController : SlideMenuController {
             print("TrackAction: right flick close.")
         }   
     }
+    
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait, .portraitUpsideDown]
+    }
 }

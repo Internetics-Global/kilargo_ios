@@ -191,7 +191,13 @@ class MainViewController: BaseViewController {
     
     // MARK: - UIApplicationDidBecomeActiveNotification
     func applicationDidBecomeActiveNotification(_ notification:Notification) {
-        fetchData()
+        
+        if (self.navigationController?.topViewController is MainViewController) {
+            
+            fetchData()
+            
+        }
+        
     }
     
     

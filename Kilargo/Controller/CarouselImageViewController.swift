@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class CarouselImageViewController: BaseViewController {
+class CarouselImageViewController: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -133,6 +133,14 @@ class CarouselImageViewController: BaseViewController {
         return true;
     }
     
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.landscape]
+    }
     
 }
 

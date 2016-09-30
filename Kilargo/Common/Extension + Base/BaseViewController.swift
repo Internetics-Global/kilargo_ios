@@ -78,5 +78,14 @@ class BaseViewController: UIViewController {
         
         dropDown.show()
     }
+    
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait, .portraitUpsideDown]
+    }
 
 }
