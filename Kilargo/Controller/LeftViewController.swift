@@ -59,6 +59,7 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
             make.right.equalTo(0)
         }
         
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

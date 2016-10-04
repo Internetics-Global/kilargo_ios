@@ -84,6 +84,7 @@
 		75B5228B1D9B533B009825AD /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B522641D9B533B009825AD /* NVActivityIndicatorShape.swift */; };
 		75B5228C1D9B533B009825AD /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B522661D9B533B009825AD /* NVActivityIndicatorView.swift */; };
 		75B5228D1D9B533B009825AD /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B522671D9B533B009825AD /* NVActivityIndicatorViewable.swift */; };
+		75BEC43F1DA06EA900487B7C /* ZoomImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BEC43E1DA06EA900487B7C /* ZoomImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +168,7 @@
 		75B522651D9B533B009825AD /* NVActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVActivityIndicatorView.h; sourceTree = "<group>"; };
 		75B522661D9B533B009825AD /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
 		75B522671D9B533B009825AD /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
+		75BEC43E1DA06EA900487B7C /* ZoomImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomImageViewController.swift; sourceTree = "<group>"; };
 		B846E857F10D6855F658B373 /* Pods-Kilargo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kilargo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kilargo/Pods-Kilargo.debug.xcconfig"; sourceTree = "<group>"; };
 		DFFF4B32E6A6A340C29B6A99 /* Pods_Kilargo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kilargo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -239,6 +241,7 @@
 				7591D6B21D9B583100972087 /* ProductDesViewController.swift */,
 				7591D6B31D9B583100972087 /* ProductViewController.swift */,
 				7591D6B41D9B583100972087 /* SettingViewController.swift */,
+				75BEC43E1DA06EA900487B7C /* ZoomImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				7591D6BB1D9B583100972087 /* MainViewController.swift in Sources */,
 				75B5227D1D9B533B009825AD /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
 				75B522841D9B533B009825AD /* NVActivityIndicatorAnimationPacman.swift in Sources */,
+				75BEC43F1DA06EA900487B7C /* ZoomImageViewController.swift in Sources */,
 				7591D6E11D9B58FF00972087 /* UITableViewExtension.swift in Sources */,
 				75B5227B1D9B533B009825AD /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				7591D6E21D9B58FF00972087 /* UIViewControllerExtension.swift in Sources */,

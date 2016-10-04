@@ -520,12 +520,24 @@
                                     <outlet property="delegate" destination="xQX-hg-Eht" id="Shc-8L-KSf"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zae-KN-zu6">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="lAs-hJ-Z7J"/>
+                                    <constraint firstAttribute="width" constant="24" id="lj3-St-swR"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeButtonClicked:" destination="xQX-hg-Eht" eventType="touchUpInside" id="Rek-xm-zi6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UGn-oq-9Ov" firstAttribute="top" secondItem="u7u-RC-Clu" secondAttribute="bottom" constant="10" id="Fee-NE-G2U"/>
+                            <constraint firstAttribute="trailing" secondItem="zae-KN-zu6" secondAttribute="trailing" constant="20" id="Vuo-Zk-FuV"/>
                             <constraint firstAttribute="trailing" secondItem="u7u-RC-Clu" secondAttribute="trailing" id="kMn-Ja-NVS"/>
                             <constraint firstItem="u7u-RC-Clu" firstAttribute="leading" secondItem="vas-MW-T0E" secondAttribute="leading" id="n5W-zU-icN"/>
+                            <constraint firstItem="zae-KN-zu6" firstAttribute="top" secondItem="8TD-xd-TJU" secondAttribute="bottom" constant="20" id="rHu-AI-kMP"/>
                             <constraint firstItem="u7u-RC-Clu" firstAttribute="top" secondItem="8TD-xd-TJU" secondAttribute="bottom" constant="10" id="vVD-T6-1E2"/>
                         </constraints>
                     </view>
@@ -657,6 +669,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close" width="24" height="24"/>
         <image name="home_background" width="720" height="870"/>
         <image name="info_dialog_bg" width="301" height="118"/>
         <image name="info_icon" width="23" height="23"/>
