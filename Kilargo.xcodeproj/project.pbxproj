@@ -10,7 +10,6 @@
 		15C9CE9773DCB7BC4A8D2FAD /* Pods_Kilargo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFF4B32E6A6A340C29B6A99 /* Pods_Kilargo.framework */; };
 		756E13A51D9B1E2600540A39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E13A41D9B1E2600540A39 /* AppDelegate.swift */; };
 		756E13AA1D9B1E2600540A39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756E13A81D9B1E2600540A39 /* Main.storyboard */; };
-		756E13AC1D9B1E2600540A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 756E13AB1D9B1E2600540A39 /* Assets.xcassets */; };
 		756E13AF1D9B1E2600540A39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756E13AD1D9B1E2600540A39 /* LaunchScreen.storyboard */; };
 		757293EA1D9C8A7400671CB2 /* DropdownSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757293E81D9C8A7400671CB2 /* DropdownSearchResultCell.swift */; };
 		757293EB1D9C8A7400671CB2 /* DropdownSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 757293E91D9C8A7400671CB2 /* DropdownSearchResultCell.xib */; };
@@ -85,6 +84,7 @@
 		75B5228C1D9B533B009825AD /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B522661D9B533B009825AD /* NVActivityIndicatorView.swift */; };
 		75B5228D1D9B533B009825AD /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B522671D9B533B009825AD /* NVActivityIndicatorViewable.swift */; };
 		75BEC43F1DA06EA900487B7C /* ZoomImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BEC43E1DA06EA900487B7C /* ZoomImageViewController.swift */; };
+		75F7B5D21DACA2B30071DB8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F7B5D11DACA2B30071DB8A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,7 +92,6 @@
 		756E13A11D9B1E2600540A39 /* Kilargo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kilargo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		756E13A41D9B1E2600540A39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756E13A91D9B1E2600540A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		756E13AB1D9B1E2600540A39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		756E13AE1D9B1E2600540A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		756E13B01D9B1E2600540A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		757293E81D9C8A7400671CB2 /* DropdownSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownSearchResultCell.swift; sourceTree = "<group>"; };
@@ -169,6 +168,7 @@
 		75B522661D9B533B009825AD /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
 		75B522671D9B533B009825AD /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
 		75BEC43E1DA06EA900487B7C /* ZoomImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomImageViewController.swift; sourceTree = "<group>"; };
+		75F7B5D11DACA2B30071DB8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B846E857F10D6855F658B373 /* Pods-Kilargo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kilargo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kilargo/Pods-Kilargo.debug.xcconfig"; sourceTree = "<group>"; };
 		DFFF4B32E6A6A340C29B6A99 /* Pods_Kilargo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kilargo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -220,8 +220,8 @@
 				7591D6C91D9B58FF00972087 /* Common */,
 				7591D6C01D9B586100972087 /* Model */,
 				756E13A41D9B1E2600540A39 /* AppDelegate.swift */,
+				75F7B5D11DACA2B30071DB8A /* Assets.xcassets */,
 				756E13A81D9B1E2600540A39 /* Main.storyboard */,
-				756E13AB1D9B1E2600540A39 /* Assets.xcassets */,
 				756E13AD1D9B1E2600540A39 /* LaunchScreen.storyboard */,
 				756E13B01D9B1E2600540A39 /* Info.plist */,
 			);
@@ -446,8 +446,8 @@
 				756E13AF1D9B1E2600540A39 /* LaunchScreen.storyboard in Resources */,
 				757293EB1D9C8A7400671CB2 /* DropdownSearchResultCell.xib in Resources */,
 				7591D6EA1D9B58FF00972087 /* SearchResultCell.xib in Resources */,
-				756E13AC1D9B1E2600540A39 /* Assets.xcassets in Resources */,
 				756E13AA1D9B1E2600540A39 /* Main.storyboard in Resources */,
+				75F7B5D21DACA2B30071DB8A /* Assets.xcassets in Resources */,
 				75B522881D9B533B009825AD /* Info.plist in Resources */,
 				757293EF1D9CD00D00671CB2 /* InfoDialogCell.xib in Resources */,
 			);

@@ -16,7 +16,7 @@ extension UIViewController: NVActivityIndicatorViewable {
     
     
     func setupLeftMenuNavigationBarItem() {
-        self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
+        self.addLeftBarButtonWithImage(UIImage(named: "left_menu")!)
         
         self.slideMenuController()?.removeLeftGestures()
         self.slideMenuController()?.addLeftGestures()
@@ -42,73 +42,49 @@ extension UIViewController: NVActivityIndicatorViewable {
         
         removeAllSubviewsFromNavigationBar()
         
-        let baseView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 133))
-        baseView.backgroundColor = UIColor.clear
-        baseView.isUserInteractionEnabled = false
-        baseView.tag = 314
-        
-        self.navigationController?.navigationBar.addSubview(baseView)
-        
-        let imageView = UIImageView(image: UIImage(named: "top_banner3"))
-        baseView.addSubview(imageView)
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(baseView).offset(0)
-            make.left.equalTo(baseView).offset(0)
-            make.bottom.equalTo(baseView).offset(0)
-            make.right.equalTo(baseView).offset(0)
-        }
-        
-    }
-    
-    func setupLeftViewNavigationBar() {
-        
-        removeAllSubviewsFromNavigationBar()
-        
-        let baseView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 133))
-        baseView.backgroundColor = UIColor.blue
-        baseView.isUserInteractionEnabled = false
-        baseView.tag = 314
-        
-        self.navigationController?.navigationBar.addSubview(baseView)
-        
-        let imageView = UIImageView(image: UIImage(named: "top_banner3"))
-        baseView.addSubview(imageView)
-        imageView.contentMode = .topLeft
-        imageView.clipsToBounds = true
-        imageView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(baseView).offset(0)
-            make.left.equalTo(baseView).offset(0)
-            make.bottom.equalTo(baseView).offset(0)
-            make.right.equalTo(baseView).offset(0)
-        }
-        
-    }
-    
-    
-    func setupHomeNavigationBar() {
-        
-        removeAllSubviewsFromNavigationBar()
-        
-        let baseView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 133))
+        let baseView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 113))
         baseView.backgroundColor = UIColor.white
         baseView.isUserInteractionEnabled = false
         baseView.tag = 314
         
         self.navigationController?.navigationBar.addSubview(baseView)
         
-        let imageView = UIImageView(image: UIImage(named: "logo_banner"))
-        baseView.addSubview(imageView)
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(baseView)
-            make.top.equalTo(35)
-            make.height.equalTo(78)
-            make.width.equalTo(219)
+        let logoImageView = UIImageView(image: UIImage(named: "logo_banner"))
+        logoImageView.contentMode = .scaleToFill
+        baseView.addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(45)
+            make.height.equalTo(48)
+            make.width.equalTo(139)
         }
         
+    }
+    
+    
+    
+    func setupHomeNavigationBar() {
+        
+        removeAllSubviewsFromNavigationBar()
+        
+        let baseView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 113))
+        baseView.backgroundColor = UIColor.white
+        baseView.isUserInteractionEnabled = false
+        baseView.tag = 314
+        
+        self.navigationController?.navigationBar.addSubview(baseView)
+        
+        
+        
+        let logoImageView = UIImageView(image: UIImage(named: "logo_banner"))
+        logoImageView.contentMode = .scaleToFill
+        baseView.addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(45)
+            make.height.equalTo(48)
+            make.width.equalTo(139)
+        }
         
         
         

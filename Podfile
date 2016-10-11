@@ -18,5 +18,6 @@ target 'Kilargo' do
   pod 'SlideMenuControllerSwift', '~> 3.0'
   pod 'DropDown', '~> 2.0'
   pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift'
+  pod 'UIImageViewAlignedSwift'
 
 end

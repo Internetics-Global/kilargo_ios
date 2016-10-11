@@ -35,11 +35,10 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
         super.viewDidLoad()
         
         self.automaticallyAdjustsScrollViewInsets = false
+        self.edgesForExtendedLayout = []
         
         self.tableView.separatorColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 0.7)
         self.tableView.separatorStyle = .singleLine
-//        self.tableView.backgroundColor = UIColor.red
-        self.tableView.backgroundView = UIImageView(image: UIImage(named: "left_view_bottom_background"))
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let settingViewController = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
@@ -52,21 +51,46 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
         self.tableView.registerCellClass(LeftTableViewCell.self)
         
         //For an unknow reason, we can not make constraints on storyboard, otherwise,top position will be wrong.
-        self.tableView.snp.remakeConstraints { (make) -> Void in
-            make.top.equalTo(153)
-            make.left.equalTo(0)
-            make.bottom.equalTo(0)
-            make.right.equalTo(0)
+        do {
+            
+            self.tableView.snp.remakeConstraints { (make) -> Void in
+                make.top.equalTo(135 + 20)
+                make.left.equalTo(0)
+                make.bottom.equalTo(0)
+                make.right.equalTo(0)
+            }
+            
+            self.navigationController?.setNavigationBarHidden(true, animated: false)
+            
+            let topImageView = UIImageView(image: UIImage(named: "left_view_top.png"))
+            topImageView.contentMode = .scaleToFill
+            self.view.addSubview(topImageView)
+            topImageView.snp.makeConstraints { (make) -> Void in
+                make.top.equalTo(20)
+                make.left.equalTo(0)
+                make.height.equalTo(115 + 20)
+                make.right.equalTo(0)
+            }
+            
+            let logoImageView = UIImageView(image: UIImage(named: "logo_banner"))
+            logoImageView.contentMode = .scaleToFill
+            self.view.addSubview(logoImageView)
+            logoImageView.snp.makeConstraints { (make) -> Void in
+                make.centerX.equalToSuperview()
+                make.top.equalTo(45 + 20)
+                make.height.equalTo(48)
+                make.width.equalTo(139)
+            }
+            
         }
+        
+        
         
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.setupLeftViewNavigationBar()
-        
         
         
     }
@@ -82,6 +106,7 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.aboutViewController, close: true)
         }
     }
+    
     
 }
 

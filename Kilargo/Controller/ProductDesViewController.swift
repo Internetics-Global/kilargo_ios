@@ -44,6 +44,8 @@ class ProductDesViewController:BaseViewController{
         recognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(recognizer)
         
+        //gradient background color
+
         
     }
     

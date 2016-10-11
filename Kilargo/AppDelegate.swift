@@ -38,24 +38,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
         
         let homenvc: UINavigationController = UINavigationController(rootViewController: homeViewController)
-        let leftnvc: UINavigationController = UINavigationController(rootViewController: leftViewController)
         
         
         leftViewController.mainViewController = homenvc
         
-        let slideMenuController = ExSlideMenuController(mainViewController:homenvc, leftMenuViewController: leftnvc)
+        let slideMenuController = ExSlideMenuController(mainViewController:homenvc, leftMenuViewController: leftViewController)
         //slideMenuController.automaticallyAdjustsScrollViewInsets = true
-        if (DeviceType.IS_IPHONE == false) {
-            slideMenuController.changeLeftViewWidth(320)
-        } else {
-            if (DeviceType.IS_IPHONE_6_7 || DeviceType.IS_IPHONE_6P_7P) {
-                slideMenuController.changeLeftViewWidth(300)
-            } else {
-                slideMenuController.changeLeftViewWidth(280)
-            }
-        }
+        slideMenuController.changeLeftViewWidth(276)
         SlideMenuOptions.hideStatusBar = false
         SlideMenuOptions.contentViewScale = 1
+        SlideMenuOptions.contentViewOpacity = 1
         
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         self.window?.rootViewController = slideMenuController
@@ -67,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /**
          *  Control the bar item text color, rather than bar color
          */
-        UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
+        UINavigationBar.appearance().tintColor = UIColor(red: 143.0/255, green: 143.0/255, blue: 143.0/255, alpha: 1)
         
         NVActivityIndicatorView.DEFAULT_TYPE = .lineScalePulseOut
         NVActivityIndicatorView.DEFAULT_COLOR = UIColor.white

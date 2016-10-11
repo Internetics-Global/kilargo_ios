@@ -12,6 +12,7 @@ PODS:
   - SlideMenuControllerSwift (3.0.0)
   - SnapKit (3.0.1)
   - SwiftyJSON (3.1.0)
+  - UIImageViewAlignedSwift (0.3.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - SlideMenuControllerSwift (~> 3.0)
   - SnapKit (~> 3.0.0)
   - SwiftyJSON (~> 3.0)
+  - UIImageViewAlignedSwift
 
 EXTERNAL SOURCES:
   SCLAlertView:
@@ -47,7 +49,8 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
   SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
+  UIImageViewAlignedSwift: e57cc89b4738a82ffad1b76e8ab01f898215bbfb
 
-PODFILE CHECKSUM: 5f048e9136fdba2574ba02489c214ad4e6b33d8d
+PODFILE CHECKSUM: 45754ceea1d3c83897392843d094b28314327d27
 
 COCOAPODS: 1.1.0.rc.2

@@ -8,14 +8,19 @@
 
 import Foundation
 import SlideMenuControllerSwift
+import UIImageViewAlignedSwift
 
 class HomeViewController:BaseViewController {
+    
+    @IBOutlet weak var backgroundImageView: UIImageViewAligned!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupHomeNavigationBar()
         self.setupLeftMenuNavigationBarItem()
+        
 
     }
     

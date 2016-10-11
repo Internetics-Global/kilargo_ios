@@ -24,7 +24,7 @@ open class LeftTableViewCell : UITableViewCell {
     }
     
     private func setup() {
-        self.accessoryType = .disclosureIndicator
+        self.accessoryView = UIImageView(image: UIImage(named: "right_arrow_white"))
     }
     
     open class func height() -> CGFloat {

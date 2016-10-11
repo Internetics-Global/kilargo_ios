@@ -33,8 +33,6 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        
         self.tableview.delegate = self
         self.tableview.dataSource = self;
         
@@ -257,6 +255,7 @@ extension MainViewController:UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuItemCell.identifier, for: indexPath) as! MenuItemCell
         
         cell.titleLabel.text = self.categories[(indexPath as NSIndexPath).row]
+        
         
         return cell;
         
