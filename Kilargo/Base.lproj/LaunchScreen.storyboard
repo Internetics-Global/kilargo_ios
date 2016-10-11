@@ -19,8 +19,8 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_banner" translatesAutoresizingMaskIntoConstraints="NO" id="etr-R0-ciM">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="139" id="BEQ-FP-QzH"/>
-                                    <constraint firstAttribute="height" constant="48" id="P1d-il-egc"/>
+                                    <constraint firstAttribute="width" constant="279" id="BEQ-FP-QzH"/>
+                                    <constraint firstAttribute="height" constant="96" id="P1d-il-egc"/>
                                 </constraints>
                             </imageView>
                         </subviews>

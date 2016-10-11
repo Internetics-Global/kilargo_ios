@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         slideMenuController.changeLeftViewWidth(276)
         SlideMenuOptions.hideStatusBar = false
         SlideMenuOptions.contentViewScale = 1
-        SlideMenuOptions.contentViewOpacity = 1
+        SlideMenuOptions.contentViewOpacity = 0.7
         
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         self.window?.rootViewController = slideMenuController
