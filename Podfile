@@ -20,4 +20,6 @@ target 'Kilargo' do
   pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift'
   pod 'UIImageViewAlignedSwift'
 
+  pod 'Reveal-iOS-SDK', :configurations => ['Debug']
+
 end

@@ -12,10 +12,15 @@ import Kingfisher
 
 class CarouselImageViewController: UIViewController {
     
-    @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     fileprivate var validImages:[String] = []
+    
+    fileprivate static let SUB_SCROLLVIEW_TAG_BASE = 1000
+    fileprivate static let MAIN_SCROLLVIEW_TAG = 0
+    
+    fileprivate var currentPage:Int = 0
     
     var product:Product? {
         didSet {
@@ -50,7 +55,68 @@ class CarouselImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView.isPagingEnabled = true
+        self.scrollView.isPagingEnabled = true
+        self.scrollView.delegate = self
+        self.scrollView.tag = CarouselImageViewController.MAIN_SCROLLVIEW_TAG
+        self.scrollView.maximumZoomScale = 1
+        self.scrollView.minimumZoomScale = 1
+        
+        //self.scrollView.backgroundColor = UIColor.red
+        
+        let COUNT = validImages.count
+        let scrollViewWidth: CGFloat = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
+        let scrollViewHeight: CGFloat = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) - 10*2
+        
+        var i = 0
+        while (i < COUNT) {
+            
+            let pageScrollView = UIScrollView()
+            //scrollView.backgroundColor = UIColor.red
+            pageScrollView.maximumZoomScale = 5
+            pageScrollView.minimumZoomScale = 1
+            pageScrollView.delegate = self;
+            pageScrollView.tag = i + CarouselImageViewController.SUB_SCROLLVIEW_TAG_BASE
+            pageScrollView.bounces = false
+            self.scrollView.addSubview(pageScrollView)
+            pageScrollView.snp.makeConstraints { (make) in
+                make.left.equalTo(scrollViewWidth * CGFloat(i))
+                make.top.equalTo(0)
+                make.width.equalTo(scrollViewWidth)
+                make.height.equalTo(scrollViewHeight)
+            }
+            
+            
+            let imageView = UIImageView()
+            pageScrollView.addSubview(imageView)
+            imageView.snp.makeConstraints { (make) in
+                make.center.equalToSuperview()
+                make.width.equalTo(scrollViewWidth)
+                make.height.equalTo(scrollViewHeight)
+            }
+            //imageView.backgroundColor = UIColor.orange
+            imageView.contentMode = .scaleAspectFit
+            
+            let url = Global.imageBaseURL + self.validImages[i]
+            
+            imageView.kf.setImage(with:URL(string: url)!, placeholder: UIImage(named: "placeholder"), options: [.transition(ImageTransition.fade(1))], progressBlock: nil, completionHandler: nil)
+            
+            i = i + 1
+            
+//            if (i%2 == 0) {
+//                imageView.backgroundColor = UIColor.orange
+//            }else {
+//                imageView.backgroundColor = UIColor.red
+//            }
+            
+            let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.productImageTapped(_:)))
+            imageView.isUserInteractionEnabled = true
+            imageView.addGestureRecognizer(tapGestureRecognizer)
+            
+            
+        }
+        
+        self.scrollView.contentSize = CGSize(width: scrollViewWidth*CGFloat(COUNT-1), height: scrollViewHeight)
+
 
         
     }
@@ -59,6 +125,14 @@ class CarouselImageViewController: UIViewController {
         static let CellIdentifier = "CarouselCellIdentifier"
     }
     
+    @objc fileprivate func productImageTapped(_ sender: UITapGestureRecognizer) {
+        
+        let tappedScrollView = sender.view?.superview as! UIScrollView
+        tappedScrollView.zoomScale = 1
+        tappedScrollView.contentOffset = CGPoint.zero
+        
+        
+    }
     
     @IBAction func closeButtonClicked(_ sender: AnyObject) {
         
@@ -81,45 +155,50 @@ class CarouselImageViewController: UIViewController {
     
 }
 
-extension CarouselImageViewController:UICollectionViewDelegate {
+extension CarouselImageViewController:UIScrollViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let viewController = ZoomImageViewController()
-        viewController.imageUrl = Global.imageBaseURL + self.validImages[(indexPath as NSIndexPath).row]
-        viewController.modalTransitionStyle = .crossDissolve
-        self.present(viewController, animated: true, completion: nil)
+    //for scrollivew that holds image
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        for item in self.scrollView.subviews {
+            if (item.tag == currentPage + CarouselImageViewController.SUB_SCROLLVIEW_TAG_BASE && item is UIScrollView) {
+                return item.subviews.first
+            }
+        }
+        
+        return nil;
     }
+    
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        if (scrollView.zoomScale > 1) {
+            self.scrollView.isScrollEnabled = false
+        } else {
+            self.scrollView.isScrollEnabled = true
+        }
+    }
+    
+    //for the top scrollview, rather than the scrollivew that holds image
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        if (scrollView.tag == CarouselImageViewController.MAIN_SCROLLVIEW_TAG) {
+            
+            currentPage = Int(scrollView.contentOffset.x / scrollView.frame.size.width);
+            
+            for item in self.scrollView.subviews {
+                if let item = item as? UIScrollView {
+                    //print("scrollViewDidEndDecelerating",item)
+                    item.zoomScale = 1
+                    item.contentOffset = CGPoint.zero
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
 }
 
-
-extension CarouselImageViewController : UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return validImages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Storyboard.CellIdentifier, for: indexPath) as! CarouselCollectionViewCell
-        
-        let url = Global.imageBaseURL + self.validImages[(indexPath as NSIndexPath).row]
-        
-        cell.featuredImageView.kf.setImage(with:URL(string: url)!, placeholder: UIImage(named: "placeholder"), options: [.transition(ImageTransition.fade(1))], progressBlock: nil, completionHandler: nil)
-        
-        return cell
-        
-    }
-    
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width,height: (self.view.frame.height - 5*2))
-        
-    
-    }
-    
-    
-}
 

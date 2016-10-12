@@ -8,6 +8,7 @@ PODS:
   - ObjectMapper (2.0.0)
   - ReachabilitySwift (3)
   - Refresher (0.6.1)
+  - Reveal-iOS-SDK (1.6.2)
   - SCLAlertView (0.6.0)
   - SlideMenuControllerSwift (3.0.0)
   - SnapKit (3.0.1)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - ObjectMapper (~> 2.0.0)
   - ReachabilitySwift (~> 3.0)
   - Refresher (~> 0.6.1)
+  - Reveal-iOS-SDK
   - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift`)
   - SlideMenuControllerSwift (~> 3.0)
   - SnapKit (~> 3.0.0)
@@ -45,12 +47,13 @@ SPEC CHECKSUMS:
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   Refresher: 7c6f09ef3428aa921cb477611fb26bf29a9e5492
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SCLAlertView: 0f6b3c23a48b4993564ff1dd3c065782e4b2b687
   SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
   SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
   UIImageViewAlignedSwift: e57cc89b4738a82ffad1b76e8ab01f898215bbfb
 
-PODFILE CHECKSUM: 45754ceea1d3c83897392843d094b28314327d27
+PODFILE CHECKSUM: 1e8b97ac2e9e45e48b456c4262407a37a4a027fd
 
 COCOAPODS: 1.1.0.rc.2

@@ -49,6 +49,8 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.searchBar.text = ""
     }
     
     override func viewWillDisappear(_ animated: Bool) {
