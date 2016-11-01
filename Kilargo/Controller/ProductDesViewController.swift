@@ -134,12 +134,7 @@ extension ProductDesViewController : UITableViewDataSource {
         summaryLabel.numberOfLines = 0
         cell.contentView.addSubview(summaryLabel)
         
-        summaryLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(10)
-            make.width.equalTo(summaryLabelWidth)
-            make.top.equalTo(0)
-            make.bottom.equalTo(0)
-        }
+        
         
         let detailLabel = UILabel()
         
@@ -151,14 +146,26 @@ extension ProductDesViewController : UITableViewDataSource {
             detailLabel.font = UIFont.systemFont(ofSize: 24)
         }
         cell.contentView.addSubview(detailLabel)
-        detailLabel.snp.makeConstraints { (make) in
-            make.right.equalTo(20)
-            make.left.equalTo(summaryLabelWidth + 20)
-            make.top.equalTo(0)
-            make.bottom.equalTo(0)
-        }
+        
         
         if (source == .information) {
+            
+            summaryLabel.snp.makeConstraints { (make) in
+                make.left.equalTo(10)
+                make.width.equalTo(summaryLabelWidth)
+                make.top.equalTo(0)
+                make.bottom.equalTo(0)
+            }
+            
+            
+            detailLabel.snp.makeConstraints { (make) in
+                make.right.equalTo(20)
+                make.left.equalTo(summaryLabelWidth + 20)
+                make.top.equalTo(0)
+                make.bottom.equalTo(0)
+            }
+            
+            
             
             switch indexPath.section {
             case 0:
@@ -178,7 +185,22 @@ extension ProductDesViewController : UITableViewDataSource {
             }
         } else if (source == .installation) {
             
-            summaryLabel.text = product.installationInstructionTitle
+            summaryLabel.snp.makeConstraints { (make) in
+                make.left.equalTo(10)
+                make.width.equalTo(0)
+                make.top.equalTo(0)
+                make.bottom.equalTo(0)
+            }
+            
+            
+            detailLabel.snp.makeConstraints { (make) in
+                make.right.equalTo(10)
+                make.left.equalTo(10)
+                make.top.equalTo(0)
+                make.bottom.equalTo(0)
+            }
+            
+//            summaryLabel.text = product.installationInstructionTitle  
             detailLabel.text = product.installationInstructionBody
             
             
