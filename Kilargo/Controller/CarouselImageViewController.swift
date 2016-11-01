@@ -96,7 +96,12 @@ class CarouselImageViewController: UIViewController {
             //imageView.backgroundColor = UIColor.orange
             imageView.contentMode = .scaleAspectFit
             
-            let url = Global.imageBaseURL + self.validImages[i]
+            var url = Global.imageBaseURL + self.validImages[i]
+            if (url.contains(".png") || url.contains(".jpg") || url.contains(".jpeg")) {
+                
+            } else {
+                url = url + ".png";
+            }
             
             imageView.kf.setImage(with:URL(string: url)!, placeholder: UIImage(named: "placeholder"), options: [.transition(ImageTransition.fade(1))], progressBlock: nil, completionHandler: nil)
             
