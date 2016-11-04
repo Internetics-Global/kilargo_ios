@@ -14,8 +14,8 @@ open class Product:NSObject, Mappable {
     var productID:Int                       = 0
     var productName:String                  = ""
 
-    var category:String                     = ""
-    var subcategory:String                  = ""
+    var categoryIDList:[Int]?
+    var subcategoryIDList:[Int]?
 
     var systemNumber:String                 = ""
     var buildingElement:String              = ""
@@ -43,11 +43,36 @@ open class Product:NSObject, Mappable {
     
     // Mappable
     open func mapping(map: Map) {
-        productID        <-                      map["product_id"]
+        
+        
+        let transformString2IntArray = TransformOf<[Int], String>(fromJSON: { (value: String?) -> [Int]? in
+
+            let stringArray = value?.components(separatedBy: ",")
+            let intArray:[Int]? = stringArray?.map{Int($0)!}
+            return intArray
+            }, toJSON: { (value: [Int]?) -> String? in
+                //not implemented yet
+                return nil
+        })
+        
+        let transform = TransformOf<Int, String>(fromJSON: { (value: String?) -> Int? in
+            // transform value from String? to Int?
+            return Int(value!)
+            }, toJSON: { (value: Int?) -> String? in
+                // transform value from Int? to String?
+                if let value = value {
+                    return String(value)
+                }
+                return nil
+        })
+        
+        
+        
+        productID        <-                      (map["product_id"],transform)
         productName        <-                    map["product_name"]
 
-        category          <-                     map["category_name"]
-        subcategory          <-                  map["subcategory_name"]
+        categoryIDList          <-                     (map["category_name"],transformString2IntArray)
+        subcategoryIDList          <-                  (map["subcategory_name"],transformString2IntArray)
 
         systemNumber          <-                 map["system_number"]
         buildingElement      <-                  map["building_element"]

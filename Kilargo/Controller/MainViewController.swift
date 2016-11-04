@@ -18,7 +18,7 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    fileprivate var categories:[String] = []
+    fileprivate var categories:[Category] = []
     fileprivate var selectedMenuListIndex = -1
     
     fileprivate var pullRefreshShowing = false
@@ -89,7 +89,7 @@ class MainViewController: BaseViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = (segue.destination as? SubViewController) {
-           viewController.parentCategoryName = self.categories[selectedMenuListIndex]
+           viewController.parentCategoryID = self.categories[selectedMenuListIndex].categoryID
         }
     }
     
@@ -148,7 +148,7 @@ class MainViewController: BaseViewController {
         
         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async(execute: {
             
-            JsonFetcher.fetchProducts(Global.feedURL) { (result, errorMessage) in
+            JsonFetcher.fetchAllFeed{ (result, errorMessage) in
                 
                 DispatchQueue.main.async(execute: {
                     
@@ -256,7 +256,7 @@ extension MainViewController:UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuItemCell.identifier, for: indexPath) as! MenuItemCell
         
-        cell.titleLabel.text = self.categories[(indexPath as NSIndexPath).row]
+        cell.titleLabel.text = self.categories[(indexPath as NSIndexPath).row].categoryName
         
         
         return cell;

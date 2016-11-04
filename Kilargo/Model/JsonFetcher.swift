@@ -15,6 +15,132 @@ import AlamofireObjectMapper
 struct JsonFetcher {
     
     static fileprivate var products:[Product] = []
+    static fileprivate var categories:[Category] = []
+    static fileprivate var subCategories:[SubCategory] = []
+
+    
+    static func fetchAllFeed(completion:@escaping (_ result: Bool, _ errorMessage:String) -> Void) {
+        
+        var finalResult = false
+        var finalErrorMessage = ""
+        
+        let serviceGroup = DispatchGroup()
+        
+        serviceGroup.enter();
+        JsonFetcher.fetchProducts(Global.productFeedURL) { (result, errorMessage) in
+            
+            if (result) {
+                finalResult = result
+                finalErrorMessage = errorMessage
+            }
+            
+            serviceGroup.leave()
+        }
+        
+        serviceGroup.enter();
+        JsonFetcher.fetchCategory(Global.categoryFeedURL) { (result, errorMessage) in
+            
+            if (result) {
+                finalResult = result
+                finalErrorMessage = errorMessage
+            }
+            
+            serviceGroup.leave()
+        }
+        
+        serviceGroup.enter();
+        JsonFetcher.fetchSubCategory(Global.subCategoryFeedURL) { (result, errorMessage) in
+            
+            if (result) {
+                finalResult = result
+                finalErrorMessage = errorMessage
+            }
+            
+            serviceGroup.leave()
+        }
+        
+        serviceGroup.notify(queue: DispatchQueue.main) {
+            
+            completion(finalResult,finalErrorMessage)
+            
+        }
+        
+        
+    }
+    
+    static func fetchCategory(_ urlStr:String,completion:@escaping (_ result: Bool, _ errorMessage:String) -> Void) {
+        
+        if let url = URL(string: urlStr) {
+            
+            Alamofire.request(url).responseArray { (response: DataResponse<[Category]>) in
+                
+                switch response.result {
+                    
+                case .success(_):
+                    
+                    if let resultArray = response.result.value {
+                        
+                        if (resultArray.count > 0) {
+                            self.categories = resultArray
+                            completion(true,"Parse success")
+                        } else {
+                            self.categories = []
+                            completion(false, "Parse failed")
+                        }
+                    }
+                    
+                    
+                case .failure(let error):
+                    self.categories = []
+                    print(error)
+                    completion(false, error.localizedDescription)
+                    
+                }
+                
+                
+            }
+            
+            
+        }
+        
+    }
+    
+    static func fetchSubCategory(_ urlStr:String,completion:@escaping (_ result: Bool, _ errorMessage:String) -> Void) {
+        
+        if let url = URL(string: urlStr) {
+            
+            Alamofire.request(url).responseArray { (response: DataResponse<[SubCategory]>) in
+                
+                switch response.result {
+                    
+                case .success(_):
+                    
+                    if let resultArray = response.result.value {
+                        
+                        if (resultArray.count > 0) {
+                            self.subCategories = resultArray
+                            completion(true,"Parse success")
+                        } else {
+                            self.subCategories = []
+                            completion(false, "Parse failed")
+                        }
+                    }
+                    
+                    
+                case .failure(let error):
+                    self.subCategories = []
+                    print(error)
+                    completion(false, error.localizedDescription)
+                    
+                }
+                
+                
+            }
+            
+            
+        }
+        
+    }
     
     static func fetchProducts(_ urlStr:String,completion:@escaping (_ result: Bool, _ errorMessage:String) -> Void){
         
@@ -44,8 +170,7 @@ struct JsonFetcher {
                     completion(false, error.localizedDescription)
                     
                 }
-                
-                
+            
                 
             }
             
@@ -55,34 +180,38 @@ struct JsonFetcher {
     }
     
     
-    static func getCategory() -> [String] {
-        
-        var categories :[String] = []
-        for item in self.products {
-            categories.append(item.category)
-        }
-        
-        let sets = Set(categories)  //remove duplicated
-        
-        
-        return Array(sets)
+    static func getCategory() -> [Category] {
+    
+        return categories
     }
     
-    static func getSubcategoryWithParenent(_ categoryName:String) -> [String] {
-        var subcategories:[String] = []
-        for item in self.products {
-            if (item.category.lowercased() == categoryName.lowercased()) {
-                subcategories.append(item.subcategory)
-            }
-        }
-        
-        let sets = Set(subcategories)  //remove duplicated
-        
-        return Array(sets)
-    }
     
     static func getAllProducts() -> [Product] {
         return self.products
+    }
+    
+    
+    static func getSubcategory(_ categoryID:Int) -> [SubCategory] {
+        var filtedSubCategories:[SubCategory] = []
+        for item in self.subCategories {
+            if (item.masterCategoryID == categoryID) {
+                filtedSubCategories.append(item)
+            }
+        }
+        
+        return filtedSubCategories;
+    }
+    
+    static func getProducts(categoryId: Int,subCategoryId:Int) -> [Product] {
+        
+        var filteredProducts:[Product] = []
+        for item in self.products {
+            if ((item.categoryIDList?.contains(categoryId))! && (item.subcategoryIDList?.contains(subCategoryId))!) {
+                filteredProducts.append(item)
+            }
+        }
+        
+        return filteredProducts
     }
     
     /**
@@ -90,60 +219,61 @@ struct JsonFetcher {
      */
     static func getProductsWithAnyKeyword(_ name:String) -> [Product] {
         
-        var products:[Product] = []
+        var filtedProducts:[Product] = []
         
         guard name.characters.count>0 else {
             return []
         }
         
         let lowerCaseName = name.lowercased()
-        products = self.products.filter({ (product) -> Bool in
-            (product.productName.lowercased().contains(lowerCaseName)) ||
-            (product.category.lowercased().contains(lowerCaseName)) ||
-            (product.subcategory.lowercased().contains(lowerCaseName))
+        filtedProducts = self.products.filter({ (product) -> Bool in
+            (product.productName.lowercased().contains(lowerCaseName))
+//            (product.category.lowercased().contains(lowerCaseName)) ||
+//            (product.subcategory.lowercased().contains(lowerCaseName))
         })
         
-        return products
+        return filtedProducts
         
         
     }
     
-
-    static func getProductsWithProductName(_ productName:String) -> [Product] {
+    static func getCategoryName(categoryID: Int) -> String {
         
-        var products:[Product] = []
-        
-        guard productName.characters.count>0 else {
-            return []
+        for item in self.categories {
+            if (item.categoryID == categoryID) {
+                return item.categoryName
+            }
         }
         
-        let lowerCaseName = productName.lowercased()
-        products = self.products.filter({ (product) -> Bool in
-            product.productName.lowercased().contains(lowerCaseName)
-        })
-        
-        return products
-        
+        return "---";
         
     }
     
-    static func getProductsWithSubcategoryName(_ subcategoryName:String) -> [Product] {
+    static func getSubCategoryName(subCategoryID: Int) -> String {
         
-        var products:[Product] = []
-        
-        guard subcategoryName.characters.count>0 else {
-            return []
+        for item in self.subCategories {
+            if (item.subcategoryID == subCategoryID) {
+                return item.subcategoryName
+            }
         }
         
-        let lowerCaseName = subcategoryName.lowercased()
-        products = self.products.filter({ (product) -> Bool in
-            product.subcategory.lowercased() == lowerCaseName
-        })
-        
-        return products
-        
+        return "--";
         
     }
+    
+    static func getMasterCategoryName(subCategoryID: Int) -> String {
+        
+        for item in self.subCategories {
+            if (item.subcategoryID == subCategoryID) {
+                return getCategoryName(categoryID: item.masterCategoryID)
+            }
+        }
+        
+        return "--";
+        
+    }
+    
+    
     
 }
 

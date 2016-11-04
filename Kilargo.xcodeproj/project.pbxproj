@@ -26,9 +26,9 @@
 		7591D6BE1D9B583100972087 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6B41D9B583100972087 /* SettingViewController.swift */; };
 		7591D6BF1D9B583100972087 /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6B51D9B583100972087 /* SubViewController.swift */; };
 		7591D6C51D9B586100972087 /* JsonFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6C11D9B586100972087 /* JsonFetcher.swift */; };
-		7591D6C61D9B586100972087 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6C21D9B586100972087 /* Menu.swift */; };
+		7591D6C61D9B586100972087 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6C21D9B586100972087 /* Category.swift */; };
 		7591D6C71D9B586100972087 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6C31D9B586100972087 /* Product.swift */; };
-		7591D6C81D9B586100972087 /* SubMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6C41D9B586100972087 /* SubMenu.swift */; };
+		7591D6C81D9B586100972087 /* SubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6C41D9B586100972087 /* SubCategory.swift */; };
 		7591D6DD1D9B58FF00972087 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6CB1D9B58FF00972087 /* BaseViewController.swift */; };
 		7591D6DE1D9B58FF00972087 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6CC1D9B58FF00972087 /* StringExtension.swift */; };
 		7591D6DF1D9B58FF00972087 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6CD1D9B58FF00972087 /* UIApplicationExtension.swift */; };
@@ -108,9 +108,9 @@
 		7591D6B41D9B583100972087 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7591D6B51D9B583100972087 /* SubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
 		7591D6C11D9B586100972087 /* JsonFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonFetcher.swift; sourceTree = "<group>"; };
-		7591D6C21D9B586100972087 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		7591D6C21D9B586100972087 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7591D6C31D9B586100972087 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		7591D6C41D9B586100972087 /* SubMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubMenu.swift; sourceTree = "<group>"; };
+		7591D6C41D9B586100972087 /* SubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategory.swift; sourceTree = "<group>"; };
 		7591D6CB1D9B58FF00972087 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7591D6CC1D9B58FF00972087 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		7591D6CD1D9B58FF00972087 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
@@ -247,9 +247,9 @@
 			isa = PBXGroup;
 			children = (
 				7591D6C11D9B586100972087 /* JsonFetcher.swift */,
-				7591D6C21D9B586100972087 /* Menu.swift */,
+				7591D6C21D9B586100972087 /* Category.swift */,
+				7591D6C41D9B586100972087 /* SubCategory.swift */,
 				7591D6C31D9B586100972087 /* Product.swift */,
-				7591D6C41D9B586100972087 /* SubMenu.swift */,
 			);
 			name = Model;
 			path = Kilargo/Model;
@@ -518,7 +518,7 @@
 				75B522741D9B533B009825AD /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				7591D6C51D9B586100972087 /* JsonFetcher.swift in Sources */,
 				75B5228B1D9B533B009825AD /* NVActivityIndicatorShape.swift in Sources */,
-				7591D6C61D9B586100972087 /* Menu.swift in Sources */,
+				7591D6C61D9B586100972087 /* Category.swift in Sources */,
 				75B522851D9B533B009825AD /* NVActivityIndicatorAnimationSemiCircleSpin.swift in Sources */,
 				75B522861D9B533B009825AD /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				75B5227A1D9B533B009825AD /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
@@ -546,7 +546,7 @@
 				757293EA1D9C8A7400671CB2 /* DropdownSearchResultCell.swift in Sources */,
 				75B522721D9B533B009825AD /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				7591D6DE1D9B58FF00972087 /* StringExtension.swift in Sources */,
-				7591D6C81D9B586100972087 /* SubMenu.swift in Sources */,
+				7591D6C81D9B586100972087 /* SubCategory.swift in Sources */,
 				75B522891D9B533B009825AD /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				75B5228D1D9B533B009825AD /* NVActivityIndicatorViewable.swift in Sources */,
 				7591D6EB1D9B590000972087 /* UIButton.swift in Sources */,

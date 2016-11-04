@@ -51,11 +51,28 @@ class BaseViewController: UIViewController {
         dropDown.backgroundColor = UIColor(red: 241.0/255, green: 242.0/255, blue: 242.0/255, alpha: 1)
         
         
-        let searchResult = JsonFetcher.getProductsWithAnyKeyword(searchText)
+        var finalList:[Dictionary<String, Any>] = [] //the reason for this is because some products could have multiple subcategories
+        
+        do {
+            
+            let productList = JsonFetcher.getProductsWithAnyKeyword(searchText)
+            for product in productList {
+                for subCategoryID in product.subcategoryIDList! {
+                    let subCategoryName = JsonFetcher.getSubCategoryName(subCategoryID: subCategoryID);
+                    let categoryName = JsonFetcher.getMasterCategoryName(subCategoryID: subCategoryID)
+                    
+                    let dict:[String: Any] = ["product":product,"subCategoryName":subCategoryName,"categoryName":categoryName]
+                    finalList.append(dict)
+                    
+                }
+            }
+
+        }
+        
         
         var dataSource:[String] = []
-        for item in searchResult {
-            let text = "\(item.category)->\(item.subcategory)"
+        for item in finalList {
+            let text = "\(item["categoryName"]!)->\(item["subCategoryName"]!)"
             dataSource.append(text)
         }
         dropDown.dataSource = dataSource
@@ -64,11 +81,13 @@ class BaseViewController: UIViewController {
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             
+            let targetProduct:Product = finalList[index]["product"] as! Product;
+            
             let storyboard : UIStoryboard = UIStoryboard(
                 name: "Main",
                 bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as! ProdutViewController
-            viewController.products = [searchResult[index]]
+            viewController.products = [targetProduct]
             self.navigationController?.pushViewController(viewController, animated: true)
             
             

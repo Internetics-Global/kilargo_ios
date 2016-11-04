@@ -14,15 +14,16 @@ class SubViewController:BaseViewController{
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var parentCategoryName:String  = ""{
+    fileprivate var subCategories:[SubCategory] = []
+    fileprivate var selectedMenuListIndex = -1
+    
+    var parentCategoryID:Int  = 0 {
         didSet {
-           categories = JsonFetcher.getSubcategoryWithParenent(parentCategoryName)
+           subCategories = JsonFetcher.getSubcategory(parentCategoryID)
         }
     }
     
-    fileprivate var categories:[String] = []
     
-    fileprivate var selectedMenuListIndex = -1
     
     // MARK: - Life cycle
     
@@ -53,8 +54,10 @@ class SubViewController:BaseViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        let selectedSubCategory:SubCategory = self.subCategories[selectedMenuListIndex];
+        
         if (segue.destination is ProdutViewController) {
-            (segue.destination as! ProdutViewController).products = JsonFetcher.getProductsWithSubcategoryName(self.categories[selectedMenuListIndex])
+            (segue.destination as! ProdutViewController).products = JsonFetcher.getProducts(categoryId: selectedSubCategory.masterCategoryID, subCategoryId: selectedSubCategory.subcategoryID)
             
         }
         
@@ -100,13 +103,13 @@ extension SubViewController:UISearchBarDelegate {
 extension SubViewController:UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.categories.count
+        return self.subCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: SubMenuItemCell.identifier, for: indexPath) as! SubMenuItemCell
-        cell.titleLabel.text = self.categories[(indexPath as NSIndexPath).row]
+        cell.titleLabel.text = self.subCategories[(indexPath as NSIndexPath).row].subcategoryName
         //        cell.backgroundColor = UIColor.greenColor()
         
         cell.accessoryView = UIImageView(image: UIImage(named: "right_arrow_white"))
