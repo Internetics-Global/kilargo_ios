@@ -29,7 +29,7 @@ struct JsonFetcher {
         serviceGroup.enter();
         JsonFetcher.fetchProducts(Global.productFeedURL) { (result, errorMessage) in
             
-            if (result) {
+            if (result == false) {
                 finalResult = result
                 finalErrorMessage = errorMessage
             }
@@ -40,7 +40,7 @@ struct JsonFetcher {
         serviceGroup.enter();
         JsonFetcher.fetchCategory(Global.categoryFeedURL) { (result, errorMessage) in
             
-            if (result) {
+            if (result == false ) {
                 finalResult = result
                 finalErrorMessage = errorMessage
             }
@@ -51,7 +51,7 @@ struct JsonFetcher {
         serviceGroup.enter();
         JsonFetcher.fetchSubCategory(Global.subCategoryFeedURL) { (result, errorMessage) in
             
-            if (result) {
+            if (result == false) {
                 finalResult = result
                 finalErrorMessage = errorMessage
             }
@@ -92,7 +92,7 @@ struct JsonFetcher {
                     
                 case .failure(let error):
                     self.categories = []
-                    print(error)
+                    print("fetchCategory eror " + error.localizedDescription)
                     completion(false, error.localizedDescription)
                     
                 }
@@ -129,7 +129,7 @@ struct JsonFetcher {
                     
                 case .failure(let error):
                     self.subCategories = []
-                    print(error)
+                    print("fetchSubCategory error:" + error.localizedDescription)
                     completion(false, error.localizedDescription)
                     
                 }
@@ -166,7 +166,7 @@ struct JsonFetcher {
                     
                 case .failure(let error):
                     self.products = []
-                    print(error)
+                    print("fetchProducts error:" + error.localizedDescription)
                     completion(false, error.localizedDescription)
                     
                 }
@@ -237,7 +237,7 @@ struct JsonFetcher {
         
     }
     
-    static func getCategoryName(categoryID: Int) -> String {
+    static func getCategoryName(categoryID: Int) -> String? {
         
         for item in self.categories {
             if (item.categoryID == categoryID) {
@@ -245,11 +245,11 @@ struct JsonFetcher {
             }
         }
         
-        return "---";
+        return nil;
         
     }
     
-    static func getSubCategoryName(subCategoryID: Int) -> String {
+    static func getSubCategoryName(subCategoryID: Int) -> String? {
         
         for item in self.subCategories {
             if (item.subcategoryID == subCategoryID) {
@@ -257,11 +257,11 @@ struct JsonFetcher {
             }
         }
         
-        return "--";
+        return nil;
         
     }
     
-    static func getMasterCategoryName(subCategoryID: Int) -> String {
+    static func getMasterCategoryName(subCategoryID: Int) -> String? {
         
         for item in self.subCategories {
             if (item.subcategoryID == subCategoryID) {
@@ -269,7 +269,7 @@ struct JsonFetcher {
             }
         }
         
-        return "--";
+        return nil;
         
     }
     
