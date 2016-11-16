@@ -58,11 +58,24 @@ class BaseViewController: UIViewController {
             let productList = JsonFetcher.getProductsWithAnyKeyword(searchText)
             for product in productList {
                 for subCategoryID in product.subcategoryIDList! {
-                    if let subCategoryName = JsonFetcher.getSubCategoryName(subCategoryID: subCategoryID),
-                        let categoryName = JsonFetcher.getMasterCategoryName(subCategoryID: subCategoryID) {
+                    if let subCategoryName = JsonFetcher.getSubCategoryName(subCategoryID: subCategoryID) {
                         
-                        let dict:[String: Any] = ["product":product,"subCategoryName":subCategoryName,"categoryName":categoryName]
-                        finalList.append(dict)
+                        for categoryID in product.categoryIDList! {
+                            
+                            let isParentChildRelationship = JsonFetcher.isParentChildRelationship(parentID: categoryID, childID: subCategoryID)
+                            
+                            if (isParentChildRelationship) {
+                                
+                                if let categoryName = JsonFetcher.getCategoryName(categoryID: categoryID) {
+                                    
+                                    if (subCategoryName.length > 0 && categoryName.length > 0) {
+                                        
+                                        let dict:[String: Any] = ["product":product,"subCategoryName":subCategoryName,"categoryName":categoryName]
+                                        finalList.append(dict)
+                                    }
+                                }
+                            }
+                        }
                     }
         
                     

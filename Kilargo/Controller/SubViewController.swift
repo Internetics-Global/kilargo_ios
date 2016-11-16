@@ -57,7 +57,7 @@ class SubViewController:BaseViewController{
         let selectedSubCategory:SubCategory = self.subCategories[selectedMenuListIndex];
         
         if (segue.destination is ProdutViewController) {
-            (segue.destination as! ProdutViewController).products = JsonFetcher.getProducts(categoryId: selectedSubCategory.masterCategoryID, subCategoryId: selectedSubCategory.subcategoryID)
+            (segue.destination as! ProdutViewController).products = JsonFetcher.getProducts(categoryId: parentCategoryID, subCategoryId: selectedSubCategory.subcategoryID)
             
         }
         

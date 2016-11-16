@@ -21,7 +21,7 @@ struct JsonFetcher {
     
     static func fetchAllFeed(completion:@escaping (_ result: Bool, _ errorMessage:String) -> Void) {
         
-        var finalResult = false
+        var isFinallSuccess = true   //mean success
         var finalErrorMessage = ""
         
         let serviceGroup = DispatchGroup()
@@ -30,7 +30,7 @@ struct JsonFetcher {
         JsonFetcher.fetchProducts(Global.productFeedURL) { (result, errorMessage) in
             
             if (result == false) {
-                finalResult = result
+                isFinallSuccess = false
                 finalErrorMessage = errorMessage
             }
             
@@ -41,7 +41,7 @@ struct JsonFetcher {
         JsonFetcher.fetchCategory(Global.categoryFeedURL) { (result, errorMessage) in
             
             if (result == false ) {
-                finalResult = result
+                isFinallSuccess = false
                 finalErrorMessage = errorMessage
             }
             
@@ -52,7 +52,7 @@ struct JsonFetcher {
         JsonFetcher.fetchSubCategory(Global.subCategoryFeedURL) { (result, errorMessage) in
             
             if (result == false) {
-                finalResult = result
+                isFinallSuccess = false
                 finalErrorMessage = errorMessage
             }
             
@@ -61,7 +61,7 @@ struct JsonFetcher {
         
         serviceGroup.notify(queue: DispatchQueue.main) {
             
-            completion(finalResult,finalErrorMessage)
+            completion(isFinallSuccess,finalErrorMessage)
             
         }
         
@@ -180,9 +180,14 @@ struct JsonFetcher {
     }
     
     
-    static func getCategory() -> [Category] {
+    static func getAllCategories() -> [Category] {
     
         return categories
+    }
+    
+    static func getAllSubCategories() -> [SubCategory] {
+        
+        return subCategories
     }
     
     
@@ -194,9 +199,16 @@ struct JsonFetcher {
     static func getSubcategory(_ categoryID:Int) -> [SubCategory] {
         var filtedSubCategories:[SubCategory] = []
         for item in self.subCategories {
-            if (item.masterCategoryID == categoryID) {
-                filtedSubCategories.append(item)
+            
+            if let IDs = item.masterCategoryIDList {
+                for masterCategoryID in IDs {
+                    if (masterCategoryID == categoryID) {
+                        filtedSubCategories.append(item)
+                    }
+                }
             }
+            
+            
         }
         
         return filtedSubCategories;
@@ -249,6 +261,25 @@ struct JsonFetcher {
         
     }
     
+    static func isParentChildRelationship(parentID:Int, childID:Int) -> Bool {
+        
+        for item in self.subCategories {
+            if (item.subcategoryID == childID) {
+                if let IDs = item.masterCategoryIDList {
+                    for masterCategoryID in IDs {
+                        if (masterCategoryID == parentID) {
+                            return true;
+                        }
+                    }
+                }
+                
+            }
+        }
+        
+        return false
+    }
+
+    
     static func getSubCategoryName(subCategoryID: Int) -> String? {
         
         for item in self.subCategories {
@@ -260,19 +291,6 @@ struct JsonFetcher {
         return nil;
         
     }
-    
-    static func getMasterCategoryName(subCategoryID: Int) -> String? {
-        
-        for item in self.subCategories {
-            if (item.subcategoryID == subCategoryID) {
-                return getCategoryName(categoryID: item.masterCategoryID)
-            }
-        }
-        
-        return nil;
-        
-    }
-    
     
     
 }

@@ -14,8 +14,8 @@ open class Product:NSObject, Mappable {
     var productID:Int                       = 0
     var productName:String                  = ""
 
-    var categoryIDList:[Int]?
-    var subcategoryIDList:[Int]?
+    var categoryIDList:[Int]?              = []
+    var subcategoryIDList:[Int]?           = []
 
     var systemNumber:String                 = ""
     var buildingElement:String              = ""

@@ -11,9 +11,9 @@ import UIKit
 
 struct Global {
     static let imageBaseURL = "http://www.internetics.net.au/kgo/app/plus/app_files/"
-    static let productFeedURL      = "http://www.internetics.net.au/kgo/app/manage/get_products_data?X-API-KEY=A109764532X"
-    static let categoryFeedURL      = "http://www.internetics.net.au/kgo/app/manage/get_categories_data?X-API-KEY=A109764532X"
-    static let subCategoryFeedURL      = "http://www.internetics.net.au/kgo/app/manage/get_subcategories_data?X-API-KEY=A109764532X"
+    static let productFeedURL      = "http://127.0.0.1:8080/product.json"
+    static let categoryFeedURL      = "http://127.0.0.1:8080/category.json"
+    static let subCategoryFeedURL      = "http://127.0.0.1:8080/subcategory.json"
 }
 
 struct ScreenSize

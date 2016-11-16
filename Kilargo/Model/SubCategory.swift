@@ -13,7 +13,7 @@ open class SubCategory:NSObject,Mappable {
     
     var subcategoryID:Int               = 0
     var subcategoryName  :String        = ""
-    var masterCategoryID:Int            = 0
+    var masterCategoryIDList:[Int]?     = []
     
     required public init?(map: Map) {
         
@@ -33,9 +33,19 @@ open class SubCategory:NSObject,Mappable {
                 return nil
         })
         
+        let transformString2IntArray = TransformOf<[Int], String>(fromJSON: { (value: String?) -> [Int]? in
+            
+            let stringArray = value?.components(separatedBy: ",")
+            let intArray:[Int]? = stringArray?.map{Int($0)!}
+            return intArray
+        }, toJSON: { (value: [Int]?) -> String? in
+            //not implemented yet
+            return nil
+        })
+        
         subcategoryID        <- (map["subcategory_id"],transform)
         subcategoryName          <- map["subcategory_name"]
-        masterCategoryID          <- (map["master_category"],transform)
+        masterCategoryIDList          <- (map["master_category"],transformString2IntArray)
     }
     
 }

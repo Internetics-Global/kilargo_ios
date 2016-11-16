@@ -148,7 +148,7 @@ class MainViewController: BaseViewController {
         
         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async(execute: {
             
-            JsonFetcher.fetchAllFeed{ (result, errorMessage) in
+            JsonFetcher.fetchAllFeed{ (isSuccess, errorMessage) in
                 
                 DispatchQueue.main.async(execute: {
                     
@@ -159,7 +159,7 @@ class MainViewController: BaseViewController {
                         self.pullRefreshShowing = false;
                     }
                     
-                    if (result) {
+                    if (isSuccess) {
                         
                         self.refreshList()
                         
@@ -182,7 +182,7 @@ class MainViewController: BaseViewController {
     
     
     fileprivate func refreshList() {
-        self.categories = JsonFetcher.getCategory()
+        self.categories = JsonFetcher.getAllCategories()
         self.tableview.reloadData()
         
     }
