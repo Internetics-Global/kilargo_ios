@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15C9CE9773DCB7BC4A8D2FAD /* Pods_Kilargo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFF4B32E6A6A340C29B6A99 /* Pods_Kilargo.framework */; };
+		756A152A1DDBE25B001D4D33 /* KilargoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A15291DDBE25B001D4D33 /* KilargoTests.swift */; };
 		756E13A51D9B1E2600540A39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E13A41D9B1E2600540A39 /* AppDelegate.swift */; };
 		756E13AA1D9B1E2600540A39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756E13A81D9B1E2600540A39 /* Main.storyboard */; };
 		756E13AF1D9B1E2600540A39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756E13AD1D9B1E2600540A39 /* LaunchScreen.storyboard */; };
@@ -86,8 +87,21 @@
 		75F7B5D21DACA2B30071DB8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F7B5D11DACA2B30071DB8A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		756A152C1DDBE25B001D4D33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 756E13991D9B1E2600540A39 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 756E13A01D9B1E2600540A39;
+			remoteInfo = Kilargo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		66E258190DAEC5DD0C5D4742 /* Pods-Kilargo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kilargo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kilargo/Pods-Kilargo.release.xcconfig"; sourceTree = "<group>"; };
+		756A15271DDBE25B001D4D33 /* KilargoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KilargoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		756A15291DDBE25B001D4D33 /* KilargoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KilargoTests.swift; sourceTree = "<group>"; };
+		756A152B1DDBE25B001D4D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		756E13A11D9B1E2600540A39 /* Kilargo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kilargo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		756E13A41D9B1E2600540A39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756E13A91D9B1E2600540A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -172,6 +186,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		756A15241DDBE25B001D4D33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		756E139E1D9B1E2600540A39 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,11 +213,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		756A15281DDBE25B001D4D33 /* KilargoTests */ = {
+			isa = PBXGroup;
+			children = (
+				756A15291DDBE25B001D4D33 /* KilargoTests.swift */,
+				756A152B1DDBE25B001D4D33 /* Info.plist */,
+			);
+			path = KilargoTests;
+			sourceTree = "<group>";
+		};
 		756E13981D9B1E2600540A39 = {
 			isa = PBXGroup;
 			children = (
 				756E13A31D9B1E2600540A39 /* Kilargo */,
 				75B5223E1D9B533B009825AD /* Vendor */,
+				756A15281DDBE25B001D4D33 /* KilargoTests */,
 				756E13A21D9B1E2600540A39 /* Products */,
 				3D794C50230B669C7499F0CE /* Pods */,
 				D9EBAFA611450C65962D330D /* Frameworks */,
@@ -207,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				756E13A11D9B1E2600540A39 /* Kilargo.app */,
+				756A15271DDBE25B001D4D33 /* KilargoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -379,6 +411,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		756A15261DDBE25B001D4D33 /* KilargoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 756A15301DDBE25B001D4D33 /* Build configuration list for PBXNativeTarget "KilargoTests" */;
+			buildPhases = (
+				756A15231DDBE25B001D4D33 /* Sources */,
+				756A15241DDBE25B001D4D33 /* Frameworks */,
+				756A15251DDBE25B001D4D33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				756A152D1DDBE25B001D4D33 /* PBXTargetDependency */,
+			);
+			name = KilargoTests;
+			productName = KilargoTests;
+			productReference = 756A15271DDBE25B001D4D33 /* KilargoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		756E13A01D9B1E2600540A39 /* Kilargo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 756E13B31D9B1E2600540A39 /* Build configuration list for PBXNativeTarget "Kilargo" */;
@@ -405,10 +455,15 @@
 		756E13991D9B1E2600540A39 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = internetics;
 				TargetAttributes = {
+					756A15261DDBE25B001D4D33 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 756E13A01D9B1E2600540A39;
+					};
 					756E13A01D9B1E2600540A39 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = Y8HQA4YE8L;
@@ -431,11 +486,19 @@
 			projectRoot = "";
 			targets = (
 				756E13A01D9B1E2600540A39 /* Kilargo */,
+				756A15261DDBE25B001D4D33 /* KilargoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		756A15251DDBE25B001D4D33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		756E139F1D9B1E2600540A39 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -501,6 +564,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		756A15231DDBE25B001D4D33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				756A152A1DDBE25B001D4D33 /* KilargoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		756E139D1D9B1E2600540A39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -579,6 +650,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		756A152D1DDBE25B001D4D33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 756E13A01D9B1E2600540A39 /* Kilargo */;
+			targetProxy = 756A152C1DDBE25B001D4D33 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		756E13A81D9B1E2600540A39 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -599,6 +678,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		756A152E1DDBE25B001D4D33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KilargoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.internetics.KilargoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kilargo.app/Kilargo";
+			};
+			name = Debug;
+		};
+		756A152F1DDBE25B001D4D33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KilargoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.internetics.KilargoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kilargo.app/Kilargo";
+			};
+			name = Release;
+		};
 		756E13B11D9B1E2600540A39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -782,6 +889,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		756A15301DDBE25B001D4D33 /* Build configuration list for PBXNativeTarget "KilargoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				756A152E1DDBE25B001D4D33 /* Debug */,
+				756A152F1DDBE25B001D4D33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		756E139C1D9B1E2600540A39 /* Build configuration list for PBXProject "Kilargo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

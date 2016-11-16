@@ -1,0 +1,42 @@
+[
+  {
+          "product_id": "5",
+          "product_name": "IFD44C ",
+          "category_name": "4,5,3,2",
+          "subcategory_name": "1,8,4,12,11,6,9,7",
+          "system_number": "WM1a",
+          "building_element": "Masonry",
+          "application": "Mounted in steel casing in penetration",
+          "maximum_size": "600mm x 600mm",
+          "FRL": "-\/120\/-",
+          "test_reference_number": "CSIRO FCO2643, FCO1741",
+          "product_image": "KLR-IFD_WM1_Ducted_sectioned-01",
+          "image_1": "KLR-IFD_Wall_WM1a_141128",
+          "image_2": "WM1a",
+          "image_3": "",
+          "image_4": "",
+          "image_5": "",
+          "installation_instructions_title": "Single cell units in steel casing penetrating masonry wall",
+          "installation_instructions_body": "1.  Position damper centrally in penetration aperture as per System Drawing.\n2.  Fire-stop any gaps between the damper & building element with Kilargo Intumescent Mastic (supplied separately). Ensure fill depth corresponds with those detailed in the System Drawing.\n3.  Fasten mounting angles to both sides of damper casing with steel self drilling screws or steel pop rivets. \n4.  If connecting ductwork to the installed damper casing ensure that an appropriate AS1682.2 compliant breakaway joint method is used.\n5.  Ensure product and certification labels are in a prominent position for easy identification during subsequent maintenance inspections.\n6.  Ensure convenient access is provided for visual inspection and cleaning as necessary.",
+          "notes": "Kilargo Intumescent Fire Dampers shall be installed in accordance with this detail and in accordance with the requirements of AS1682.2 - Fire & Smoke Dampers - Installation & with particular note (but not limited to):1. If connecting ductwork to the installed damper casing, ensure that an appropriate AS1682.2 breakaway joint method is used - refer Clause 6.1(a)  2. Ensure convenient access is provided for visual inspection and cleaning as necessary refer Clause 6.1(d)  3. Ensure product certification labels are in a prominent position for easy identification during subsequent maintenance inspections - refer Clause 7.2(a)"
+      },
+      {
+              "product_id": "55",
+              "product_name": "IFD44C55 ",
+              "system_number": "WM1a",
+              "building_element": "Masonry",
+              "application": "Mounted in steel casing in penetration",
+              "maximum_size": "600mm x 600mm",
+              "FRL": "-\/120\/-",
+              "test_reference_number": "CSIRO FCO2643, FCO1741",
+              "product_image": "KLR-IFD_WM1_Ducted_sectioned-01",
+              "image_1": "KLR-IFD_Wall_WM1a_141128",
+              "image_2": "WM1a",
+              "image_3": "",
+              "image_4": "",
+              "image_5": "",
+              "installation_instructions_title": "Single cell units in steel casing penetrating masonry wall",
+              "installation_instructions_body": "1.  Position damper centrally in penetration aperture as per System Drawing.\n2.  Fire-stop any gaps between the damper & building element with Kilargo Intumescent Mastic (supplied separately). Ensure fill depth corresponds with those detailed in the System Drawing.\n3.  Fasten mounting angles to both sides of damper casing with steel self drilling screws or steel pop rivets. \n4.  If connecting ductwork to the installed damper casing ensure that an appropriate AS1682.2 compliant breakaway joint method is used.\n5.  Ensure product and certification labels are in a prominent position for easy identification during subsequent maintenance inspections.\n6.  Ensure convenient access is provided for visual inspection and cleaning as necessary.",
+              "notes": "Kilargo Intumescent Fire Dampers shall be installed in accordance with this detail and in accordance with the requirements of AS1682.2 - Fire & Smoke Dampers - Installation & with particular note (but not limited to):1. If connecting ductwork to the installed damper casing, ensure that an appropriate AS1682.2 breakaway joint method is used - refer Clause 6.1(a)  2. Ensure convenient access is provided for visual inspection and cleaning as necessary refer Clause 6.1(d)  3. Ensure product certification labels are in a prominent position for easy identification during subsequent maintenance inspections - refer Clause 7.2(a)"
+          }
+]
