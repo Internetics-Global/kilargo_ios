@@ -22,7 +22,13 @@ class ProductDesViewController:BaseViewController{
     @IBOutlet weak var baseView: UIView!
     
     // used to diff wheter it's from infomation button or installation button
-    var source:ProductionInfoType = .information
+    var source:ProductionInfoType = .information {
+        didSet {
+            if (self.source == .installation) {
+                self.tableView.separatorStyle = .none
+            }
+        }
+    }
     
     var product:Product!
     
@@ -33,6 +39,7 @@ class ProductDesViewController:BaseViewController{
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
+        self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         //dynamic cell height
         self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -70,27 +77,11 @@ extension ProductDesViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        return 5
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor.clear
-        
-        let separator = UIView()
-        if (section == 0) {
-            separator.backgroundColor = UIColor.clear
-        } else {
-            separator.backgroundColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 0.7)
-        }
-        view.addSubview(separator)
-        
-        separator.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.height.equalTo(0.5)
-            make.left.equalTo(10)
-            make.right.equalTo(0)
-        }
         
         return view;
     }
@@ -100,74 +91,86 @@ extension ProductDesViewController : UITableViewDelegate {
 extension ProductDesViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch source {
+        case .information:
+            return 6
+        case .installation:
+            return 5
+        default:
+            return 0
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        switch source {
-        case .information:
-            return 3
-        case .installation:
-            return 1
-        default:
-            return 1
-        }
+        return 1
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell( withIdentifier: InfoDialogCell.identifier, for: indexPath) as! InfoDialogCell
-        cell.backgroundColor = UIColor.clear
         
         var summaryLabelWidth = 0
-        
-        let summaryLabel = UILabel()
-        summaryLabel.textAlignment = .left
         if (DeviceType.IS_IPHONE) {
-            summaryLabel.font = UIFont.systemFont(ofSize: 11)
             summaryLabelWidth = 120
         } else {
-            summaryLabel.font = UIFont.systemFont(ofSize: 24)
             summaryLabelWidth = 150
         }
-        summaryLabel.numberOfLines = 0
-        cell.contentView.addSubview(summaryLabel)
         
-        
-        
-        let detailLabel = UILabel()
-        
-        detailLabel.textAlignment = .left
-        detailLabel.numberOfLines = 0
-        if (DeviceType.IS_IPHONE) {
-            detailLabel.font = UIFont.systemFont(ofSize: 11)
+        let summaryLabel:UILabel;
+        let detailLabel:UILabel;
+        if (cell.contentView.subviews.count == 0) {
+            
+            summaryLabel = UILabel()
+            summaryLabel.textAlignment = .left
+            if (DeviceType.IS_IPHONE) {
+                summaryLabel.font = UIFont.systemFont(ofSize: 11)
+            } else {
+                summaryLabel.font = UIFont.systemFont(ofSize: 24)
+            }
+            summaryLabel.numberOfLines = 0
+            cell.contentView.addSubview(summaryLabel)
+            
+            
+            
+            detailLabel = UILabel()
+            
+            detailLabel.textAlignment = .left
+            detailLabel.numberOfLines = 0
+            if (DeviceType.IS_IPHONE) {
+                detailLabel.font = UIFont.systemFont(ofSize: 11)
+            } else {
+                detailLabel.font = UIFont.systemFont(ofSize: 24)
+            }
+            cell.contentView.addSubview(detailLabel)
         } else {
-            detailLabel.font = UIFont.systemFont(ofSize: 24)
+            summaryLabel = cell.contentView.subviews[0] as! UILabel
+            detailLabel = cell.contentView.subviews[1] as! UILabel
         }
-        cell.contentView.addSubview(detailLabel)
+        
+        cell.contentView.backgroundColor = UIColor.clear
         
         
         if (source == .information) {
             
             summaryLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(10)
+                make.left.equalTo(0)
                 make.width.equalTo(summaryLabelWidth)
-                make.top.equalTo(0)
-                make.bottom.equalTo(0)
+                make.top.equalTo(5)
+                make.bottom.equalTo(-5)
             }
             
             
             detailLabel.snp.makeConstraints { (make) in
-                make.right.equalTo(20)
+                make.right.equalTo(10)
                 make.left.equalTo(summaryLabelWidth + 20)
-                make.top.equalTo(0)
-                make.bottom.equalTo(0)
+                make.top.equalTo(5)
+                make.bottom.equalTo(-5)
             }
             
             
             
-            switch indexPath.section {
+            switch indexPath.row {
             case 0:
                 summaryLabel.text = "Building Element"
                 detailLabel.text = product.buildingElement
@@ -178,6 +181,16 @@ extension ProductDesViewController : UITableViewDataSource {
                 summaryLabel.text = "Maximum size"
 //                detailLabel.text = "automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example,automatically adjust height example"
                 detailLabel.text = product.maxSize
+            case 3:
+                summaryLabel.text = "FRL"
+                detailLabel.text = product.frl
+            case 4:
+                summaryLabel.text = "Test Reference No."
+                detailLabel.text = product.testReferenceNumber
+            case 5:
+                summaryLabel.text = "System No."
+                detailLabel.text = product.systemNumber
+                cell.contentView.backgroundColor = UIColor(red: 79.0/255, green: 114.0/255, blue: 124.0/255, alpha: 1)
                 
                 
             default: break
@@ -185,8 +198,10 @@ extension ProductDesViewController : UITableViewDataSource {
             }
         } else if (source == .installation) {
             
+            
+            
             summaryLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(10)
+                make.left.equalTo(0)
                 make.width.equalTo(0)
                 make.top.equalTo(0)
                 make.bottom.equalTo(0)
@@ -194,14 +209,38 @@ extension ProductDesViewController : UITableViewDataSource {
             
             
             detailLabel.snp.makeConstraints { (make) in
-                make.right.equalTo(10)
-                make.left.equalTo(10)
+                make.right.equalTo(0)
+                make.left.equalTo(0)
                 make.top.equalTo(0)
-                make.bottom.equalTo(0)
+                make.bottom.equalTo(-5)
             }
             
-//            summaryLabel.text = product.installationInstructionTitle  
-            detailLabel.text = product.installationInstructionBody
+            let cyanColor = UIColor(red: 69.0/255, green: 88.0/255, blue: 53.0/255, alpha: 1)
+            let fontSize = detailLabel.font.pointSize
+            switch indexPath.row {
+            case 0:
+                detailLabel.text = "Installation Introductions"
+                detailLabel.textColor = cyanColor
+                detailLabel.font = UIFont.boldSystemFont(ofSize: fontSize)
+            case 1:
+                detailLabel.text = product.installationInstructionTitle
+                detailLabel.textColor = cyanColor
+                detailLabel.font = UIFont.systemFont(ofSize: fontSize)
+            case 2:
+                detailLabel.text = product.installationInstructionBody
+                detailLabel.textColor = UIColor.black
+                detailLabel.font = UIFont.systemFont(ofSize: fontSize)
+            case 3:
+                detailLabel.text = "\nNotes"
+                detailLabel.textColor = cyanColor
+                detailLabel.font = UIFont.boldSystemFont(ofSize: fontSize)
+            case 4:
+                detailLabel.text = product.notes
+                detailLabel.textColor = UIColor.black
+                detailLabel.font = UIFont.systemFont(ofSize: fontSize)
+            default:
+                break
+            }
             
             
         } else {
