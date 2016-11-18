@@ -14,6 +14,8 @@ struct Global {
     static let productFeedURL      = "http://www.internetics.net.au/kgo/app/manage/get_products_data?X-API-KEY=A109764532X"
     static let categoryFeedURL      = "http://www.internetics.net.au/kgo/app/manage/get_categories_data?X-API-KEY=A109764532X"
     static let subCategoryFeedURL      = "http://www.internetics.net.au/kgo/app/manage/get_subcategories_data?X-API-KEY=A109764532X"
+    
+    static var lastSearchKeyword = ""
 }
 
 struct ScreenSize

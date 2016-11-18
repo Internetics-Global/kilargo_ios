@@ -62,6 +62,8 @@ class BaseViewController: UIViewController {
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             
+            Global.lastSearchKeyword = searchText
+            
             let targetProduct:Product = productList[index];
             
             let storyboard : UIStoryboard = UIStoryboard(

@@ -50,7 +50,7 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.searchBar.text = ""
+        self.searchBar.text = Global.lastSearchKeyword
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -257,6 +257,10 @@ extension ProdutViewController:UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
+        
+        if let searchText = searchBar.text {
+            self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
+        }
     }
     
     

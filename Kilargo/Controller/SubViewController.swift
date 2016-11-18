@@ -42,7 +42,8 @@ class SubViewController:BaseViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.searchBar.text = nil
+        self.searchBar.text = Global.lastSearchKeyword
+        
         self.setupNotHomeNavigationBar()
     }
     
@@ -81,6 +82,10 @@ extension SubViewController:UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
+        
+        if let searchText = searchBar.text {
+            self.showSearchResultDropDown(searchBar: searchBar, searchText: searchText)
+        }
     }
     
     
