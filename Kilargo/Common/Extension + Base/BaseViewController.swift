@@ -50,53 +50,19 @@ class BaseViewController: UIViewController {
         dropDown.cornerRadius = 5
         dropDown.backgroundColor = UIColor(red: 241.0/255, green: 242.0/255, blue: 242.0/255, alpha: 1)
         
-        
-        var finalList:[Dictionary<String, Any>] = [] //the reason for this is because some products could have multiple subcategories
-        
-        do {
-            
-            let productList = JsonFetcher.getProductsWithAnyKeyword(searchText)
-            for product in productList {
-                for subCategoryID in product.subcategoryIDList! {
-                    if let subCategoryName = JsonFetcher.getSubCategoryName(subCategoryID: subCategoryID) {
-                        
-                        for categoryID in product.categoryIDList! {
-                            
-                            let isParentChildRelationship = JsonFetcher.isParentChildRelationship(parentID: categoryID, childID: subCategoryID)
-                            
-                            if (isParentChildRelationship) {
-                                
-                                if let categoryName = JsonFetcher.getCategoryName(categoryID: categoryID) {
-                                    
-                                    if (subCategoryName.length > 0 && categoryName.length > 0) {
-                                        
-                                        let dict:[String: Any] = ["product":product,"subCategoryName":subCategoryName,"categoryName":categoryName]
-                                        finalList.append(dict)
-                                    }
-                                }
-                            }
-                        }
-                    }
-        
-                    
-                }
-            }
-
-        }
-        
-        
         var dataSource:[String] = []
-        for item in finalList {
-            let text = "\(item["categoryName"]!)->\(item["subCategoryName"]!)"
-            dataSource.append(text)
+        let productList = JsonFetcher.getProductsWithAnyKeyword(searchText)
+        for item in productList {
+            dataSource.append(item.productName + "(System number = \(item.systemNumber))")
         }
+        
         dropDown.dataSource = dataSource
         
         dropDown.cellNib = UINib(nibName: "DropdownSearchResultCell", bundle: nil)
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             
-            let targetProduct:Product = finalList[index]["product"] as! Product;
+            let targetProduct:Product = productList[index];
             
             let storyboard : UIStoryboard = UIStoryboard(
                 name: "Main",

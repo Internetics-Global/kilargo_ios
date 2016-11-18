@@ -227,7 +227,7 @@ struct JsonFetcher {
     }
     
     /**
-     support to search by product name, category, subcategory name
+     support to search by product name, system number
      */
     static func getProductsWithAnyKeyword(_ name:String) -> [Product] {
         
@@ -239,7 +239,8 @@ struct JsonFetcher {
         
         let lowerCaseName = name.lowercased()
         filtedProducts = self.products.filter({ (product) -> Bool in
-            (product.productName.lowercased().contains(lowerCaseName))
+            (product.productName.lowercased().contains(lowerCaseName)) ||
+            (product.systemNumber.lowercased().contains(lowerCaseName))
 //            (product.category.lowercased().contains(lowerCaseName)) ||
 //            (product.subcategory.lowercased().contains(lowerCaseName))
         })
