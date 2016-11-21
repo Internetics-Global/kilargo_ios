@@ -158,7 +158,7 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
         var lastView:UIView?
         for index in 0..<SCROLL_ITEM_SIZE {
             
-            let imageView = UIImageView()
+            var imageView = UIImageView()
             imageView.tag = index
             var url = Global.imageBaseURL + products[index].productImage
             if (url.contains(".png") || url.contains(".jpg") || url.contains(".jpeg")) {
@@ -167,8 +167,10 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
                 url = url + ".png";
             }
             
-            imageView.kf.setImage(with:URL(string: url)!, placeholder: UIImage(named: "placeholder"), options: [.transition(ImageTransition.fade(1))], progressBlock: nil, completionHandler: nil)
+            imageView.kf.indicatorType = .activity
+            imageView.kf.setImage(with:URL(string: url)!, placeholder: nil, options: [.transition(ImageTransition.fade(0.3))], progressBlock: nil, completionHandler: nil)
             imageView.contentMode = UIViewContentMode.scaleAspectFit
+
             
             contentView.addSubview(imageView)
             

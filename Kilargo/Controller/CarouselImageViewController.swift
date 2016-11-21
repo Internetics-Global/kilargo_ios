@@ -55,6 +55,9 @@ class CarouselImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        KingfisherManager.shared.cache.clearMemoryCache()
+//        KingfisherManager.shared.cache.clearDiskCache()
+        
         self.scrollView.isPagingEnabled = true
         self.scrollView.delegate = self
         self.scrollView.tag = CarouselImageViewController.MAIN_SCROLLVIEW_TAG
@@ -85,8 +88,7 @@ class CarouselImageViewController: UIViewController {
                 make.height.equalTo(scrollViewHeight)
             }
             
-            
-            let imageView = UIImageView()
+            var imageView = UIImageView()
             pageScrollView.addSubview(imageView)
             imageView.snp.makeConstraints { (make) in
                 make.center.equalToSuperview()
@@ -103,7 +105,10 @@ class CarouselImageViewController: UIViewController {
                 url = url + ".png";
             }
             
-            imageView.kf.setImage(with:URL(string: url)!, placeholder: UIImage(named: "placeholder"), options: [.transition(ImageTransition.fade(1))], progressBlock: nil, completionHandler: nil)
+            imageView.kf.indicatorType = .activity
+            (imageView.kf.indicator?.view as! UIActivityIndicatorView).color = UIColor.white
+            imageView.kf.setImage(with:URL(string: url)!, placeholder: nil, options: [.transition(ImageTransition.fade(0.3))], progressBlock: nil, completionHandler: nil)
+            
             
             i = i + 1
             
