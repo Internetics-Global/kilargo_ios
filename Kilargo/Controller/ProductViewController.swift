@@ -39,7 +39,7 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
         self.infoButton.addTarget(self, action: #selector(ProdutViewController.infoButtonClicked), for: UIControlEvents.touchUpInside)
         
         if (self.products.count > 0) {
-            self.productName.text = self.products[0].productName
+            self.productName.text = "\(self.products[0].productName) - \(self.products[0].systemNumber)"
         }
         
         setupScrollView()
@@ -219,7 +219,7 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
         
         let page = self.getCurrentPage(scrollView)
         
-        self.productName.text = self.products[page].productName
+        self.productName.text = "\(self.products[page].productName) - \(self.products[page].systemNumber)"
         
         
     }
