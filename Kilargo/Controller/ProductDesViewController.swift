@@ -114,7 +114,7 @@ extension ProductDesViewController : UITableViewDataSource {
         if (DeviceType.IS_IPHONE) {
             summaryLabelWidth = 120
         } else {
-            summaryLabelWidth = 150
+            summaryLabelWidth = 220
         }
         
         let summaryLabel:UILabel;
