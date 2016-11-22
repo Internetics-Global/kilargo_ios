@@ -10,7 +10,6 @@ import UIKit
 
 enum LeftMenu: Int {
     case main = 0
-    case setting
     case about
 }
 
@@ -21,7 +20,7 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : BaseViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Products", "Settings", "About"]
+    var menus = ["Products", "About"]
     var mainViewController: UIViewController!
     var settingViewController: UIViewController!
     var aboutViewController: UIViewController!
@@ -100,8 +99,6 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
         switch menu {
         case .main:
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
-        case .setting:
-            self.slideMenuController()?.changeMainViewController(self.settingViewController, close: true)
         case .about:
             self.slideMenuController()?.changeMainViewController(self.aboutViewController, close: true)
         }
@@ -114,7 +111,7 @@ extension LeftViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let menu = LeftMenu(rawValue: (indexPath as NSIndexPath).item) {
             switch menu {
-            case .main, .setting,.about:
+            case .main,.about:
                 return LeftTableViewCell.height()
             }
         }
@@ -146,7 +143,7 @@ extension LeftViewController : UITableViewDataSource {
         
         if let menu = LeftMenu(rawValue: (indexPath as NSIndexPath).item) {
             switch menu {
-            case .main, .setting,.about:
+            case .main,.about:
                 let cell = LeftTableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: LeftTableViewCell.identifier)
                 cell.setData(menus[(indexPath as NSIndexPath).row])
                 return cell
