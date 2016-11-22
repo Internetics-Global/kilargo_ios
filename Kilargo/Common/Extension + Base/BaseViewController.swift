@@ -53,7 +53,7 @@ class BaseViewController: UIViewController {
         var dataSource:[String] = []
         let productList = JsonFetcher.getProductsWithAnyKeyword(searchText)
         for item in productList {
-            dataSource.append(item.productName + "(System number = \(item.systemNumber))")
+            dataSource.append(item.productName + " (System number = \(item.systemNumber))")
         }
         
         dropDown.dataSource = dataSource
