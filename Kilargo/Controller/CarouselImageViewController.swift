@@ -107,7 +107,11 @@ class CarouselImageViewController: UIViewController {
             
             imageView.kf.indicatorType = .activity
             (imageView.kf.indicator?.view as! UIActivityIndicatorView).color = UIColor.white
-            imageView.kf.setImage(with:URL(string: url)!, placeholder: nil, options: [.transition(ImageTransition.fade(0.3))], progressBlock: nil, completionHandler: nil)
+            imageView.kf.setImage(with:URL(string: url)!, placeholder: nil, options: [.transition(ImageTransition.fade(0.3))], progressBlock: nil, completionHandler: { (image, error, cacheType, finalUrl) in
+                if let error = error {
+                    print("Error to show image with code = \(error.userInfo), url = \(url)")
+                }
+            })
             
             
             i = i + 1
