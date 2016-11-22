@@ -112,7 +112,7 @@ extension ProductDesViewController : UITableViewDataSource {
         
         var summaryLabelWidth = 0
         if (DeviceType.IS_IPHONE) {
-            summaryLabelWidth = 120
+            summaryLabelWidth = 110
         } else {
             summaryLabelWidth = 220
         }
@@ -124,9 +124,9 @@ extension ProductDesViewController : UITableViewDataSource {
             summaryLabel = UILabel()
             summaryLabel.textAlignment = .left
             if (DeviceType.IS_IPHONE) {
-                summaryLabel.font = UIFont.systemFont(ofSize: 11)
+                summaryLabel.font = UIFont.systemFont(ofSize: 12)
             } else {
-                summaryLabel.font = UIFont.systemFont(ofSize: 24)
+                summaryLabel.font = UIFont.systemFont(ofSize: 18)
             }
             summaryLabel.numberOfLines = 0
             cell.contentView.addSubview(summaryLabel)
@@ -138,9 +138,9 @@ extension ProductDesViewController : UITableViewDataSource {
             detailLabel.textAlignment = .left
             detailLabel.numberOfLines = 0
             if (DeviceType.IS_IPHONE) {
-                detailLabel.font = UIFont.systemFont(ofSize: 11)
+                detailLabel.font = UIFont.systemFont(ofSize: 12)
             } else {
-                detailLabel.font = UIFont.systemFont(ofSize: 24)
+                detailLabel.font = UIFont.systemFont(ofSize: 18)
             }
             cell.contentView.addSubview(detailLabel)
         } else {
@@ -190,7 +190,7 @@ extension ProductDesViewController : UITableViewDataSource {
             case 5:
                 summaryLabel.text = "System No."
                 detailLabel.text = product.systemNumber
-                cell.contentView.backgroundColor = UIColor(red: 79.0/255, green: 114.0/255, blue: 124.0/255, alpha: 1)
+                cell.contentView.backgroundColor = UIColor(red: 173/255, green: 216/255, blue: 230/255, alpha: 1)
                 
                 
             default: break
