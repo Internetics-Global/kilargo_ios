@@ -49,14 +49,24 @@ extension UIViewController: NVActivityIndicatorViewable {
         
         self.navigationController?.navigationBar.addSubview(baseView)
         
+        let width:Int
+        let height:Int
+        if (DeviceType.IS_IPHONE_6P_7P) {
+            width = 180
+            height = 62
+        } else {
+            width = 139
+            height = 48
+        }
+        
         let logoImageView = UIImageView(image: UIImage(named: "logo_banner"))
         logoImageView.contentMode = .scaleToFill
         baseView.addSubview(logoImageView)
         logoImageView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalToSuperview()
             make.top.equalTo(45)
-            make.height.equalTo(48)
-            make.width.equalTo(139)
+            make.height.equalTo(height)
+            make.width.equalTo(width)
         }
         
     }
@@ -74,7 +84,15 @@ extension UIViewController: NVActivityIndicatorViewable {
         
         self.navigationController?.navigationBar.addSubview(baseView)
         
-        
+        let width:Int
+        let height:Int
+        if (DeviceType.IS_IPHONE_6P_7P) {
+            width = 180
+            height = 62
+        } else {
+            width = 139
+            height = 48
+        }
         
         let logoImageView = UIImageView(image: UIImage(named: "logo_banner"))
         logoImageView.contentMode = .scaleToFill
@@ -82,8 +100,8 @@ extension UIViewController: NVActivityIndicatorViewable {
         logoImageView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalToSuperview()
             make.top.equalTo(45)
-            make.height.equalTo(48)
-            make.width.equalTo(139)
+            make.height.equalTo(height)
+            make.width.equalTo(width)
         }
         
         

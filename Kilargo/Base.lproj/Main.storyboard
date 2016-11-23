@@ -36,7 +36,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VPV-ld-HoA" id="j6v-fb-JCs">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cb-Pe-XLc">
@@ -202,7 +202,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d9j-uZ-qfT" id="1D6-aV-PHE">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-Zs-2lL">
@@ -303,7 +303,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Us9-sK-ZZf">
-                                <rect key="frame" x="26" y="225" width="333" height="21"/>
+                                <rect key="frame" x="16" y="225" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="gT1-5W-59O"/>
                                 </constraints>
@@ -311,57 +311,60 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vl-rl-ZgN">
-                                <rect key="frame" x="217" y="174" width="112" height="31"/>
-                                <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="6R8-c4-mmS"/>
-                                    <constraint firstAttribute="width" constant="112" id="7km-Ex-gDK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
-                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" image="installation_button"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="installationButtonClicked:" destination="dvC-eR-WBV" eventType="touchUpInside" id="vAj-ng-76R"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxK-53-l1G">
-                                <rect key="frame" x="46" y="174" width="112" height="31"/>
-                                <color key="backgroundColor" red="0.0" green="0.40392156862745099" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="112" id="mTF-fC-Cq2"/>
-                                    <constraint firstAttribute="height" constant="31" id="sy1-ke-nVg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
-                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" image="info_button"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gp8-Te-4xa">
+                                <rect key="frame" x="70.5" y="174" width="234" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxK-53-l1G">
+                                        <rect key="frame" x="0.0" y="0.0" width="112" height="31"/>
+                                        <color key="backgroundColor" red="0.0" green="0.40392156862745099" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="112" id="mTF-fC-Cq2"/>
+                                            <constraint firstAttribute="height" constant="31" id="sy1-ke-nVg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                        <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="info_button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vl-rl-ZgN">
+                                        <rect key="frame" x="122" y="0.0" width="112" height="31"/>
+                                        <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="6R8-c4-mmS"/>
+                                            <constraint firstAttribute="width" constant="112" id="7km-Ex-gDK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                        <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="installation_button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="installationButtonClicked:" destination="dvC-eR-WBV" eventType="touchUpInside" id="vAj-ng-76R"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Us9-sK-ZZf" firstAttribute="top" secondItem="GxK-53-l1G" secondAttribute="bottom" constant="20" id="5F1-d8-vJq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2Vl-rl-ZgN" secondAttribute="trailing" constant="30" id="Ost-Ls-Kwk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sbW-D3-BWh" secondAttribute="trailing" id="TcQ-nD-Peq"/>
+                            <constraint firstItem="gp8-Te-4xa" firstAttribute="centerX" secondItem="FVz-Hg-iIo" secondAttribute="centerX" id="ThO-Vp-XOp"/>
+                            <constraint firstItem="gp8-Te-4xa" firstAttribute="top" secondItem="sbW-D3-BWh" secondAttribute="bottom" constant="20" id="VqF-Kx-f3v"/>
                             <constraint firstItem="sbW-D3-BWh" firstAttribute="centerX" secondItem="FVz-Hg-iIo" secondAttribute="centerX" id="YnT-0O-EVR"/>
                             <constraint firstItem="sbW-D3-BWh" firstAttribute="top" secondItem="spg-Br-Zs6" secondAttribute="bottom" constant="90" id="ZEj-cD-SSH"/>
-                            <constraint firstItem="GxK-53-l1G" firstAttribute="leading" secondItem="FVz-Hg-iIo" secondAttribute="leadingMargin" constant="30" id="bWX-ab-lD4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Us9-sK-ZZf" secondAttribute="trailing" id="ctg-Xz-V4Q"/>
+                            <constraint firstItem="Us9-sK-ZZf" firstAttribute="top" secondItem="gp8-Te-4xa" secondAttribute="bottom" constant="20" id="geH-40-Z3a"/>
                             <constraint firstItem="sbW-D3-BWh" firstAttribute="leading" secondItem="FVz-Hg-iIo" secondAttribute="leadingMargin" id="o3r-9x-oEU"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Us9-sK-ZZf" secondAttribute="leading" constant="-10" id="uRv-iC-jod"/>
-                            <constraint firstItem="GxK-53-l1G" firstAttribute="top" secondItem="sbW-D3-BWh" secondAttribute="bottom" constant="20" id="y65-2g-fLW"/>
-                            <constraint firstItem="2Vl-rl-ZgN" firstAttribute="centerY" secondItem="GxK-53-l1G" secondAttribute="centerY" id="zXa-Hf-QdD"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Us9-sK-ZZf" secondAttribute="leading" id="uRv-iC-jod"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T6N-a3-8VR"/>

@@ -16,14 +16,18 @@ class DropdownSearchResultCell: DropDownCell {
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
     
     
+    open override func awakeFromNib() {
+        setup()
+    }
+    
     private func setup() {
-        self.accessoryType = .disclosureIndicator
+        self.accessoryView = UIImageView(image: UIImage(named: "right_arrow_gray"))
     }
     
 	   

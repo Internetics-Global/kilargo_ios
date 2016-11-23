@@ -112,7 +112,7 @@ extension ProductDesViewController : UITableViewDataSource {
         
         var summaryLabelWidth = 0
         if (DeviceType.IS_IPHONE) {
-            summaryLabelWidth = 110
+            summaryLabelWidth = 120
         } else {
             summaryLabelWidth = 220
         }
@@ -123,10 +123,11 @@ extension ProductDesViewController : UITableViewDataSource {
             
             summaryLabel = UILabel()
             summaryLabel.textAlignment = .left
+            summaryLabel.textColor = UIColor(red: 28.0/255, green: 137.0/255, blue: 200.0/255, alpha: 1)
             if (DeviceType.IS_IPHONE) {
-                summaryLabel.font = UIFont.systemFont(ofSize: 14)
+                summaryLabel.font = UIFont.boldSystemFont(ofSize: 14)
             } else {
-                summaryLabel.font = UIFont.systemFont(ofSize: 18)
+                summaryLabel.font = UIFont.boldSystemFont(ofSize: 18)
             }
             summaryLabel.numberOfLines = 0
             cell.contentView.addSubview(summaryLabel)

@@ -117,8 +117,6 @@ extension SubViewController:UITableViewDataSource {
         cell.titleLabel.text = self.subCategories[(indexPath as NSIndexPath).row].subcategoryName
         //        cell.backgroundColor = UIColor.greenColor()
         
-        cell.accessoryView = UIImageView(image: UIImage(named: "right_arrow_white"))
-        
         return cell;
         
     }

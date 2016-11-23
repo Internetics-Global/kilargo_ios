@@ -48,6 +48,7 @@ class BaseViewController: UIViewController {
         dropDown.width = searchBar.frame.width - 2*10
         dropDown.separatorColor = UIColor(red: 200.0/255, green: 199.0/255, blue: 204.0/255, alpha: 1)
         dropDown.cornerRadius = 5
+        dropDown.shadowRadius = 2
         dropDown.backgroundColor = UIColor(red: 241.0/255, green: 242.0/255, blue: 242.0/255, alpha: 1)
         
         var dataSource:[String] = []
