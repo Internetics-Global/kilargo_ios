@@ -31,7 +31,7 @@ struct DeviceType
     static let IS_IPHONE = (UIDevice.current.userInterfaceIdiom == .phone)
     static let IS_IPHONE_4_OR_LESS =  UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH < 568.0
     static let IS_IPHONE_5 = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH == 568.0
-    static let IS_IPHONE_6_7 = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH == 667.0
+    static let IS_IPHONE_6_7 = (UIDevice.current.userInterfaceIdiom == .phone) && (ScreenSize.SCREEN_MAX_LENGTH == 667.0) && (UIScreen.main.nativeScale >= UIScreen.main.scale)
     private static let IS_STANDARD_IPHONE_6P_7P = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH == 736.0
     private static let IS_ZOOMED_IPHONE_6P_7P = (UIDevice.current.userInterfaceIdiom == .phone) && (ScreenSize.SCREEN_MAX_LENGTH == 667.0) && (UIScreen.main.nativeScale < UIScreen.main.scale)
     static let IS_IPHONE_6P_7P = IS_STANDARD_IPHONE_6P_7P || IS_ZOOMED_IPHONE_6P_7P

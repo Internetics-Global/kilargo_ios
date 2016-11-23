@@ -54,6 +54,9 @@ extension UIViewController: NVActivityIndicatorViewable {
         if (DeviceType.IS_IPHONE_6P_7P) {
             width = 180
             height = 62
+        } else if (DeviceType.IS_IPHONE_6_7) {
+            width = 168
+            height = 58
         } else {
             width = 139
             height = 48
@@ -89,6 +92,9 @@ extension UIViewController: NVActivityIndicatorViewable {
         if (DeviceType.IS_IPHONE_6P_7P) {
             width = 180
             height = 62
+        } else if (DeviceType.IS_IPHONE_6_7) {
+            width = 168
+            height = 58
         } else {
             width = 139
             height = 48
