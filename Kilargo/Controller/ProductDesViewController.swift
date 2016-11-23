@@ -124,7 +124,7 @@ extension ProductDesViewController : UITableViewDataSource {
             summaryLabel = UILabel()
             summaryLabel.textAlignment = .left
             if (DeviceType.IS_IPHONE) {
-                summaryLabel.font = UIFont.systemFont(ofSize: 12)
+                summaryLabel.font = UIFont.systemFont(ofSize: 14)
             } else {
                 summaryLabel.font = UIFont.systemFont(ofSize: 18)
             }
@@ -138,7 +138,7 @@ extension ProductDesViewController : UITableViewDataSource {
             detailLabel.textAlignment = .left
             detailLabel.numberOfLines = 0
             if (DeviceType.IS_IPHONE) {
-                detailLabel.font = UIFont.systemFont(ofSize: 12)
+                detailLabel.font = UIFont.systemFont(ofSize: 14)
             } else {
                 detailLabel.font = UIFont.systemFont(ofSize: 18)
             }
