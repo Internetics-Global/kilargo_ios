@@ -220,7 +220,7 @@ extension ProductDesViewController : UITableViewDataSource {
             let fontSize = detailLabel.font.pointSize
             switch indexPath.row {
             case 0:
-                detailLabel.text = "Installation Introductions"
+                detailLabel.text = "Installation Instructions"
                 detailLabel.textColor = cyanColor
                 detailLabel.font = UIFont.boldSystemFont(ofSize: fontSize)
             case 1:
