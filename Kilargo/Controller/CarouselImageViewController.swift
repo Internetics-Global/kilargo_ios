@@ -45,10 +45,6 @@ class CarouselImageViewController: UIViewController {
                 validImages.append(product!.image5)
             }
             
-            if (product!.productImage.characters.count > 0) {
-                validImages.append(product!.productImage)
-            }
-            
         }
     }
     
