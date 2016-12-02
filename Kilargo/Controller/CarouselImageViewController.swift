@@ -67,9 +67,6 @@ class CarouselImageViewController: UIViewController {
         self.scrollView.tag = CarouselImageViewController.MAIN_SCROLLVIEW_TAG
         self.scrollView.maximumZoomScale = 1
         self.scrollView.minimumZoomScale = 1
-//        self.scrollView.backgroundColor = UIColor.red
-        
-        //self.scrollView.backgroundColor = UIColor.red
         
         let COUNT = validImages.count
         let scrollViewWidth: CGFloat = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
@@ -215,7 +212,9 @@ class CarouselImageViewController: UIViewController {
         return true
     }
     
-    
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return .landscapeLeft
+    }
  
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
