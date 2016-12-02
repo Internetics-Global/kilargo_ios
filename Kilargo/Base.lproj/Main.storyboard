@@ -36,7 +36,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VPV-ld-HoA" id="j6v-fb-JCs">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cb-Pe-XLc">
@@ -180,7 +180,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d9j-uZ-qfT" id="1D6-aV-PHE">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-Zs-2lL">
@@ -334,13 +334,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Us9-sK-ZZf" firstAttribute="top" secondItem="sbW-D3-BWh" secondAttribute="bottom" constant="71" id="PWZ-EW-fiz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sbW-D3-BWh" secondAttribute="trailing" id="TcQ-nD-Peq"/>
                             <constraint firstItem="gp8-Te-4xa" firstAttribute="centerX" secondItem="FVz-Hg-iIo" secondAttribute="centerX" id="ThO-Vp-XOp"/>
                             <constraint firstItem="gp8-Te-4xa" firstAttribute="top" secondItem="sbW-D3-BWh" secondAttribute="bottom" constant="20" id="VqF-Kx-f3v"/>
                             <constraint firstItem="sbW-D3-BWh" firstAttribute="centerX" secondItem="FVz-Hg-iIo" secondAttribute="centerX" id="YnT-0O-EVR"/>
                             <constraint firstItem="sbW-D3-BWh" firstAttribute="top" secondItem="spg-Br-Zs6" secondAttribute="bottom" constant="90" id="ZEj-cD-SSH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Us9-sK-ZZf" secondAttribute="trailing" id="ctg-Xz-V4Q"/>
-                            <constraint firstItem="Us9-sK-ZZf" firstAttribute="top" secondItem="gp8-Te-4xa" secondAttribute="bottom" constant="20" id="geH-40-Z3a"/>
                             <constraint firstItem="sbW-D3-BWh" firstAttribute="leading" secondItem="FVz-Hg-iIo" secondAttribute="leadingMargin" id="o3r-9x-oEU"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Us9-sK-ZZf" secondAttribute="leading" id="uRv-iC-jod"/>
                         </constraints>
