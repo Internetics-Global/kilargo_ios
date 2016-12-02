@@ -405,20 +405,20 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAj-yv-8e5" userLabel="baseView">
-                                <rect key="frame" x="37.5" y="497" width="300" height="150"/>
+                                <rect key="frame" x="37.5" y="397" width="300" height="250"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_dialog_bg" translatesAutoresizingMaskIntoConstraints="NO" id="eHp-HJ-1Oo">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="zfs-9A-8JM">
-                                        <rect key="frame" x="10" y="20" width="280" height="120"/>
+                                        <rect key="frame" x="10" y="20" width="280" height="220"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="eHp-HJ-1Oo" secondAttribute="trailing" id="Bz9-Dz-beh"/>
                                     <constraint firstItem="eHp-HJ-1Oo" firstAttribute="top" secondItem="dAj-yv-8e5" secondAttribute="top" id="CrF-G9-bl5"/>
-                                    <constraint firstAttribute="height" constant="150" id="EED-dh-ILb">
+                                    <constraint firstAttribute="height" constant="250" id="EED-dh-ILb">
                                         <variation key="widthClass=regular" constant="350"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="zfs-9A-8JM" secondAttribute="trailing" constant="10" id="GoS-BM-OH6"/>
