@@ -67,6 +67,7 @@ class CarouselImageViewController: UIViewController {
         self.scrollView.tag = CarouselImageViewController.MAIN_SCROLLVIEW_TAG
         self.scrollView.maximumZoomScale = 1
         self.scrollView.minimumZoomScale = 1
+//        self.scrollView.backgroundColor = UIColor.red
         
         //self.scrollView.backgroundColor = UIColor.red
         
@@ -174,14 +175,14 @@ class CarouselImageViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         setupMotionDetector()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
         stopMotionDetector()
     }
@@ -239,10 +240,11 @@ class CarouselImageViewController: UIViewController {
     func setupMotionDetector() {
         if manager.isDeviceMotionAvailable {
             
-            manager.deviceMotionUpdateInterval = 0.1
+            manager.deviceMotionUpdateInterval = 0.3
             manager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler: {[weak self] (data:CMDeviceMotion?, error: Error?) in
                 
                 if let gravity = data?.gravity {
+                    
                     self?.updateContextHelp(gravityY: gravity.y)
                 }
             })
