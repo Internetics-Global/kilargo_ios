@@ -161,22 +161,21 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
             var imageView = UIImageView()
             imageView.tag = index
             
-        
-            var url = Global.imageBaseURL + products[index].image1
+            
+            let imageName = products[index].image1
+            if (imageName.contains("NO DRAWING")) {
+                print("need to escape")
+            }
+            var url = Global.imageBaseURL + imageName.escape()
             if (url.contains(".png") || url.contains(".jpg") || url.contains(".jpeg")) {
                 
             } else {
                 url = url + ".png";
             }
-            
-            if (url.contains("NO DRAWING")) {
-                print("test")
-            }
-            
-            let escapedURL:String? = url.addingPercentEscapes(using: .utf8)
+    
             
             imageView.kf.indicatorType = .activity
-            imageView.kf.setImage(with:URL(string: escapedURL!)!, placeholder: nil, options: [.transition(ImageTransition.fade(0.3))], progressBlock: nil, completionHandler: { (image, error, cacheType, finalUrl) in
+            imageView.kf.setImage(with:URL(string: url)!, placeholder: nil, options: [.transition(ImageTransition.fade(0.3))], progressBlock: nil, completionHandler: { (image, error, cacheType, finalUrl) in
                 if let error = error {
                     print("Error to show image with code = \(error.userInfo), url = \(url)")
                     
