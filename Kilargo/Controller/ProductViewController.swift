@@ -124,22 +124,22 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
     
         }
         
-        self.leftArrow = UIImageView(image: UIImage(named: "left_arrow_black_scrollview"))
+        self.leftArrow = UIImageView(image: UIImage(named: "left_arrow_gray"))
         self.view.addSubview(self.leftArrow)
         self.leftArrow.snp.makeConstraints { (make) in
-            make.width.equalTo(12)
-            make.height.equalTo(24)
+            make.width.equalTo(16)
+            make.height.equalTo(16)
             make.centerY.equalTo(self.scrollView)
-            make.left.equalTo(self.scrollView).offset(-15)
+            make.left.equalTo(self.scrollView).offset(-16)
         }
         
-        self.rightArrow = UIImageView(image: UIImage(named: "right_arrow_black_scrollview"))
+        self.rightArrow = UIImageView(image: UIImage(named: "right_arrow_gray"))
         self.view.addSubview(self.rightArrow)
         self.rightArrow.snp.makeConstraints { (make) in
-            make.width.equalTo(12)
-            make.height.equalTo(24)
+            make.width.equalTo(16)
+            make.height.equalTo(16)
             make.centerY.equalTo(self.scrollView)
-            make.left.equalTo(self.scrollView.snp.right).offset(3)
+            make.left.equalTo(self.scrollView.snp.right).offset(0)
         }
         
         
@@ -160,6 +160,8 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
             
             var imageView = UIImageView()
             imageView.tag = index
+            
+        
             var url = Global.imageBaseURL + products[index].image1
             if (url.contains(".png") || url.contains(".jpg") || url.contains(".jpeg")) {
                 
@@ -184,9 +186,7 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
             })
             imageView.contentMode = UIViewContentMode.scaleAspectFit
 
-            
             contentView.addSubview(imageView)
-            
             
             imageView.snp.makeConstraints { (make) -> Void in
                 imageView.snp.makeConstraints({ (make) in
@@ -198,10 +198,11 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
                     } else {
                         make.left.equalTo(lastView!.snp.right).offset(0)
                     }
-            
+                    
                 })
                 
             }
+            
             
             let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(ProdutViewController.productImageTapped))
             imageView.isUserInteractionEnabled = true
