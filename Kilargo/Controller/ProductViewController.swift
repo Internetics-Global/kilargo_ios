@@ -179,6 +179,7 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
                     print("Error to show image with code = \(error.userInfo), url = \(url)")
                     
                     imageView.image = UIImage(named: "loading_error")
+                    imageView.contentMode = .center
                 }
             })
             imageView.contentMode = UIViewContentMode.scaleAspectFit

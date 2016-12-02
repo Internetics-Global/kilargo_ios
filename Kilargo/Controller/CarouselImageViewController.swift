@@ -115,7 +115,8 @@ class CarouselImageViewController: UIViewController {
                 if let error = error {
                     print("Error to show image with code = \(error.userInfo), url = \(url)")
                     
-                    imageView.image = UIImage(named: "loading_error")
+                    imageView.image = UIImage(named: "loading_error_white")
+                    imageView.contentMode = .center
                 }
             })
             
