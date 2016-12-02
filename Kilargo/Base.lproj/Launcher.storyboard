@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="G0k-aE-gOk">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="fYw-zI-bLd">
+            <objects>
+                <viewController id="G0k-aE-gOk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4qn-w4-R21"/>
+                        <viewControllerLayoutGuide type="bottom" id="5yT-GD-LdP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="osf-4O-XF8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_banner_big" translatesAutoresizingMaskIntoConstraints="NO" id="dM1-kX-MdS">
+                                <rect key="frame" x="48" y="286" width="279" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="ecy-A9-Mp9"/>
+                                    <constraint firstAttribute="width" constant="279" id="hHH-xE-S3t"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dM1-kX-MdS" firstAttribute="centerX" secondItem="osf-4O-XF8" secondAttribute="centerX" id="8Hq-Oz-fED"/>
+                            <constraint firstItem="dM1-kX-MdS" firstAttribute="centerY" secondItem="osf-4O-XF8" secondAttribute="centerY" id="DuQ-4n-13n"/>
+                            <constraint firstItem="dM1-kX-MdS" firstAttribute="centerY" secondItem="osf-4O-XF8" secondAttribute="centerY" id="m8u-Ox-KAi"/>
+                            <constraint firstItem="dM1-kX-MdS" firstAttribute="centerX" secondItem="osf-4O-XF8" secondAttribute="centerX" id="rRv-QE-zRf"/>
+                        </constraints>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="m8u-Ox-KAi"/>
+                                <exclude reference="8Hq-Oz-fED"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WdJ-q7-Izf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo_banner_big" width="277" height="95"/>
+    </resources>
+</document>

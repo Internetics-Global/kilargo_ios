@@ -128,26 +128,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="alignTop" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHy-sa-9gF">
-                                <rect key="frame" x="36" y="615" width="116" height="32"/>
-                                <color key="backgroundColor" red="0.0" green="0.40784313725490196" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="116" id="3s2-Rp-I3V"/>
-                                    <constraint firstAttribute="height" constant="32" id="M9U-N1-XdI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" image="get_started_button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="oZu-my-ZBD"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -155,8 +135,6 @@
                             <constraint firstItem="Ovd-EQ-xob" firstAttribute="top" secondItem="gSS-z8-KQn" secondAttribute="bottom" constant="70" id="FXS-cb-n8O"/>
                             <constraint firstItem="Ovd-EQ-xob" firstAttribute="leading" secondItem="Ea2-hQ-Tm5" secondAttribute="leadingMargin" constant="-20" id="NVS-sB-L3N"/>
                             <constraint firstItem="oeO-MT-jWC" firstAttribute="leading" secondItem="Ea2-hQ-Tm5" secondAttribute="leadingMargin" constant="-16" id="OWG-xF-xvf"/>
-                            <constraint firstItem="EAb-NA-li6" firstAttribute="top" secondItem="FHy-sa-9gF" secondAttribute="bottom" constant="20" id="U6s-Ri-Xgf"/>
-                            <constraint firstItem="FHy-sa-9gF" firstAttribute="leading" secondItem="Ea2-hQ-Tm5" secondAttribute="leadingMargin" constant="20" id="aiw-lq-UgM"/>
                             <constraint firstItem="oeO-MT-jWC" firstAttribute="top" secondItem="gSS-z8-KQn" secondAttribute="bottom" constant="280" id="eDo-NY-zaR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oeO-MT-jWC" secondAttribute="trailing" constant="-16" id="n9H-bb-nWI"/>
                             <constraint firstItem="EAb-NA-li6" firstAttribute="top" secondItem="oeO-MT-jWC" secondAttribute="bottom" id="nKT-I1-Ioq"/>
@@ -682,7 +660,6 @@
     </scenes>
     <resources>
         <image name="close" width="24" height="24"/>
-        <image name="get_started_button" width="114" height="29"/>
         <image name="home_whole" width="320" height="438"/>
         <image name="info_button" width="110" height="29"/>
         <image name="info_dialog_bg" width="287" height="131"/>

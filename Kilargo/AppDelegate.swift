@@ -34,15 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
         
-        let homenvc: UINavigationController = UINavigationController(rootViewController: homeViewController)
+        let mainNVC: UINavigationController = UINavigationController(rootViewController: mainViewController)
         
         
-        leftViewController.mainViewController = homenvc
+        leftViewController.mainViewController = mainNVC
         
-        let slideMenuController = ExSlideMenuController(mainViewController:homenvc, leftMenuViewController: leftViewController)
+        let slideMenuController = ExSlideMenuController(mainViewController:mainNVC, leftMenuViewController: leftViewController)
         //slideMenuController.automaticallyAdjustsScrollViewInsets = true
         slideMenuController.changeLeftViewWidth(276)
         SlideMenuOptions.hideStatusBar = false

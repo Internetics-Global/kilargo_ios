@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Kingfisher
+import CoreMotion
 
 class CarouselImageViewController: UIViewController {
     
@@ -18,12 +19,16 @@ class CarouselImageViewController: UIViewController {
     fileprivate var leftArrow   : UIImageView!
     fileprivate var rightArrow  : UIImageView!
     
+    fileprivate var rotationInstructionImageView  : UIImageView!
+    
     fileprivate var validImages:[String] = []
     
     fileprivate static let SUB_SCROLLVIEW_TAG_BASE = 1000
     fileprivate static let MAIN_SCROLLVIEW_TAG = 0
     
     fileprivate var currentPage:Int = 0
+    
+    fileprivate let manager = CMMotionManager()
     
     var product:Product? {
         didSet {
@@ -129,6 +134,7 @@ class CarouselImageViewController: UIViewController {
         }
         
         self.scrollView.contentSize = CGSize(width: scrollViewWidth*CGFloat(COUNT), height: scrollViewHeight)
+//        self.scrollView.showsVerticalScrollIndicator = false
 
         
         
@@ -149,9 +155,31 @@ class CarouselImageViewController: UIViewController {
             make.centerY.equalTo(self.view)
             make.left.equalTo(self.view.snp.right).offset(-16)
         }
-
+        
+        self.rotationInstructionImageView = UIImageView(image: UIImage(named: "rotate_please"))
+        self.rotationInstructionImageView.contentMode = .scaleAspectFit
+        self.rotationInstructionImageView.isHidden = true;
+        self.view.addSubview(self.rotationInstructionImageView)
+        self.rotationInstructionImageView.snp.makeConstraints { (make) in
+            make.width.equalTo(120)
+            make.height.equalTo(120)
+            make.centerY.equalTo(self.view)
+            make.left.equalTo(40)
+        }
 
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupMotionDetector()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stopMotionDetector()
     }
     
     fileprivate struct Storyboard {
@@ -182,9 +210,46 @@ class CarouselImageViewController: UIViewController {
         return true
     }
     
+    
+ 
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return [.landscape]
     }
+    
+    func updateContextHelp(gravityY:Double) {
+        
+        if Double.abs(gravityY) < 0.2 {
+            
+            if (self.rotationInstructionImageView.isHidden == false) {
+                self.rotationInstructionImageView.isHidden = true
+            }
+            
+        } else {
+            if (self.rotationInstructionImageView.isHidden == true) {
+                self.rotationInstructionImageView.isHidden = false
+            }
+        }
+    }
+    
+    func setupMotionDetector() {
+        if manager.isDeviceMotionAvailable {
+            
+            manager.deviceMotionUpdateInterval = 0.1
+            manager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler: {[weak self] (data:CMDeviceMotion?, error: Error?) in
+                
+                if let gravity = data?.gravity {
+                    self?.updateContextHelp(gravityY: gravity.y)
+                }
+            })
+                
+        }
+    }
+    
+    func stopMotionDetector() {
+        manager.stopGyroUpdates()
+    }
+    
     
     func updateScrollViewArrowsVisiblity() {
         
@@ -214,6 +279,8 @@ class CarouselImageViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         updateScrollViewArrowsVisiblity()
     }
+    
+    
     
 }
 

@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		15C9CE9773DCB7BC4A8D2FAD /* Pods_Kilargo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFF4B32E6A6A340C29B6A99 /* Pods_Kilargo.framework */; };
+		7538BE671DF0F8D2009A12A7 /* Launcher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7538BE651DF0F8D2009A12A7 /* Launcher.storyboard */; };
 		756A152A1DDBE25B001D4D33 /* KilargoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A15291DDBE25B001D4D33 /* KilargoTests.swift */; };
 		756E13A51D9B1E2600540A39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E13A41D9B1E2600540A39 /* AppDelegate.swift */; };
 		756E13AA1D9B1E2600540A39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756E13A81D9B1E2600540A39 /* Main.storyboard */; };
-		756E13AF1D9B1E2600540A39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756E13AD1D9B1E2600540A39 /* LaunchScreen.storyboard */; };
+		756E13AF1D9B1E2600540A39 /* AboutApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756E13AD1D9B1E2600540A39 /* AboutApp.storyboard */; };
 		757293EA1D9C8A7400671CB2 /* DropdownSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757293E81D9C8A7400671CB2 /* DropdownSearchResultCell.swift */; };
 		757293EB1D9C8A7400671CB2 /* DropdownSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 757293E91D9C8A7400671CB2 /* DropdownSearchResultCell.xib */; };
 		757293EE1D9CD00D00671CB2 /* InfoDialogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757293EC1D9CD00D00671CB2 /* InfoDialogCell.swift */; };
@@ -99,13 +100,14 @@
 
 /* Begin PBXFileReference section */
 		66E258190DAEC5DD0C5D4742 /* Pods-Kilargo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kilargo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kilargo/Pods-Kilargo.release.xcconfig"; sourceTree = "<group>"; };
+		7538BE661DF0F8D2009A12A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launcher.storyboard; sourceTree = "<group>"; };
 		756A15271DDBE25B001D4D33 /* KilargoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KilargoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		756A15291DDBE25B001D4D33 /* KilargoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KilargoTests.swift; sourceTree = "<group>"; };
 		756A152B1DDBE25B001D4D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		756E13A11D9B1E2600540A39 /* Kilargo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kilargo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		756E13A41D9B1E2600540A39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756E13A91D9B1E2600540A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		756E13AE1D9B1E2600540A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		756E13AE1D9B1E2600540A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AboutApp.storyboard; sourceTree = "<group>"; };
 		756E13B01D9B1E2600540A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		757293E81D9C8A7400671CB2 /* DropdownSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownSearchResultCell.swift; sourceTree = "<group>"; };
 		757293E91D9C8A7400671CB2 /* DropdownSearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownSearchResultCell.xib; sourceTree = "<group>"; };
@@ -252,7 +254,8 @@
 				756E13A41D9B1E2600540A39 /* AppDelegate.swift */,
 				75F7B5D11DACA2B30071DB8A /* Assets.xcassets */,
 				756E13A81D9B1E2600540A39 /* Main.storyboard */,
-				756E13AD1D9B1E2600540A39 /* LaunchScreen.storyboard */,
+				756E13AD1D9B1E2600540A39 /* AboutApp.storyboard */,
+				7538BE651DF0F8D2009A12A7 /* Launcher.storyboard */,
 				756E13B01D9B1E2600540A39 /* Info.plist */,
 			);
 			path = Kilargo;
@@ -503,9 +506,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				756E13AF1D9B1E2600540A39 /* LaunchScreen.storyboard in Resources */,
+				756E13AF1D9B1E2600540A39 /* AboutApp.storyboard in Resources */,
 				757293EB1D9C8A7400671CB2 /* DropdownSearchResultCell.xib in Resources */,
 				7591D6EA1D9B58FF00972087 /* SearchResultCell.xib in Resources */,
+				7538BE671DF0F8D2009A12A7 /* Launcher.storyboard in Resources */,
 				756E13AA1D9B1E2600540A39 /* Main.storyboard in Resources */,
 				75F7B5D21DACA2B30071DB8A /* Assets.xcassets in Resources */,
 				75B522881D9B533B009825AD /* Info.plist in Resources */,
@@ -659,6 +663,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7538BE651DF0F8D2009A12A7 /* Launcher.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7538BE661DF0F8D2009A12A7 /* Base */,
+			);
+			name = Launcher.storyboard;
+			sourceTree = "<group>";
+		};
 		756E13A81D9B1E2600540A39 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -667,12 +679,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		756E13AD1D9B1E2600540A39 /* LaunchScreen.storyboard */ = {
+		756E13AD1D9B1E2600540A39 /* AboutApp.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				756E13AE1D9B1E2600540A39 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = AboutApp.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -896,6 +908,7 @@
 				756A152F1DDBE25B001D4D33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		756E139C1D9B1E2600540A39 /* Build configuration list for PBXProject "Kilargo" */ = {
 			isa = XCConfigurationList;
