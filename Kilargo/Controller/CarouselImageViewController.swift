@@ -141,22 +141,22 @@ class CarouselImageViewController: UIViewController {
 
         
         
-        self.leftArrow = UIImageView(image: UIImage(named: "left_arrow_gray"))
+        self.leftArrow = UIImageView(image: UIImage(named: "left_arrow_white_scrollview"))
         self.view.addSubview(self.leftArrow)
         self.leftArrow.snp.makeConstraints { (make) in
-            make.width.equalTo(16)
-            make.height.equalTo(16)
+            make.width.equalTo(12)
+            make.height.equalTo(24)
             make.centerY.equalTo(self.view)
             make.left.equalTo(self.view).offset(0)
         }
         
-        self.rightArrow = UIImageView(image: UIImage(named: "right_arrow_gray"))
+        self.rightArrow = UIImageView(image: UIImage(named: "right_arrow_white_scrollview"))
         self.view.addSubview(self.rightArrow)
         self.rightArrow.snp.makeConstraints { (make) in
-            make.width.equalTo(16)
-            make.height.equalTo(16)
+            make.width.equalTo(12)
+            make.height.equalTo(24)
             make.centerY.equalTo(self.view)
-            make.left.equalTo(self.view.snp.right).offset(-16)
+            make.left.equalTo(self.view.snp.right).offset(-12)
         }
         
         self.rotationInstructionImageView = UIImageView(image: UIImage(named: "rotate_please"))

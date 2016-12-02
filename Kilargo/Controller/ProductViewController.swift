@@ -124,22 +124,22 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
     
         }
         
-        self.leftArrow = UIImageView(image: UIImage(named: "left_arrow_gray"))
+        self.leftArrow = UIImageView(image: UIImage(named: "left_arrow_black_scrollview"))
         self.view.addSubview(self.leftArrow)
         self.leftArrow.snp.makeConstraints { (make) in
-            make.width.equalTo(16)
-            make.height.equalTo(16)
+            make.width.equalTo(12)
+            make.height.equalTo(24)
             make.centerY.equalTo(self.scrollView)
-            make.left.equalTo(self.scrollView).offset(-10)
+            make.left.equalTo(self.scrollView).offset(-15)
         }
         
-        self.rightArrow = UIImageView(image: UIImage(named: "right_arrow_gray"))
+        self.rightArrow = UIImageView(image: UIImage(named: "right_arrow_black_scrollview"))
         self.view.addSubview(self.rightArrow)
         self.rightArrow.snp.makeConstraints { (make) in
-            make.width.equalTo(16)
-            make.height.equalTo(16)
+            make.width.equalTo(12)
+            make.height.equalTo(24)
             make.centerY.equalTo(self.scrollView)
-            make.left.equalTo(self.scrollView.snp.right).offset(0)
+            make.left.equalTo(self.scrollView.snp.right).offset(3)
         }
         
         
