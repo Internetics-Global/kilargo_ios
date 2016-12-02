@@ -15,6 +15,9 @@ class CarouselImageViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    fileprivate var leftArrow   : UIImageView!
+    fileprivate var rightArrow  : UIImageView!
+    
     fileprivate var validImages:[String] = []
     
     fileprivate static let SUB_SCROLLVIEW_TAG_BASE = 1000
@@ -125,7 +128,27 @@ class CarouselImageViewController: UIViewController {
             
         }
         
-        self.scrollView.contentSize = CGSize(width: scrollViewWidth*CGFloat(COUNT-1), height: scrollViewHeight)
+        self.scrollView.contentSize = CGSize(width: scrollViewWidth*CGFloat(COUNT), height: scrollViewHeight)
+
+        
+        
+        self.leftArrow = UIImageView(image: UIImage(named: "left_arrow_gray"))
+        self.view.addSubview(self.leftArrow)
+        self.leftArrow.snp.makeConstraints { (make) in
+            make.width.equalTo(16)
+            make.height.equalTo(16)
+            make.centerY.equalTo(self.view)
+            make.left.equalTo(self.view).offset(0)
+        }
+        
+        self.rightArrow = UIImageView(image: UIImage(named: "right_arrow_gray"))
+        self.view.addSubview(self.rightArrow)
+        self.rightArrow.snp.makeConstraints { (make) in
+            make.width.equalTo(16)
+            make.height.equalTo(16)
+            make.centerY.equalTo(self.view)
+            make.left.equalTo(self.view.snp.right).offset(-16)
+        }
 
 
         
@@ -161,6 +184,35 @@ class CarouselImageViewController: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return [.landscape]
+    }
+    
+    func updateScrollViewArrowsVisiblity() {
+        
+        let scrollViewWidth = scrollView.frame.width;
+        let scrollContentSizeWidth = scrollView.contentSize.width;
+        let scrollOffset = scrollView.contentOffset.x;
+        
+        if (scrollView.contentOffset.x <= 0) {
+            self.leftArrow.isHidden = true;
+        } else {
+            self.leftArrow.isHidden = false;
+        }
+        
+        if (scrollOffset + scrollViewWidth >= scrollContentSizeWidth) {
+            self.rightArrow.isHidden = true;
+        } else {
+            self.rightArrow.isHidden = false;
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        updateScrollViewArrowsVisiblity()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        updateScrollViewArrowsVisiblity()
     }
     
 }

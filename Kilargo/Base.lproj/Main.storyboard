@@ -525,7 +525,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLS-zu-9ao">
-                                <rect key="frame" x="0.0" y="30" width="375" height="627"/>
+                                <rect key="frame" x="16" y="30" width="343" height="627"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zae-KN-zu6">
                                 <rect key="frame" x="331" y="40" width="24" height="24"/>
@@ -541,8 +541,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cLS-zu-9ao" firstAttribute="leading" secondItem="vas-MW-T0E" secondAttribute="leading" id="CgK-bK-FAT"/>
-                            <constraint firstAttribute="trailing" secondItem="cLS-zu-9ao" secondAttribute="trailing" id="Dnl-rw-Tn6"/>
+                            <constraint firstItem="cLS-zu-9ao" firstAttribute="leading" secondItem="vas-MW-T0E" secondAttribute="leading" constant="16" id="CgK-bK-FAT"/>
+                            <constraint firstAttribute="trailing" secondItem="cLS-zu-9ao" secondAttribute="trailing" constant="16" id="Dnl-rw-Tn6"/>
                             <constraint firstAttribute="trailing" secondItem="zae-KN-zu6" secondAttribute="trailing" constant="20" id="Vuo-Zk-FuV"/>
                             <constraint firstItem="cLS-zu-9ao" firstAttribute="top" secondItem="8TD-xd-TJU" secondAttribute="bottom" constant="10" id="auU-xN-6rp"/>
                             <constraint firstItem="UGn-oq-9Ov" firstAttribute="top" secondItem="cLS-zu-9ao" secondAttribute="bottom" constant="10" id="hsk-lX-eFo"/>
