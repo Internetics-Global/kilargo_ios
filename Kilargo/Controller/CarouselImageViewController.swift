@@ -167,7 +167,7 @@ class CarouselImageViewController: UIViewController {
             make.width.equalTo(120)
             make.height.equalTo(120)
             make.centerY.equalTo(self.view)
-            make.left.equalTo(40)
+            make.left.equalTo(self.view.snp.right).offset(-50-120)
         }
 
         
@@ -224,13 +224,13 @@ class CarouselImageViewController: UIViewController {
     
     func updateContextHelp(gravityY:Double) {
         
-        if Double.abs(gravityY) < 0.2 {
+        if Double.abs(gravityY) < 0.3 {
             
             if (self.rotationInstructionImageView.isHidden == false) {
                 self.rotationInstructionImageView.isHidden = true
             }
             
-        } else {
+        } else if (Double.abs(gravityY) > 0.5) {
             if (self.rotationInstructionImageView.isHidden == true) {
                 self.rotationInstructionImageView.isHidden = false
             }
