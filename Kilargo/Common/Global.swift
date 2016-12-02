@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 struct Global {
-    static let imageBaseURL = "http://www.internetics.net.au/kgo/app/plus/app_files/"
-    static let productFeedURL      = "http://www.internetics.net.au/kgo/app/manage/get_products_data?X-API-KEY=A109764532X"
-    static let categoryFeedURL      = "http://www.internetics.net.au/kgo/app/manage/get_categories_data?X-API-KEY=A109764532X"
-    static let subCategoryFeedURL      = "http://www.internetics.net.au/kgo/app/manage/get_subcategories_data?X-API-KEY=A109764532X"
+    static let imageBaseURL = "http://app.kilargo.com.au/kgo/app/plus/app_files/"
+    static let productFeedURL      = "http://app.kilargo.com.au/kgo/app/manage/get_products_data?X-API-KEY=A109764532X"
+    static let categoryFeedURL      = "http://app.kilargo.com.au/kgo/app/manage/get_categories_data?X-API-KEY=A109764532X"
+    static let subCategoryFeedURL      = "http://app.kilargo.com.au/kgo/app/manage/get_subcategories_data?X-API-KEY=A109764532X"
     
     static var lastSearchKeyword = ""
 }

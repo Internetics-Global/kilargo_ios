@@ -224,13 +224,13 @@ class CarouselImageViewController: UIViewController {
     
     func updateContextHelp(gravityY:Double) {
         
-        if Double.abs(gravityY) < 0.3 {
+        if Double.abs(gravityY) < 0.2 {
             
             if (self.rotationInstructionImageView.isHidden == false) {
                 self.rotationInstructionImageView.isHidden = true
             }
             
-        } else if (Double.abs(gravityY) > 0.5) {
+        } else if (Double.abs(gravityY) > 0.3) {
             if (self.rotationInstructionImageView.isHidden == true) {
                 self.rotationInstructionImageView.isHidden = false
             }
