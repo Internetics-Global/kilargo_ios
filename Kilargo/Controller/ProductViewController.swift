@@ -73,6 +73,10 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
     
     @IBAction func installationButtonClicked(_ sender: AnyObject) {
         
+        guard self.products.count > 0 else {
+            return
+        }
+        
         let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width);
         
         let storyboard : UIStoryboard = UIStoryboard(
@@ -89,6 +93,10 @@ class ProdutViewController: BaseViewController,UIPopoverPresentationControllerDe
     }
     
     func infoButtonClicked() {
+        
+        guard self.products.count > 0 else {
+            return
+        }
         
         let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width);
         
