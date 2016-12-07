@@ -19,7 +19,8 @@ class CarouselImageViewController: UIViewController {
     fileprivate var leftArrow   : UIImageView!
     fileprivate var rightArrow  : UIImageView!
     
-    fileprivate var rotationInstructionImageView  : UIImageView!
+    fileprivate var rotationInstructionRightImageView  : UIImageView!
+    fileprivate var rotationInstructionLeftImageView  : UIImageView!
     
     fileprivate var validImages:[String] = []
     
@@ -161,15 +162,28 @@ class CarouselImageViewController: UIViewController {
             make.left.equalTo(self.view.snp.right).offset(-20-24)
         }
         
-        self.rotationInstructionImageView = UIImageView(image: UIImage(named: "rotate_please"))
-        self.rotationInstructionImageView.contentMode = .scaleAspectFit
-        self.rotationInstructionImageView.isHidden = true;
-        self.view.addSubview(self.rotationInstructionImageView)
-        self.rotationInstructionImageView.snp.makeConstraints { (make) in
+        self.rotationInstructionRightImageView = UIImageView(image: UIImage(named: "rotate_please_right"))
+        self.rotationInstructionRightImageView.isHidden = true
+        self.rotationInstructionRightImageView.contentMode = .scaleAspectFit
+        self.rotationInstructionRightImageView.isHidden = true;
+        self.view.addSubview(self.rotationInstructionRightImageView)
+        self.rotationInstructionRightImageView.snp.makeConstraints { (make) in
             make.width.equalTo(120)
             make.height.equalTo(120)
             make.centerY.equalTo(self.view)
             make.left.equalTo(self.view.snp.right).offset(-50-120)
+        }
+        
+        self.rotationInstructionLeftImageView = UIImageView(image: UIImage(named: "rotate_please_left"))
+        self.rotationInstructionLeftImageView.isHidden = true
+        self.rotationInstructionLeftImageView.contentMode = .scaleAspectFit
+        self.rotationInstructionLeftImageView.isHidden = true;
+        self.view.addSubview(self.rotationInstructionLeftImageView)
+        self.rotationInstructionLeftImageView.snp.makeConstraints { (make) in
+            make.width.equalTo(120)
+            make.height.equalTo(120)
+            make.centerY.equalTo(self.view)
+            make.left.equalTo(self.view.snp.left).offset(50)
         }
 
         
@@ -226,15 +240,49 @@ class CarouselImageViewController: UIViewController {
     
     func updateContextHelp(gravityY:Double) {
         
+        if UIDevice.current.orientation == .landscapeRight {
+            print("landscape right and gravityY= \(gravityY)")
+        } else if UIDevice.current.orientation == .landscapeLeft {
+            print("landscape left and gravityY= \(gravityY)")
+        } else if UIDevice.current.orientation == .portrait {
+            print("portrait and gravityY= \(gravityY)")
+        } else if UIDevice.current.orientation == .portraitUpsideDown{
+            print("portraitUpsideDown and gravityY= \(gravityY)")
+        }
+        
         if Double.abs(gravityY) < 0.2 {
             
-            if (self.rotationInstructionImageView.isHidden == false) {
-                self.rotationInstructionImageView.isHidden = true
-            }
+            self.rotationInstructionRightImageView.isHidden = true
+            self.rotationInstructionLeftImageView.isHidden = true
             
-        } else if (Double.abs(gravityY) > 0.3) {
-            if (self.rotationInstructionImageView.isHidden == true) {
-                self.rotationInstructionImageView.isHidden = false
+            
+            
+        } else if (gravityY > 0.3) {
+            
+            
+            if (UIDevice.current.orientation == .portrait) {
+                
+                self.rotationInstructionRightImageView.isHidden = false
+                self.rotationInstructionLeftImageView.isHidden = true
+    
+            } else {
+                
+                self.rotationInstructionRightImageView.isHidden = true
+                self.rotationInstructionLeftImageView.isHidden = false
+                
+            }
+        } else if (gravityY < -0.3) {
+            
+            if (UIDevice.current.orientation == .portraitUpsideDown) {
+                
+                self.rotationInstructionRightImageView.isHidden = true
+                self.rotationInstructionLeftImageView.isHidden = false
+                
+            } else {
+                
+                self.rotationInstructionRightImageView.isHidden = false
+                self.rotationInstructionLeftImageView.isHidden = true
+    
             }
         }
     }
