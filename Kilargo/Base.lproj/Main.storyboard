@@ -36,7 +36,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VPV-ld-HoA" id="j6v-fb-JCs">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cb-Pe-XLc">
@@ -180,7 +180,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d9j-uZ-qfT" id="1D6-aV-PHE">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-Zs-2lL">
@@ -654,6 +654,44 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8EZ-3W-psE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1666.4000000000001" y="1229.2353823088456"/>
+        </scene>
+        <!--Disclaimer View Controller-->
+        <scene sceneID="hvZ-i1-9rC">
+            <objects>
+                <viewController storyboardIdentifier="DisclaimerViewController" id="Bjc-z3-o46" customClass="DisclaimerViewController" customModule="Kilargo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kw0-e0-3wo"/>
+                        <viewControllerLayoutGuide type="bottom" id="i0c-xX-CBA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zvT-AD-u0N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="lwt-86-YYd">
+                                <rect key="frame" x="16" y="90" width="343" height="532"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Kilargo does its utmost to ensure that all technical information and recommendations given in this application are based on factual research, backed up by a wealth of practical experience. Published data is given in good faith but we urge users to determine for themselves the suitability of the product/systems offered, for their own particular installation.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                </variation>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="lwt-86-YYd" secondAttribute="leading" id="1tu-JR-ost"/>
+                            <constraint firstItem="i0c-xX-CBA" firstAttribute="top" secondItem="lwt-86-YYd" secondAttribute="bottom" constant="45" id="Sth-9E-GrA"/>
+                            <constraint firstItem="lwt-86-YYd" firstAttribute="top" secondItem="kw0-e0-3wo" secondAttribute="bottom" constant="70" id="sVJ-cE-RJU"/>
+                            <constraint firstItem="lwt-86-YYd" firstAttribute="centerX" secondItem="zvT-AD-u0N" secondAttribute="centerX" id="uhH-4F-nBE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KwU-1P-omU"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VvR-j2-UXJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1666.4000000000001" y="1229.2353823088456"/>
         </scene>

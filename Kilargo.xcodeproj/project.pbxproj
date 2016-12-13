@@ -17,6 +17,7 @@
 		757293EB1D9C8A7400671CB2 /* DropdownSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 757293E91D9C8A7400671CB2 /* DropdownSearchResultCell.xib */; };
 		757293EE1D9CD00D00671CB2 /* InfoDialogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757293EC1D9CD00D00671CB2 /* InfoDialogCell.swift */; };
 		757293EF1D9CD00D00671CB2 /* InfoDialogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 757293ED1D9CD00D00671CB2 /* InfoDialogCell.xib */; };
+		75798F3D1DFFD43900793F83 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75798F3C1DFFD43900793F83 /* DisclaimerViewController.swift */; };
 		7591D6B61D9B583100972087 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6AC1D9B583100972087 /* AboutViewController.swift */; };
 		7591D6B71D9B583100972087 /* CarouselImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6AD1D9B583100972087 /* CarouselImageViewController.swift */; };
 		7591D6B81D9B583100972087 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591D6AE1D9B583100972087 /* ExSlideMenuController.swift */; };
@@ -113,6 +114,7 @@
 		757293E91D9C8A7400671CB2 /* DropdownSearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownSearchResultCell.xib; sourceTree = "<group>"; };
 		757293EC1D9CD00D00671CB2 /* InfoDialogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoDialogCell.swift; path = ../InfoDialogCell.swift; sourceTree = "<group>"; };
 		757293ED1D9CD00D00671CB2 /* InfoDialogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InfoDialogCell.xib; path = ../InfoDialogCell.xib; sourceTree = "<group>"; };
+		75798F3C1DFFD43900793F83 /* DisclaimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
 		7591D6AC1D9B583100972087 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		7591D6AD1D9B583100972087 /* CarouselImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselImageViewController.swift; sourceTree = "<group>"; };
 		7591D6AE1D9B583100972087 /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				7591D6B11D9B583100972087 /* MainViewController.swift */,
 				7591D6B51D9B583100972087 /* SubViewController.swift */,
 				7591D6AC1D9B583100972087 /* AboutViewController.swift */,
+				75798F3C1DFFD43900793F83 /* DisclaimerViewController.swift */,
 				7591D6AD1D9B583100972087 /* CarouselImageViewController.swift */,
 				7591D6AE1D9B583100972087 /* ExSlideMenuController.swift */,
 				7591D6B01D9B583100972087 /* LeftViewController.swift */,
@@ -603,6 +606,7 @@
 				7591D6DF1D9B58FF00972087 /* UIApplicationExtension.swift in Sources */,
 				75B5228A1D9B533B009825AD /* NVActivityIndicatorPresenter.swift in Sources */,
 				75B5226C1D9B533B009825AD /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
+				75798F3D1DFFD43900793F83 /* DisclaimerViewController.swift in Sources */,
 				75B5226F1D9B533B009825AD /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				75B522681D9B533B009825AD /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				75B5227F1D9B533B009825AD /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,

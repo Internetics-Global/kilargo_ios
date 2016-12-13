@@ -9,9 +9,11 @@
 import UIKit
 
 enum LeftMenu: Int {
-    case main = 0
+    case about_app = 0
+    case main
     case about
-    case about_app
+    case disclaimer
+    
 }
 
 protocol LeftMenuProtocol : class {
@@ -21,12 +23,14 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : BaseViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Product systems", "Coming soon","About the app"]
+    var menus = ["About the app","Product systems", "Coming soon","Disclaimer"]
     var mainViewController: UIViewController!
     var settingViewController: UIViewController!
     var aboutViewController: UIViewController!
     var aboutAppViewController: UIViewController!
+    var disclaimerAppViewController: UIViewController!
     var nonMenuViewController: UIViewController!
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -50,6 +54,11 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
         
         let aboutAppViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.aboutAppViewController = UINavigationController(rootViewController: aboutAppViewController)
+        
+        let disclaimerAppViewController = storyboard.instantiateViewController(withIdentifier: "DisclaimerViewController") as! DisclaimerViewController
+        self.disclaimerAppViewController = UINavigationController(rootViewController: disclaimerAppViewController)
+        
+        
         
         self.tableView.registerCellClass(LeftTableViewCell.self)
         
@@ -120,6 +129,8 @@ class LeftViewController : BaseViewController, LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.aboutViewController, close: true)
         case .about_app:
             self.slideMenuController()?.changeMainViewController(self.aboutAppViewController, close: true)
+        case .disclaimer:
+            self.slideMenuController()?.changeMainViewController(self.disclaimerAppViewController, close: true)
         }
         
     }
@@ -131,7 +142,7 @@ extension LeftViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let menu = LeftMenu(rawValue: (indexPath as NSIndexPath).item) {
             switch menu {
-            case .main,.about,.about_app:
+            case .main,.about,.about_app,.disclaimer:
                 return LeftTableViewCell.height()
             }
         }
@@ -163,7 +174,7 @@ extension LeftViewController : UITableViewDataSource {
         
         if let menu = LeftMenu(rawValue: (indexPath as NSIndexPath).item) {
             switch menu {
-            case .main,.about,.about_app:
+            case .about_app,.main,.about,.disclaimer:
                 let cell = LeftTableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: LeftTableViewCell.identifier)
                 cell.setData(menus[(indexPath as NSIndexPath).row])
                 return cell
