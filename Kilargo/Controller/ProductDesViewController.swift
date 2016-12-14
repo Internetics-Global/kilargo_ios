@@ -163,7 +163,7 @@ extension ProductDesViewController : UITableViewDataSource {
             
             
             detailLabel.snp.makeConstraints { (make) in
-                make.right.equalTo(10)
+                make.right.equalTo(0)
                 make.left.equalTo(summaryLabelWidth + 20)
                 make.top.equalTo(5)
                 make.bottom.equalTo(-5)
